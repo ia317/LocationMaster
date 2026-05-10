@@ -1,0 +1,373 @@
+[
+  { "iso3": "USA", "iso2": "US", "difficulty": "easy", "landmark": "Grand Canyon",
+    "name": { "en": "United States", "pt": "Estados Unidos", "zh": "美国", "es": "Estados Unidos", "fr": "États-Unis", "he": "ארצות הברית" },
+    "capital": { "en": "Washington D.C.", "pt": "Washington D.C.", "zh": "华盛顿特区", "es": "Washington D.C.", "fr": "Washington D.C.", "he": "וושינגטון" } },
+
+  { "iso3": "RUS", "iso2": "RU", "difficulty": "easy", "landmark": "Red Square",
+    "name": { "en": "Russia", "pt": "Rússia", "zh": "俄罗斯", "es": "Rusia", "fr": "Russie", "he": "רוסיה" },
+    "capital": { "en": "Moscow", "pt": "Moscou", "zh": "莫斯科", "es": "Moscú", "fr": "Moscou", "he": "מוסקבה" } },
+
+  { "iso3": "CAN", "iso2": "CA", "difficulty": "easy", "landmark": "Niagara Falls",
+    "name": { "en": "Canada", "pt": "Canadá", "zh": "加拿大", "es": "Canadá", "fr": "Canada", "he": "קנדה" },
+    "capital": { "en": "Ottawa", "pt": "Ottawa", "zh": "渥太华", "es": "Ottawa", "fr": "Ottawa", "he": "אוטווה" } },
+
+  { "iso3": "CHN", "iso2": "CN", "difficulty": "easy", "landmark": "Great Wall of China",
+    "name": { "en": "China", "pt": "China", "zh": "中国", "es": "China", "fr": "Chine", "he": "סין" },
+    "capital": { "en": "Beijing", "pt": "Pequim", "zh": "北京", "es": "Pekín", "fr": "Pékin", "he": "בייג'ינג" } },
+
+  { "iso3": "BRA", "iso2": "BR", "difficulty": "easy", "landmark": "Christ the Redeemer",
+    "name": { "en": "Brazil", "pt": "Brasil", "zh": "巴西", "es": "Brasil", "fr": "Brésil", "he": "ברזיל" },
+    "capital": { "en": "Brasília", "pt": "Brasília", "zh": "巴西利亚", "es": "Brasilia", "fr": "Brasilia", "he": "ברזיליה" } },
+
+  { "iso3": "AUS", "iso2": "AU", "difficulty": "easy", "landmark": "Sydney Opera House",
+    "name": { "en": "Australia", "pt": "Austrália", "zh": "澳大利亚", "es": "Australia", "fr": "Australie", "he": "אוסטרליה" },
+    "capital": { "en": "Canberra", "pt": "Canberra", "zh": "堪培拉", "es": "Canberra", "fr": "Canberra", "he": "קנברה" } },
+
+  { "iso3": "IND", "iso2": "IN", "difficulty": "easy", "landmark": "Taj Mahal",
+    "name": { "en": "India", "pt": "Índia", "zh": "印度", "es": "India", "fr": "Inde", "he": "הודו" },
+    "capital": { "en": "New Delhi", "pt": "Nova Délhi", "zh": "新德里", "es": "Nueva Delhi", "fr": "New Delhi", "he": "ניו דלהי" } },
+
+  { "iso3": "ARG", "iso2": "AR", "difficulty": "easy", "landmark": "Iguazu Falls",
+    "name": { "en": "Argentina", "pt": "Argentina", "zh": "阿根廷", "es": "Argentina", "fr": "Argentine", "he": "ארגנטינה" },
+    "capital": { "en": "Buenos Aires", "pt": "Buenos Aires", "zh": "布宜诺斯艾利斯", "es": "Buenos Aires", "fr": "Buenos Aires", "he": "בואנוס איירס" } },
+
+  { "iso3": "MEX", "iso2": "MX", "difficulty": "easy", "landmark": "Chichén Itzá",
+    "name": { "en": "Mexico", "pt": "México", "zh": "墨西哥", "es": "México", "fr": "Mexique", "he": "מקסיקו" },
+    "capital": { "en": "Mexico City", "pt": "Cidade do México", "zh": "墨西哥城", "es": "Ciudad de México", "fr": "Mexico", "he": "מקסיקו סיטי" } },
+
+  { "iso3": "IDN", "iso2": "ID", "difficulty": "easy", "landmark": "Bali Temple",
+    "name": { "en": "Indonesia", "pt": "Indonésia", "zh": "印度尼西亚", "es": "Indonesia", "fr": "Indonésie", "he": "אינדונזיה" },
+    "capital": { "en": "Jakarta", "pt": "Jacarta", "zh": "雅加达", "es": "Yakarta", "fr": "Jakarta", "he": "ג'קרטה" } },
+
+  { "iso3": "FRA", "iso2": "FR", "difficulty": "easy", "landmark": "Eiffel Tower",
+    "name": { "en": "France", "pt": "França", "zh": "法国", "es": "Francia", "fr": "France", "he": "צרפת" },
+    "capital": { "en": "Paris", "pt": "Paris", "zh": "巴黎", "es": "París", "fr": "Paris", "he": "פריז" } },
+
+  { "iso3": "DEU", "iso2": "DE", "difficulty": "easy", "landmark": "Brandenburg Gate",
+    "name": { "en": "Germany", "pt": "Alemanha", "zh": "德国", "es": "Alemania", "fr": "Allemagne", "he": "גרמניה" },
+    "capital": { "en": "Berlin", "pt": "Berlim", "zh": "柏林", "es": "Berlín", "fr": "Berlin", "he": "ברלין" } },
+
+  { "iso3": "JPN", "iso2": "JP", "difficulty": "easy", "landmark": "Mount Fuji",
+    "name": { "en": "Japan", "pt": "Japão", "zh": "日本", "es": "Japón", "fr": "Japon", "he": "יפן" },
+    "capital": { "en": "Tokyo", "pt": "Tóquio", "zh": "东京", "es": "Tokio", "fr": "Tokyo", "he": "טוקיו" } },
+
+  { "iso3": "GBR", "iso2": "GB", "difficulty": "easy", "landmark": "Big Ben",
+    "name": { "en": "United Kingdom", "pt": "Reino Unido", "zh": "英国", "es": "Reino Unido", "fr": "Royaume-Uni", "he": "בריטניה" },
+    "capital": { "en": "London", "pt": "Londres", "zh": "伦敦", "es": "Londres", "fr": "Londres", "he": "לונדון" } },
+
+  { "iso3": "ITA", "iso2": "IT", "difficulty": "easy", "landmark": "Colosseum",
+    "name": { "en": "Italy", "pt": "Itália", "zh": "意大利", "es": "Italia", "fr": "Italie", "he": "איטליה" },
+    "capital": { "en": "Rome", "pt": "Roma", "zh": "罗马", "es": "Roma", "fr": "Rome", "he": "רומא" } },
+
+  { "iso3": "ESP", "iso2": "ES", "difficulty": "easy", "landmark": "Sagrada Família",
+    "name": { "en": "Spain", "pt": "Espanha", "zh": "西班牙", "es": "España", "fr": "Espagne", "he": "ספרד" },
+    "capital": { "en": "Madrid", "pt": "Madrid", "zh": "马德里", "es": "Madrid", "fr": "Madrid", "he": "מדריד" } },
+
+  { "iso3": "EGY", "iso2": "EG", "difficulty": "easy", "landmark": "Pyramids of Giza",
+    "name": { "en": "Egypt", "pt": "Egito", "zh": "埃及", "es": "Egipto", "fr": "Égypte", "he": "מצרים" },
+    "capital": { "en": "Cairo", "pt": "Cairo", "zh": "开罗", "es": "El Cairo", "fr": "Le Caire", "he": "קהיר" } },
+
+  { "iso3": "NGA", "iso2": "NG", "difficulty": "easy", "landmark": "Zuma Rock",
+    "name": { "en": "Nigeria", "pt": "Nigéria", "zh": "尼日利亚", "es": "Nigeria", "fr": "Nigéria", "he": "ניגריה" },
+    "capital": { "en": "Abuja", "pt": "Abuja", "zh": "阿布贾", "es": "Abuja", "fr": "Abuja", "he": "אבוג'ה" } },
+
+  { "iso3": "ZAF", "iso2": "ZA", "difficulty": "easy", "landmark": "Table Mountain",
+    "name": { "en": "South Africa", "pt": "África do Sul", "zh": "南非", "es": "Sudáfrica", "fr": "Afrique du Sud", "he": "דרום אפריקה" },
+    "capital": { "en": "Pretoria", "pt": "Pretória", "zh": "比勒陀利亚", "es": "Pretoria", "fr": "Pretoria", "he": "פרטוריה" } },
+
+  { "iso3": "SAU", "iso2": "SA", "difficulty": "easy", "landmark": "Kaaba",
+    "name": { "en": "Saudi Arabia", "pt": "Arábia Saudita", "zh": "沙特阿拉伯", "es": "Arabia Saudita", "fr": "Arabie saoudite", "he": "ערב הסעודית" },
+    "capital": { "en": "Riyadh", "pt": "Riade", "zh": "利雅得", "es": "Riad", "fr": "Riyad", "he": "ריאד" } },
+
+  { "iso3": "TUR", "iso2": "TR", "difficulty": "medium", "landmark": "Hagia Sophia",
+    "name": { "en": "Turkey", "pt": "Turquia", "zh": "土耳其", "es": "Turquía", "fr": "Turquie", "he": "טורקיה" },
+    "capital": { "en": "Ankara", "pt": "Ancara", "zh": "安卡拉", "es": "Ankara", "fr": "Ankara", "he": "אנקרה" } },
+
+  { "iso3": "UKR", "iso2": "UA", "difficulty": "medium", "landmark": "Saint Sophia Cathedral",
+    "name": { "en": "Ukraine", "pt": "Ucrânia", "zh": "乌克兰", "es": "Ucrania", "fr": "Ukraine", "he": "אוקראינה" },
+    "capital": { "en": "Kyiv", "pt": "Kiev", "zh": "基辅", "es": "Kiev", "fr": "Kyiv", "he": "קייב" } },
+
+  { "iso3": "THA", "iso2": "TH", "difficulty": "medium", "landmark": "Wat Phra Kaew",
+    "name": { "en": "Thailand", "pt": "Tailândia", "zh": "泰国", "es": "Tailandia", "fr": "Thaïlande", "he": "תאילנד" },
+    "capital": { "en": "Bangkok", "pt": "Bangkok", "zh": "曼谷", "es": "Bangkok", "fr": "Bangkok", "he": "בנגקוק" } },
+
+  { "iso3": "VNM", "iso2": "VN", "difficulty": "medium", "landmark": "Ha Long Bay",
+    "name": { "en": "Vietnam", "pt": "Vietnã", "zh": "越南", "es": "Vietnam", "fr": "Viêt Nam", "he": "וייטנאם" },
+    "capital": { "en": "Hanoi", "pt": "Hanói", "zh": "河内", "es": "Hanói", "fr": "Hanoï", "he": "הנוי" } },
+
+  { "iso3": "COL", "iso2": "CO", "difficulty": "medium", "landmark": "Ciudad Perdida",
+    "name": { "en": "Colombia", "pt": "Colômbia", "zh": "哥伦比亚", "es": "Colombia", "fr": "Colombie", "he": "קולומביה" },
+    "capital": { "en": "Bogotá", "pt": "Bogotá", "zh": "波哥大", "es": "Bogotá", "fr": "Bogotá", "he": "בוגוטה" } },
+
+  { "iso3": "PER", "iso2": "PE", "difficulty": "medium", "landmark": "Machu Picchu",
+    "name": { "en": "Peru", "pt": "Peru", "zh": "秘鲁", "es": "Perú", "fr": "Pérou", "he": "פרו" },
+    "capital": { "en": "Lima", "pt": "Lima", "zh": "利马", "es": "Lima", "fr": "Lima", "he": "לימה" } },
+
+  { "iso3": "MAR", "iso2": "MA", "difficulty": "medium", "landmark": "Majorelle Garden",
+    "name": { "en": "Morocco", "pt": "Marrocos", "zh": "摩洛哥", "es": "Marruecos", "fr": "Maroc", "he": "מרוקו" },
+    "capital": { "en": "Rabat", "pt": "Rabat", "zh": "拉巴特", "es": "Rabat", "fr": "Rabat", "he": "רבאט" } },
+
+  { "iso3": "DZA", "iso2": "DZ", "difficulty": "medium", "landmark": "Djémila Ruins",
+    "name": { "en": "Algeria", "pt": "Argélia", "zh": "阿尔及利亚", "es": "Argelia", "fr": "Algérie", "he": "אלג'יריה" },
+    "capital": { "en": "Algiers", "pt": "Argel", "zh": "阿尔及尔", "es": "Argel", "fr": "Alger", "he": "אלז'יר" } },
+
+  { "iso3": "ETH", "iso2": "ET", "difficulty": "medium", "landmark": "Lalibela Churches",
+    "name": { "en": "Ethiopia", "pt": "Etiópia", "zh": "埃塞俄比亚", "es": "Etiopía", "fr": "Éthiopie", "he": "אתיופיה" },
+    "capital": { "en": "Addis Ababa", "pt": "Adis Abeba", "zh": "亚的斯亚贝巴", "es": "Adís Abeba", "fr": "Addis-Abeba", "he": "אדיס אבבה" } },
+
+  { "iso3": "KEN", "iso2": "KE", "difficulty": "medium", "landmark": "Mount Kenya",
+    "name": { "en": "Kenya", "pt": "Quênia", "zh": "肯尼亚", "es": "Kenia", "fr": "Kenya", "he": "קניה" },
+    "capital": { "en": "Nairobi", "pt": "Nairóbi", "zh": "内罗毕", "es": "Nairobi", "fr": "Nairobi", "he": "נאירובי" } },
+
+  { "iso3": "IRN", "iso2": "IR", "difficulty": "medium", "landmark": "Persepolis",
+    "name": { "en": "Iran", "pt": "Irã", "zh": "伊朗", "es": "Irán", "fr": "Iran", "he": "איראן" },
+    "capital": { "en": "Tehran", "pt": "Teerã", "zh": "德黑兰", "es": "Teherán", "fr": "Téhéran", "he": "טהרן" } },
+
+  { "iso3": "IRQ", "iso2": "IQ", "difficulty": "medium", "landmark": "Ziggurat of Ur",
+    "name": { "en": "Iraq", "pt": "Iraque", "zh": "伊拉克", "es": "Irak", "fr": "Irak", "he": "עיראק" },
+    "capital": { "en": "Baghdad", "pt": "Bagdá", "zh": "巴格达", "es": "Bagdad", "fr": "Bagdad", "he": "בגדד" } },
+
+  { "iso3": "PAK", "iso2": "PK", "difficulty": "medium", "landmark": "Badshahi Mosque",
+    "name": { "en": "Pakistan", "pt": "Paquistão", "zh": "巴基斯坦", "es": "Pakistán", "fr": "Pakistan", "he": "פקיסטן" },
+    "capital": { "en": "Islamabad", "pt": "Islamabade", "zh": "伊斯兰堡", "es": "Islamabad", "fr": "Islamabad", "he": "איסלאמבד" } },
+
+  { "iso3": "PHL", "iso2": "PH", "difficulty": "medium", "landmark": "Chocolate Hills",
+    "name": { "en": "Philippines", "pt": "Filipinas", "zh": "菲律宾", "es": "Filipinas", "fr": "Philippines", "he": "הפיליפינים" },
+    "capital": { "en": "Manila", "pt": "Manila", "zh": "马尼拉", "es": "Manila", "fr": "Manille", "he": "מנילה" } },
+
+  { "iso3": "POL", "iso2": "PL", "difficulty": "medium", "landmark": "Wawel Castle",
+    "name": { "en": "Poland", "pt": "Polônia", "zh": "波兰", "es": "Polonia", "fr": "Pologne", "he": "פולין" },
+    "capital": { "en": "Warsaw", "pt": "Varsóvia", "zh": "华沙", "es": "Varsovia", "fr": "Varsovie", "he": "ורשה" } },
+
+  { "iso3": "NLD", "iso2": "NL", "difficulty": "medium", "landmark": "Windmills of Kinderdijk",
+    "name": { "en": "Netherlands", "pt": "Países Baixos", "zh": "荷兰", "es": "Países Bajos", "fr": "Pays-Bas", "he": "הולנד" },
+    "capital": { "en": "Amsterdam", "pt": "Amsterdã", "zh": "阿姆斯特丹", "es": "Ámsterdam", "fr": "Amsterdam", "he": "אמסטרדם" } },
+
+  { "iso3": "SWE", "iso2": "SE", "difficulty": "medium", "landmark": "Gamla Stan",
+    "name": { "en": "Sweden", "pt": "Suécia", "zh": "瑞典", "es": "Suecia", "fr": "Suède", "he": "שוודיה" },
+    "capital": { "en": "Stockholm", "pt": "Estocolmo", "zh": "斯德哥尔摩", "es": "Estocolmo", "fr": "Stockholm", "he": "סטוקהולם" } },
+
+  { "iso3": "NOR", "iso2": "NO", "difficulty": "medium", "landmark": "Northern Lights",
+    "name": { "en": "Norway", "pt": "Noruega", "zh": "挪威", "es": "Noruega", "fr": "Norvège", "he": "נורווגיה" },
+    "capital": { "en": "Oslo", "pt": "Oslo", "zh": "奥斯陆", "es": "Oslo", "fr": "Oslo", "he": "אוסלו" } },
+
+  { "iso3": "PRT", "iso2": "PT", "difficulty": "medium", "landmark": "Tower of Belém",
+    "name": { "en": "Portugal", "pt": "Portugal", "zh": "葡萄牙", "es": "Portugal", "fr": "Portugal", "he": "פורטוגל" },
+    "capital": { "en": "Lisbon", "pt": "Lisboa", "zh": "里斯本", "es": "Lisboa", "fr": "Lisbonne", "he": "ליסבון" } },
+
+  { "iso3": "GRC", "iso2": "GR", "difficulty": "medium", "landmark": "Parthenon",
+    "name": { "en": "Greece", "pt": "Grécia", "zh": "希腊", "es": "Grecia", "fr": "Grèce", "he": "יוון" },
+    "capital": { "en": "Athens", "pt": "Atenas", "zh": "雅典", "es": "Atenas", "fr": "Athènes", "he": "אתונה" } },
+
+  { "iso3": "CHL", "iso2": "CL", "difficulty": "medium", "landmark": "Easter Island",
+    "name": { "en": "Chile", "pt": "Chile", "zh": "智利", "es": "Chile", "fr": "Chili", "he": "צ'ילה" },
+    "capital": { "en": "Santiago", "pt": "Santiago", "zh": "圣地亚哥", "es": "Santiago", "fr": "Santiago", "he": "סנטיאגו" } },
+
+  { "iso3": "VEN", "iso2": "VE", "difficulty": "medium", "landmark": "Angel Falls",
+    "name": { "en": "Venezuela", "pt": "Venezuela", "zh": "委内瑞拉", "es": "Venezuela", "fr": "Venezuela", "he": "ונצואלה" },
+    "capital": { "en": "Caracas", "pt": "Caracas", "zh": "加拉加斯", "es": "Caracas", "fr": "Caracas", "he": "קראקס" } },
+
+  { "iso3": "CUB", "iso2": "CU", "difficulty": "medium", "landmark": "Old Havana",
+    "name": { "en": "Cuba", "pt": "Cuba", "zh": "古巴", "es": "Cuba", "fr": "Cuba", "he": "קובה" },
+    "capital": { "en": "Havana", "pt": "Havana", "zh": "哈瓦那", "es": "La Habana", "fr": "La Havane", "he": "הוואנה" } },
+
+  { "iso3": "NZL", "iso2": "NZ", "difficulty": "medium", "landmark": "Milford Sound",
+    "name": { "en": "New Zealand", "pt": "Nova Zelândia", "zh": "新西兰", "es": "Nueva Zelanda", "fr": "Nouvelle-Zélande", "he": "ניו זילנד" },
+    "capital": { "en": "Wellington", "pt": "Wellington", "zh": "惠灵顿", "es": "Wellington", "fr": "Wellington", "he": "וולינגטון" } },
+
+  { "iso3": "ISR", "iso2": "IL", "difficulty": "medium", "landmark": "Western Wall",
+    "name": { "en": "Israel", "pt": "Israel", "zh": "以色列", "es": "Israel", "fr": "Israël", "he": "ישראל" },
+    "capital": { "en": "Jerusalem", "pt": "Jerusalém", "zh": "耶路撒冷", "es": "Jerusalén", "fr": "Jérusalem", "he": "ירושלים" } },
+
+  { "iso3": "KOR", "iso2": "KR", "difficulty": "medium", "landmark": "Gyeongbokgung Palace",
+    "name": { "en": "South Korea", "pt": "Coreia do Sul", "zh": "韩国", "es": "Corea del Sur", "fr": "Corée du Sud", "he": "קוריאה הדרומית" },
+    "capital": { "en": "Seoul", "pt": "Seul", "zh": "首尔", "es": "Seúl", "fr": "Séoul", "he": "סיאול" } },
+
+  { "iso3": "BGD", "iso2": "BD", "difficulty": "medium", "landmark": "Sundarbans Mangrove",
+    "name": { "en": "Bangladesh", "pt": "Bangladesh", "zh": "孟加拉国", "es": "Bangladés", "fr": "Bangladesh", "he": "בנגלדש" },
+    "capital": { "en": "Dhaka", "pt": "Daca", "zh": "达卡", "es": "Daca", "fr": "Dacca", "he": "דאקה" } },
+
+  { "iso3": "SDN", "iso2": "SD", "difficulty": "medium", "landmark": "Meroe Pyramids",
+    "name": { "en": "Sudan", "pt": "Sudão", "zh": "苏丹", "es": "Sudán", "fr": "Soudan", "he": "סודן" },
+    "capital": { "en": "Khartoum", "pt": "Cartum", "zh": "喀土穆", "es": "Jartún", "fr": "Khartoum", "he": "חרטום" } },
+
+  { "iso3": "TZA", "iso2": "TZ", "difficulty": "medium", "landmark": "Mount Kilimanjaro",
+    "name": { "en": "Tanzania", "pt": "Tanzânia", "zh": "坦桑尼亚", "es": "Tanzania", "fr": "Tanzanie", "he": "טנזניה" },
+    "capital": { "en": "Dodoma", "pt": "Dodoma", "zh": "多多马", "es": "Dodoma", "fr": "Dodoma", "he": "דודומה" } },
+
+  { "iso3": "CHE", "iso2": "CH", "difficulty": "hard", "landmark": "Matterhorn",
+    "name": { "en": "Switzerland", "pt": "Suíça", "zh": "瑞士", "es": "Suiza", "fr": "Suisse", "he": "שווייץ" },
+    "capital": { "en": "Bern", "pt": "Berna", "zh": "伯尔尼", "es": "Berna", "fr": "Berne", "he": "ברן" } },
+
+  { "iso3": "AUT", "iso2": "AT", "difficulty": "hard", "landmark": "Schönbrunn Palace",
+    "name": { "en": "Austria", "pt": "Áustria", "zh": "奥地利", "es": "Austria", "fr": "Autriche", "he": "אוסטריה" },
+    "capital": { "en": "Vienna", "pt": "Viena", "zh": "维也纳", "es": "Viena", "fr": "Vienne", "he": "וינה" } },
+
+  { "iso3": "BEL", "iso2": "BE", "difficulty": "hard", "landmark": "Manneken Pis",
+    "name": { "en": "Belgium", "pt": "Bélgica", "zh": "比利时", "es": "Bélgica", "fr": "Belgique", "he": "בלגיה" },
+    "capital": { "en": "Brussels", "pt": "Bruxelas", "zh": "布鲁塞尔", "es": "Bruselas", "fr": "Bruxelles", "he": "בריסל" } },
+
+  { "iso3": "CZE", "iso2": "CZ", "difficulty": "hard", "landmark": "Charles Bridge",
+    "name": { "en": "Czech Republic", "pt": "República Tcheca", "zh": "捷克", "es": "República Checa", "fr": "République tchèque", "he": "צ'כיה" },
+    "capital": { "en": "Prague", "pt": "Praga", "zh": "布拉格", "es": "Praga", "fr": "Prague", "he": "פראג" } },
+
+  { "iso3": "HUN", "iso2": "HU", "difficulty": "hard", "landmark": "Hungarian Parliament",
+    "name": { "en": "Hungary", "pt": "Hungria", "zh": "匈牙利", "es": "Hungría", "fr": "Hongrie", "he": "הונגריה" },
+    "capital": { "en": "Budapest", "pt": "Budapeste", "zh": "布达佩斯", "es": "Budapest", "fr": "Budapest", "he": "בודפשט" } },
+
+  { "iso3": "ROU", "iso2": "RO", "difficulty": "hard", "landmark": "Bran Castle (Dracula)",
+    "name": { "en": "Romania", "pt": "Romênia", "zh": "罗马尼亚", "es": "Rumania", "fr": "Roumanie", "he": "רומניה" },
+    "capital": { "en": "Bucharest", "pt": "Bucareste", "zh": "布加勒斯特", "es": "Bucarest", "fr": "Bucarest", "he": "בוקרשט" } },
+
+  { "iso3": "BGR", "iso2": "BG", "difficulty": "hard", "landmark": "Alexander Nevsky Cathedral",
+    "name": { "en": "Bulgaria", "pt": "Bulgária", "zh": "保加利亚", "es": "Bulgaria", "fr": "Bulgarie", "he": "בולגריה" },
+    "capital": { "en": "Sofia", "pt": "Sófia", "zh": "索非亚", "es": "Sofía", "fr": "Sofia", "he": "סופיה" } },
+
+  { "iso3": "SVK", "iso2": "SK", "difficulty": "hard", "landmark": "Spiš Castle",
+    "name": { "en": "Slovakia", "pt": "Eslováquia", "zh": "斯洛伐克", "es": "Eslovaquia", "fr": "Slovaquie", "he": "סלובקיה" },
+    "capital": { "en": "Bratislava", "pt": "Bratislava", "zh": "布拉迪斯拉发", "es": "Bratislava", "fr": "Bratislava", "he": "ברטיסלבה" } },
+
+  { "iso3": "SVN", "iso2": "SI", "difficulty": "hard", "landmark": "Predjama Castle",
+    "name": { "en": "Slovenia", "pt": "Eslovênia", "zh": "斯洛文尼亚", "es": "Eslovenia", "fr": "Slovénie", "he": "סלובניה" },
+    "capital": { "en": "Ljubljana", "pt": "Liubliana", "zh": "卢布尔雅那", "es": "Liubliana", "fr": "Ljubljana", "he": "ליובליאנה" } },
+
+  { "iso3": "HRV", "iso2": "HR", "difficulty": "hard", "landmark": "Plitvice Lakes",
+    "name": { "en": "Croatia", "pt": "Croácia", "zh": "克罗地亚", "es": "Croacia", "fr": "Croatie", "he": "קרואטיה" },
+    "capital": { "en": "Zagreb", "pt": "Zagreb", "zh": "萨格勒布", "es": "Zagreb", "fr": "Zagreb", "he": "זאגרב" } },
+
+  { "iso3": "SRB", "iso2": "RS", "difficulty": "hard", "landmark": "Kalemegdan Fortress",
+    "name": { "en": "Serbia", "pt": "Sérvia", "zh": "塞尔维亚", "es": "Serbia", "fr": "Serbie", "he": "סרביה" },
+    "capital": { "en": "Belgrade", "pt": "Belgrado", "zh": "贝尔格莱德", "es": "Belgrado", "fr": "Belgrade", "he": "בלגרד" } },
+
+  { "iso3": "ALB", "iso2": "AL", "difficulty": "hard", "landmark": "Gjirokastër Castle",
+    "name": { "en": "Albania", "pt": "Albânia", "zh": "阿尔巴尼亚", "es": "Albania", "fr": "Albanie", "he": "אלבניה" },
+    "capital": { "en": "Tirana", "pt": "Tirana", "zh": "地拉那", "es": "Tirana", "fr": "Tirana", "he": "טירנה" } },
+
+  { "iso3": "MNE", "iso2": "ME", "difficulty": "hard", "landmark": "Bay of Kotor",
+    "name": { "en": "Montenegro", "pt": "Montenegro", "zh": "黑山", "es": "Montenegro", "fr": "Monténégro", "he": "מונטנגרו" },
+    "capital": { "en": "Podgorica", "pt": "Podgorica", "zh": "波德戈里察", "es": "Podgorica", "fr": "Podgorica", "he": "פודגוריצה" } },
+
+  { "iso3": "MKD", "iso2": "MK", "difficulty": "hard", "landmark": "Lake Ohrid",
+    "name": { "en": "North Macedonia", "pt": "Macedônia do Norte", "zh": "北马其顿", "es": "Macedonia del Norte", "fr": "Macédoine du Nord", "he": "מקדוניה הצפונית" },
+    "capital": { "en": "Skopje", "pt": "Skopje", "zh": "斯科普里", "es": "Skopie", "fr": "Skopje", "he": "סקופיה" } },
+
+  { "iso3": "MDA", "iso2": "MD", "difficulty": "hard", "landmark": "Cricova Wine Cellar",
+    "name": { "en": "Moldova", "pt": "Moldávia", "zh": "摩尔多瓦", "es": "Moldavia", "fr": "Moldavie", "he": "מולדובה" },
+    "capital": { "en": "Chișinău", "pt": "Chisinau", "zh": "基希讷乌", "es": "Chisinau", "fr": "Chișinău", "he": "קישינב" } },
+
+  { "iso3": "BLR", "iso2": "BY", "difficulty": "hard", "landmark": "Mir Castle",
+    "name": { "en": "Belarus", "pt": "Bielorrússia", "zh": "白俄罗斯", "es": "Bielorrusia", "fr": "Biélorussie", "he": "בלארוס" },
+    "capital": { "en": "Minsk", "pt": "Minsk", "zh": "明斯克", "es": "Minsk", "fr": "Minsk", "he": "מינסק" } },
+
+  { "iso3": "LTU", "iso2": "LT", "difficulty": "hard", "landmark": "Hill of Crosses",
+    "name": { "en": "Lithuania", "pt": "Lituânia", "zh": "立陶宛", "es": "Lituania", "fr": "Lituanie", "he": "ליטא" },
+    "capital": { "en": "Vilnius", "pt": "Vilnius", "zh": "维尔纽斯", "es": "Vilna", "fr": "Vilnius", "he": "וילנה" } },
+
+  { "iso3": "LVA", "iso2": "LV", "difficulty": "hard", "landmark": "Riga Old Town",
+    "name": { "en": "Latvia", "pt": "Letônia", "zh": "拉脱维亚", "es": "Letonia", "fr": "Lettonie", "he": "לטביה" },
+    "capital": { "en": "Riga", "pt": "Riga", "zh": "里加", "es": "Riga", "fr": "Riga", "he": "ריגה" } },
+
+  { "iso3": "EST", "iso2": "EE", "difficulty": "hard", "landmark": "Tallinn Old Town",
+    "name": { "en": "Estonia", "pt": "Estônia", "zh": "爱沙尼亚", "es": "Estonia", "fr": "Estonie", "he": "אסטוניה" },
+    "capital": { "en": "Tallinn", "pt": "Talinn", "zh": "塔林", "es": "Tallin", "fr": "Tallinn", "he": "טלין" } },
+
+  { "iso3": "ISL", "iso2": "IS", "difficulty": "hard", "landmark": "Geysir",
+    "name": { "en": "Iceland", "pt": "Islândia", "zh": "冰岛", "es": "Islandia", "fr": "Islande", "he": "איסלנד" },
+    "capital": { "en": "Reykjavík", "pt": "Reiquiavique", "zh": "雷克雅未克", "es": "Reikiavik", "fr": "Reykjavik", "he": "רייקיאוויק" } },
+
+  { "iso3": "IRL", "iso2": "IE", "difficulty": "hard", "landmark": "Cliffs of Moher",
+    "name": { "en": "Ireland", "pt": "Irlanda", "zh": "爱尔兰", "es": "Irlanda", "fr": "Irlande", "he": "אירלנד" },
+    "capital": { "en": "Dublin", "pt": "Dublin", "zh": "都柏林", "es": "Dublín", "fr": "Dublin", "he": "דבלין" } },
+
+  { "iso3": "DNK", "iso2": "DK", "difficulty": "hard", "landmark": "Little Mermaid Statue",
+    "name": { "en": "Denmark", "pt": "Dinamarca", "zh": "丹麦", "es": "Dinamarca", "fr": "Danemark", "he": "דנמרק" },
+    "capital": { "en": "Copenhagen", "pt": "Copenhague", "zh": "哥本哈根", "es": "Copenhague", "fr": "Copenhague", "he": "קופנהגן" } },
+
+  { "iso3": "FIN", "iso2": "FI", "difficulty": "hard", "landmark": "Santa Claus Village",
+    "name": { "en": "Finland", "pt": "Finlândia", "zh": "芬兰", "es": "Finlandia", "fr": "Finlande", "he": "פינלנד" },
+    "capital": { "en": "Helsinki", "pt": "Helsinque", "zh": "赫尔辛基", "es": "Helsinki", "fr": "Helsinki", "he": "הלסינקי" } },
+
+  { "iso3": "JOR", "iso2": "JO", "difficulty": "hard", "landmark": "Petra",
+    "name": { "en": "Jordan", "pt": "Jordânia", "zh": "约旦", "es": "Jordania", "fr": "Jordanie", "he": "ירדן" },
+    "capital": { "en": "Amman", "pt": "Amã", "zh": "安曼", "es": "Ammán", "fr": "Amman", "he": "עמאן" } },
+
+  { "iso3": "LBN", "iso2": "LB", "difficulty": "hard", "landmark": "Baalbek Temples",
+    "name": { "en": "Lebanon", "pt": "Líbano", "zh": "黎巴嫩", "es": "Líbano", "fr": "Liban", "he": "לבנון" },
+    "capital": { "en": "Beirut", "pt": "Beirute", "zh": "贝鲁特", "es": "Beirut", "fr": "Beyrouth", "he": "ביירות" } },
+
+  { "iso3": "SYR", "iso2": "SY", "difficulty": "hard", "landmark": "Palmyra Ruins",
+    "name": { "en": "Syria", "pt": "Síria", "zh": "叙利亚", "es": "Siria", "fr": "Syrie", "he": "סוריה" },
+    "capital": { "en": "Damascus", "pt": "Damasco", "zh": "大马士革", "es": "Damasco", "fr": "Damas", "he": "דמשק" } },
+
+  { "iso3": "YEM", "iso2": "YE", "difficulty": "hard", "landmark": "Old Sana'a City",
+    "name": { "en": "Yemen", "pt": "Iêmen", "zh": "也门", "es": "Yemen", "fr": "Yémen", "he": "תימן" },
+    "capital": { "en": "Sana'a", "pt": "Sanaa", "zh": "萨那", "es": "Saná", "fr": "Sanaa", "he": "צנעא" } },
+
+  { "iso3": "OMN", "iso2": "OM", "difficulty": "hard", "landmark": "Sultan Qaboos Mosque",
+    "name": { "en": "Oman", "pt": "Omã", "zh": "阿曼", "es": "Omán", "fr": "Oman", "he": "עומאן" },
+    "capital": { "en": "Muscat", "pt": "Mascate", "zh": "马斯喀特", "es": "Mascate", "fr": "Mascate", "he": "מוסקט" } },
+
+  { "iso3": "ARE", "iso2": "AE", "difficulty": "hard", "landmark": "Burj Khalifa",
+    "name": { "en": "United Arab Emirates", "pt": "Emirados Árabes Unidos", "zh": "阿联酋", "es": "Emiratos Árabes Unidos", "fr": "Émirats arabes unis", "he": "איחוד האמירויות" },
+    "capital": { "en": "Abu Dhabi", "pt": "Abu Dabi", "zh": "阿布扎比", "es": "Abu Dabi", "fr": "Abou Dhabi", "he": "אבו דאבי" } },
+
+  { "iso3": "QAT", "iso2": "QA", "difficulty": "hard", "landmark": "Museum of Islamic Art",
+    "name": { "en": "Qatar", "pt": "Qatar", "zh": "卡塔尔", "es": "Catar", "fr": "Qatar", "he": "קטאר" },
+    "capital": { "en": "Doha", "pt": "Doha", "zh": "多哈", "es": "Doha", "fr": "Doha", "he": "דוחה" } },
+
+  { "iso3": "KWT", "iso2": "KW", "difficulty": "hard", "landmark": "Kuwait Towers",
+    "name": { "en": "Kuwait", "pt": "Kuwait", "zh": "科威特", "es": "Kuwait", "fr": "Koweït", "he": "כווית" },
+    "capital": { "en": "Kuwait City", "pt": "Cidade do Kuwait", "zh": "科威特城", "es": "Ciudad de Kuwait", "fr": "Koweït", "he": "כווית סיטי" } },
+
+  { "iso3": "MNG", "iso2": "MN", "difficulty": "hard", "landmark": "Gobi Desert",
+    "name": { "en": "Mongolia", "pt": "Mongólia", "zh": "蒙古", "es": "Mongolia", "fr": "Mongolie", "he": "מונגוליה" },
+    "capital": { "en": "Ulaanbaatar", "pt": "Ulaanbaatar", "zh": "乌兰巴托", "es": "Ulán Bator", "fr": "Oulan-Bator", "he": "אולאן בטור" } },
+
+  { "iso3": "KAZ", "iso2": "KZ", "difficulty": "hard", "landmark": "Bayterek Tower",
+    "name": { "en": "Kazakhstan", "pt": "Cazaquistão", "zh": "哈萨克斯坦", "es": "Kazajistán", "fr": "Kazakhstan", "he": "קזחסטן" },
+    "capital": { "en": "Astana", "pt": "Astana", "zh": "阿斯塔纳", "es": "Astana", "fr": "Astana", "he": "אסטנה" } },
+
+  { "iso3": "UZB", "iso2": "UZ", "difficulty": "hard", "landmark": "Registan Square",
+    "name": { "en": "Uzbekistan", "pt": "Uzbequistão", "zh": "乌兹别克斯坦", "es": "Uzbekistán", "fr": "Ouzbékistan", "he": "אוזבקיסטן" },
+    "capital": { "en": "Tashkent", "pt": "Tashkent", "zh": "塔什干", "es": "Taskent", "fr": "Tachkent", "he": "טשקנט" } },
+
+  { "iso3": "AZE", "iso2": "AZ", "difficulty": "hard", "landmark": "Flame Towers",
+    "name": { "en": "Azerbaijan", "pt": "Azerbaijão", "zh": "阿塞拜疆", "es": "Azerbaiyán", "fr": "Azerbaïdjan", "he": "אזרבייג'ן" },
+    "capital": { "en": "Baku", "pt": "Baku", "zh": "巴库", "es": "Bakú", "fr": "Bakou", "he": "באקו" } },
+
+  { "iso3": "GEO", "iso2": "GE", "difficulty": "hard", "landmark": "Narikala Fortress",
+    "name": { "en": "Georgia", "pt": "Geórgia", "zh": "格鲁吉亚", "es": "Georgia", "fr": "Géorgie", "he": "גאורגיה" },
+    "capital": { "en": "Tbilisi", "pt": "Tbilisi", "zh": "第比利斯", "es": "Tiflis", "fr": "Tbilissi", "he": "טביליסי" } },
+
+  { "iso3": "ARM", "iso2": "AM", "difficulty": "hard", "landmark": "Geghard Monastery",
+    "name": { "en": "Armenia", "pt": "Armênia", "zh": "亚美尼亚", "es": "Armenia", "fr": "Arménie", "he": "ארמניה" },
+    "capital": { "en": "Yerevan", "pt": "Erevan", "zh": "埃里温", "es": "Ereván", "fr": "Erevan", "he": "ירוואן" } },
+
+  { "iso3": "BOL", "iso2": "BO", "difficulty": "hard", "landmark": "Salar de Uyuni",
+    "name": { "en": "Bolivia", "pt": "Bolívia", "zh": "玻利维亚", "es": "Bolivia", "fr": "Bolivie", "he": "בוליביה" },
+    "capital": { "en": "Sucre", "pt": "Sucre", "zh": "苏克雷", "es": "Sucre", "fr": "Sucre", "he": "סוקרה" } },
+
+  { "iso3": "ECU", "iso2": "EC", "difficulty": "hard", "landmark": "Galápagos Islands",
+    "name": { "en": "Ecuador", "pt": "Equador", "zh": "厄瓜多尔", "es": "Ecuador", "fr": "Équateur", "he": "אקוודור" },
+    "capital": { "en": "Quito", "pt": "Quito", "zh": "基多", "es": "Quito", "fr": "Quito", "he": "קיטו" } },
+
+  { "iso3": "PRY", "iso2": "PY", "difficulty": "hard", "landmark": "Itaipu Dam",
+    "name": { "en": "Paraguay", "pt": "Paraguai", "zh": "巴拉圭", "es": "Paraguay", "fr": "Paraguay", "he": "פרגוואי" },
+    "capital": { "en": "Asunción", "pt": "Assunção", "zh": "亚松森", "es": "Asunción", "fr": "Asunción", "he": "אסונסיון" } },
+
+  { "iso3": "URY", "iso2": "UY", "difficulty": "hard", "landmark": "Colonia del Sacramento",
+    "name": { "en": "Uruguay", "pt": "Uruguai", "zh": "乌拉圭", "es": "Uruguay", "fr": "Uruguay", "he": "אורוגוואי" },
+    "capital": { "en": "Montevideo", "pt": "Montevidéu", "zh": "蒙得维的亚", "es": "Montevideo", "fr": "Montevideo", "he": "מונטווידאו" } },
+
+  { "iso3": "PAN", "iso2": "PA", "difficulty": "hard", "landmark": "Panama Canal",
+    "name": { "en": "Panama", "pt": "Panamá", "zh": "巴拿马", "es": "Panamá", "fr": "Panama", "he": "פנמה" },
+    "capital": { "en": "Panama City", "pt": "Cidade do Panamá", "zh": "巴拿马城", "es": "Ciudad de Panamá", "fr": "Panama", "he": "פנמה סיטי" } },
+
+  { "iso3": "CRI", "iso2": "CR", "difficulty": "hard", "landmark": "Arenal Volcano",
+    "name": { "en": "Costa Rica", "pt": "Costa Rica", "zh": "哥斯达黎加", "es": "Costa Rica", "fr": "Costa Rica", "he": "קוסטה ריקה" },
+    "capital": { "en": "San José", "pt": "San José", "zh": "圣何塞", "es": "San José", "fr": "San José", "he": "סן חוסה" } },
+
+  { "iso3": "GTM", "iso2": "GT", "difficulty": "hard", "landmark": "Tikal Ruins",
+    "name": { "en": "Guatemala", "pt": "Guatemala", "zh": "危地马拉", "es": "Guatemala", "fr": "Guatemala", "he": "גואטמלה" },
+    "capital": { "en": "Guatemala City", "pt": "Cidade da Guatemala", "zh": "危地马拉城", "es": "Ciudad de Guatemala", "fr": "Guatemala", "he": "גואטמלה סיטי" } }
+]

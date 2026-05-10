@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>locationMaster</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Always-present map in background -->
+  <div id="map"></div>
+
+  <!-- Loading overlay -->
+  <div id="loading-overlay">
+    <div class="loading-inner">
+      <div class="loading-globe">🌍</div>
+      <div id="loading-text">Loading map data...</div>
+    </div>
+  </div>
+
+  <!-- PANEL: Language Selection -->
+  <div id="panel-lang" class="panel panel-solid">
+    <div class="panel-inner center">
+      <div class="logo">🌍 locationMaster</div>
+      <p class="logo-sub">Choose your language</p>
+      <div class="lang-grid">
+        <button class="lang-btn" data-lang="en">🇬🇧 English</button>
+        <button class="lang-btn" data-lang="pt">🇧🇷 Português</button>
+        <button class="lang-btn" data-lang="zh">🇨🇳 中文</button>
+        <button class="lang-btn" data-lang="es">🇪🇸 Español</button>
+        <button class="lang-btn" data-lang="fr">🇫🇷 Français</button>
+        <button class="lang-btn" data-lang="he">🇮🇱 עברית</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL: Home -->
+  <div id="panel-home" class="panel panel-solid hidden">
+    <div class="panel-inner center">
+      <div class="logo">🌍 locationMaster</div>
+      <button id="btn-play" class="btn-primary" data-i18n="play">Play</button>
+      <button id="btn-lang" class="btn-ghost" data-i18n="change_lang">Language</button>
+    </div>
+  </div>
+
+  <!-- PANEL: Setup -->
+  <div id="panel-setup" class="panel panel-solid hidden">
+    <div class="panel-inner scrollable">
+      <h2 class="setup-title" data-i18n="setup_title">Game Setup</h2>
+
+      <div class="setup-row">
+        <label data-i18n="map_style">Map Style</label>
+        <div class="toggle-group" id="tg-mapstyle">
+          <button class="toggle-btn active" data-value="solid" data-i18n="solid">Solid</button>
+          <button class="toggle-btn" data-value="space" data-i18n="space">Space</button>
+        </div>
+      </div>
+
+
+      <div class="setup-row">
+        <label data-i18n="game_mode">Game Mode</label>
+        <div class="toggle-group wrap" id="tg-mode">
+          <button class="toggle-btn active" data-value="countries" data-i18n="mode_countries">Countries</button>
+          <button class="toggle-btn" data-value="flags" data-i18n="mode_flags">Flags</button>
+          <button class="toggle-btn" data-value="capitals" data-i18n="mode_capitals">Capitals</button>
+          <button class="toggle-btn" data-value="landmarks" data-i18n="mode_landmarks">Landmarks</button>
+        </div>
+      </div>
+
+      <div class="setup-row">
+        <label data-i18n="difficulty">Difficulty</label>
+        <div class="toggle-group" id="tg-difficulty">
+          <button class="toggle-btn active" data-value="easy" data-i18n="easy">Easy</button>
+          <button class="toggle-btn" data-value="medium" data-i18n="medium">Medium</button>
+          <button class="toggle-btn" data-value="hard" data-i18n="hard">Hard</button>
+        </div>
+      </div>
+
+      <div class="setup-row">
+        <label data-i18n="players">Players</label>
+        <div class="toggle-group" id="tg-players">
+          <button class="toggle-btn active" data-value="1">1</button>
+          <button class="toggle-btn" data-value="2">2</button>
+          <button class="toggle-btn" data-value="3">3</button>
+          <button class="toggle-btn" data-value="4">4</button>
+        </div>
+      </div>
+
+      <div id="player-names"></div>
+
+      <button id="btn-start" class="btn-primary" data-i18n="start">Start Game</button>
+      <button id="btn-setup-home" class="btn-ghost" data-i18n="home">Home</button>
+    </div>
+  </div>
+
+  <!-- GAME HUD (floats over map) -->
+  <div id="hud" class="hidden">
+    <button id="btn-finish-game" data-i18n="finish_game">Finish Game</button>
+
+    <div id="game-header">
+      <div id="player-turn-badge"></div>
+    </div>
+
+    <div id="prompt-card">
+      <div id="prompt-flag"></div>
+      <div id="prompt-text"></div>
+    </div>
+
+    <div id="scoreboard">
+      <div id="scoreboard-list"></div>
+    </div>
+  </div>
+
+  <!-- Feedback overlay (correct / wrong flashes) -->
+  <div id="feedback" class="hidden"></div>
+
+  <!-- Click debug info (bottom-left) -->
+  <div id="click-debug" class="hidden"></div>
+
+  <!-- PANEL: Results (overlaid over map) -->
+  <div id="panel-results" class="panel panel-results hidden">
+    <div class="results-inner">
+      <h2 id="results-title"></h2>
+      <div id="results-scores"></div>
+      <div id="wrong-label" class="wrong-label hidden" data-i18n="wrong_countries">Countries you missed:</div>
+      <div id="wrong-list"></div>
+      <div class="results-actions">
+        <button id="btn-play-again" class="btn-primary" data-i18n="play_again">Play Again</button>
+        <button id="btn-results-home" class="btn-ghost" data-i18n="home">Home</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL: Perfect Game -->
+  <div id="panel-perfect" class="panel panel-solid hidden">
+    <div class="panel-inner center">
+      <div class="perfect-trophy">🏆</div>
+      <h1 id="perfect-title"></h1>
+      <p id="perfect-subtitle"></p>
+      <div id="perfect-score" class="perfect-score-display"></div>
+      <button id="btn-perfect-again" class="btn-primary" data-i18n="play_again">Play Again</button>
+      <button id="btn-perfect-home" class="btn-ghost" data-i18n="home">Home</button>
+    </div>
+  </div>
+
+  <!-- Persistent sound controls (always visible) -->
+  <div id="sound-controls">
+    <button id="btn-music-toggle" class="sound-btn" title="Toggle Music">🎵</button>
+    <button id="btn-sfx-toggle" class="sound-btn" title="Toggle Sound Effects">🔊</button>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="sounds.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

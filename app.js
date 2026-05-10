@@ -216,7 +216,7 @@ function renderGeoLayer() {
 
       layer.on('mouseover', () => {
         if (state.gameActive && !state.awaitingNext) {
-          const hoverColor = state.mapStyle === 'solid' ? '#3eaabf' : '#475569';
+          const hoverColor = state.mapStyle === 'solid' ? '#f0c040' : '#475569';
           layer.setStyle({ fillOpacity: 0.6, fillColor: hoverColor });
         }
       });
@@ -235,9 +235,9 @@ function renderGeoLayer() {
 function getDefaultStyle() {
   if (state.mapStyle === 'solid') {
     return {
-      fillColor: '#7eccd8',
-      fillOpacity: 0.28,
-      color: state.borders ? '#5b8fa8' : 'transparent',
+      fillColor: '#90c46e',
+      fillOpacity: 0.6,
+      color: state.borders ? '#4a7a3a' : 'transparent',
       weight: state.borders ? 1.0 : 0,
     };
   }

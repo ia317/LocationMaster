@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.0.2';
+const VERSION = '1.0.3';
 
 // ============================================================
 // STATE
@@ -28,6 +28,7 @@ let i18n = {};
 let countriesMeta = [];
 let landmarksData = [];
 let geoData = null;
+const wikiImageCache = new Map();
 
 // ============================================================
 // MAP
@@ -99,6 +100,19 @@ async function loadGeoData() {
 async function loadLandmarksData() {
   const res = await fetch('data/landmarks.json');
   landmarksData = await res.json();
+}
+
+async function getWikiImage(title) {
+  if (wikiImageCache.has(title)) return wikiImageCache.get(title);
+  try {
+    const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`);
+    const url = res.ok ? ((await res.json()).thumbnail?.source || null) : null;
+    wikiImageCache.set(title, url);
+    return url;
+  } catch {
+    wikiImageCache.set(title, null);
+    return null;
+  }
 }
 
 // ============================================================
@@ -478,6 +492,12 @@ function nextQuestion() {
   state.targetCountry = state.questionPool[state.questionIdx++];
   state.awaitingNext = false;
 
+  // Pre-fetch next landmark image while player answers current question
+  if (state.gameMode === 'landmarks') {
+    const next = state.questionPool[state.questionIdx];
+    if (next) getWikiImage(next.wikipedia || next.name);
+  }
+
   sounds.newQuestion();
   updatePromptCard();
   updateScoreboard();
@@ -671,9 +691,15 @@ function updatePromptCard() {
     const cap = country.capital[lang] || country.capital.en;
     textEl.textContent = `${t('find_capital')}: ${cap} (${countryName})`;
   } else if (state.gameMode === 'landmarks') {
-    const imgUrl = `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(country.image)}`;
-    flagEl.innerHTML = `<img class="landmark-img" src="${imgUrl}" alt="${escHtml(country.name)}" onerror="this.style.display='none'">`;
+    const snapshot = country;
+    flagEl.innerHTML = '<div class="landmark-img-placeholder"></div>';
     textEl.innerHTML = `<span class="landmark-name">${escHtml(country.name)}</span><span class="landmark-desc">${escHtml(country.description)}</span>`;
+    getWikiImage(country.wikipedia || country.name).then(url => {
+      if (state.targetCountry !== snapshot) return;
+      flagEl.innerHTML = url
+        ? `<img class="landmark-img" src="${url}" alt="${escHtml(snapshot.name)}">`
+        : '';
+    });
   }
 }
 

@@ -431,6 +431,19 @@ html, body {
   box-shadow: 0 2px 12px rgba(0,0,0,0.4);
 }
 
+.landmark-img-placeholder {
+  width: 260px;
+  height: 140px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  animation: landmark-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes landmark-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.8; }
+}
+
 .landmark-img {
   width: 100%;
   max-width: 260px;

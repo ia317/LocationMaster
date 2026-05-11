@@ -1,5 +1,7 @@
 'use strict';
 
+const VERSION = '1.0.0';
+
 // ============================================================
 // STATE
 // ============================================================
@@ -418,9 +420,17 @@ const DIFFICULTY_WEIGHTS = {
   hard:   { easy: 1, medium: 2, hard: 5 },
 };
 
+const DIFFICULTY_CONFIG = {
+  easy:   { lives: 3, points: 1 },
+  medium: { lives: 2, points: 2 },
+  hard:   { lives: 1, points: 4 },
+};
+
 function buildQuestionPool() {
   const w = DIFFICULTY_WEIGHTS[state.difficulty];
-  return weightedShuffle(countriesMeta, c => w[c.difficulty] || 1);
+  const seen = new Set();
+  return weightedShuffle(countriesMeta, c => w[c.difficulty] || 1)
+    .filter(c => seen.has(c.iso3) ? false : (seen.add(c.iso3), true));
 }
 
 // Weighted random permutation (reservoir sampling, A-Res algorithm).
@@ -478,7 +488,7 @@ function onCountryClick(iso) {
 
 function handleCorrect() {
   const player = state.players[state.currentPlayerIdx];
-  player.score++;
+  player.score += DIFFICULTY_CONFIG[state.difficulty].points;
 
   sounds.correct();
   highlightCountry(state.targetCountry.iso3, '#22c55e');
@@ -504,7 +514,7 @@ function handleWrong(clickedIso) {
 
   state.awaitingNext = true;
 
-  if (player.strikes >= 3) {
+  if (player.strikes >= DIFFICULTY_CONFIG[state.difficulty].lives) {
     player.eliminated = true;
     sounds.eliminated();
     showFeedback('eliminated', `💀 ${player.name} ${t('eliminated')}!`);
@@ -521,7 +531,7 @@ function handleWrong(clickedIso) {
     });
   } else {
     sounds.wrong();
-    const left = 3 - player.strikes;
+    const left = DIFFICULTY_CONFIG[state.difficulty].lives - player.strikes;
     showFeedback('wrong', `❌ ${t('wrong')}! ${left} ${t('lives_left')}`);
     updateScoreboard();
 
@@ -583,9 +593,10 @@ function showResultsScreen(reason) {
   }
 
   // Score rows
+  const maxLives = DIFFICULTY_CONFIG[state.difficulty].lives;
   const scoresEl = document.getElementById('results-scores');
   scoresEl.innerHTML = sorted.map((p, i) => {
-    const hearts = '❤️'.repeat(Math.max(0, 3 - p.strikes)) + '🖤'.repeat(Math.min(3, p.strikes));
+    const hearts = '❤️'.repeat(Math.max(0, maxLives - p.strikes)) + '🖤'.repeat(Math.min(maxLives, p.strikes));
     return `
       <div class="result-row ${p.eliminated ? 'eliminated' : ''}">
         <span class="result-rank">${i + 1}.</span>
@@ -638,16 +649,18 @@ function updatePromptCard() {
 
   flagEl.innerHTML = '';
 
+  const countryName = country.name[lang] || country.name.en;
+
   if (state.gameMode === 'countries') {
-    textEl.textContent = `${t('find_country')}: ${country.name[lang] || country.name.en}`;
+    textEl.textContent = `${t('find_country')}: ${countryName}`;
   } else if (state.gameMode === 'flags') {
     flagEl.innerHTML = getFlagHtml(country.iso2);
-    textEl.textContent = t('find_flag');
+    textEl.textContent = `${t('find_country')}: ${countryName}`;
   } else if (state.gameMode === 'capitals') {
     const cap = country.capital[lang] || country.capital.en;
-    textEl.textContent = `${t('find_capital')}: ${cap}`;
+    textEl.textContent = `${t('find_capital')}: ${cap} (${countryName})`;
   } else if (state.gameMode === 'landmarks') {
-    textEl.textContent = `${t('find_landmark')}: ${country.landmark || country.name.en}`;
+    textEl.textContent = `${t('find_landmark')}: ${country.landmark || countryName}`;
   }
 }
 
@@ -655,10 +668,11 @@ function updateScoreboard() {
   const list = document.getElementById('scoreboard-list');
   if (!list) return;
 
+  const maxLives = DIFFICULTY_CONFIG[state.difficulty].lives;
   list.innerHTML = state.players.map((p, i) => {
     const isActive = i === state.currentPlayerIdx && !p.eliminated;
-    const hearts = '❤️'.repeat(Math.max(0, 3 - p.strikes));
-    const skulls = '🖤'.repeat(Math.min(3, p.strikes));
+    const hearts = '❤️'.repeat(Math.max(0, maxLives - p.strikes));
+    const skulls = '🖤'.repeat(Math.min(maxLives, p.strikes));
     return `
       <div class="score-item ${isActive ? 'active' : ''} ${p.eliminated ? 'eliminated' : ''}">
         <div class="score-name">${escHtml(p.name)}</div>
@@ -838,6 +852,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     // Hide loading, show language picker
     document.getElementById('loading-overlay').classList.add('hidden');
+    document.getElementById('version-label').textContent = `v${VERSION}`;
     showPanel('lang');
 
   } catch (err) {

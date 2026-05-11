@@ -148,6 +148,13 @@ html, body {
   font-size: 16px;
 }
 
+.version-label {
+  color: var(--text2);
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+
 /* ============================================
    LANGUAGE GRID
    ============================================ */

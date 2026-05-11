@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.0.0';
+const VERSION = '1.1.0';
 
 // ============================================================
 // STATE
@@ -423,7 +423,7 @@ const DIFFICULTY_WEIGHTS = {
 const DIFFICULTY_CONFIG = {
   easy:   { lives: 3, points: 1 },
   medium: { lives: 2, points: 2 },
-  hard:   { lives: 1, points: 4 },
+  hard:   { lives: 1, points: 3 },
 };
 
 function buildQuestionPool() {

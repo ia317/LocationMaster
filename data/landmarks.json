@@ -1,0 +1,149 @@
+[
+  {"name":"Eiffel Tower","iso3":"FRA","difficulty":"easy","image":"Tour_Eiffel_Wikimedia_Commons.jpg","description":"An iron lattice tower standing 330 m tall, built in 1889 as the centerpiece of a World's Fair."},
+  {"name":"Louvre Museum","iso3":"FRA","difficulty":"medium","image":"Louvre_2007.jpg","description":"The world's largest art museum, housed in a former royal palace with a famous glass pyramid entrance."},
+  {"name":"Mont-Saint-Michel","iso3":"FRA","difficulty":"medium","image":"Mont_St_Michel_3.jpg","description":"A medieval abbey crowning a rocky tidal island, accessible on foot only when the sea retreats."},
+  {"name":"Palace of Versailles","iso3":"FRA","difficulty":"hard","image":"Palace_of_Versailles,_West_facade.jpg","description":"A lavish 17th-century royal palace renowned for its Hall of Mirrors and sprawling formal gardens."},
+
+  {"name":"Colosseum","iso3":"ITA","difficulty":"easy","image":"Colosseo_2020.jpg","description":"An ancient amphitheater completed in 80 AD that could hold up to 80,000 spectators for gladiatorial contests."},
+  {"name":"Leaning Tower of Pisa","iso3":"ITA","difficulty":"easy","image":"Leaning_tower_of_pisa.jpg","description":"A freestanding marble bell tower famous worldwide for its pronounced unintentional tilt."},
+  {"name":"Venice Canals","iso3":"ITA","difficulty":"easy","image":"Grand_Canal_Venice.jpg","description":"A unique city built on 118 small islands, navigated by gondolas along a network of canals."},
+  {"name":"Sistine Chapel","iso3":"ITA","difficulty":"medium","image":"CAPPELLA_SISTINA_Ceiling.jpg","description":"A chapel ceiling painted between 1508 and 1512, depicting scenes from Genesis in breathtaking detail."},
+  {"name":"Amalfi Coast","iso3":"ITA","difficulty":"medium","image":"Amalfi_positano.jpg","description":"A dramatic coastline dotted with colorful cliffside villages overlooking a deep blue sea."},
+  {"name":"Pompeii","iso3":"ITA","difficulty":"hard","image":"Pompeii,_Italy2.jpg","description":"An ancient city frozen in time when a volcanic eruption buried it under ash nearly 2,000 years ago."},
+
+  {"name":"Great Wall","iso3":"CHN","difficulty":"easy","image":"The_Great_Wall_of_China_at_Jinshanling-edit.jpg","description":"A series of fortifications stretching over 21,000 km, built across centuries to guard ancient kingdoms."},
+  {"name":"Forbidden City","iso3":"CHN","difficulty":"medium","image":"Forbidden_City_1.jpg","description":"A vast imperial palace of nearly 1,000 buildings, home to 24 emperors over six centuries."},
+  {"name":"Terracotta Army","iso3":"CHN","difficulty":"medium","image":"Terracotta_warriors_wiki.jpg","description":"Thousands of life-sized clay soldiers buried to guard an ancient emperor's tomb in the afterlife."},
+  {"name":"Li River","iso3":"CHN","difficulty":"hard","image":"Li_River_China.jpg","description":"A scenic river winding between dramatic limestone karst peaks, a classic subject of ancient painting."},
+  {"name":"Potala Palace","iso3":"CHN","difficulty":"hard","image":"Potala_Palace,_Lhasa.jpg","description":"A 13-storey palace at 3,700 m altitude, once the winter residence of a revered spiritual leader."},
+
+  {"name":"Taj Mahal","iso3":"IND","difficulty":"easy","image":"Taj_Mahal_(Edited).jpeg","description":"A white marble mausoleum completed in 1653 by a Mughal emperor as an eternal tribute to his beloved wife."},
+  {"name":"Red Fort","iso3":"IND","difficulty":"medium","image":"Red_Fort_in_Delhi_03-2016_img3.jpg","description":"A massive red sandstone fortress that served as the main residence of Mughal emperors for nearly 200 years."},
+  {"name":"Hampi Ruins","iso3":"IND","difficulty":"hard","image":"Hampi_virupaksha.jpg","description":"The scattered ruins of a once-great medieval empire — temples, bazaars and royal pavilions across a boulder landscape."},
+
+  {"name":"Angkor Wat","iso3":"KHM","difficulty":"easy","image":"Angkor_Wat_Temple.jpg","description":"The world's largest religious monument, a 12th-century temple complex rising from the Southeast Asian jungle."},
+
+  {"name":"Borobudur","iso3":"IDN","difficulty":"medium","image":"Borobudur_ship.jpg","description":"A 9th-century Buddhist temple pyramid decorated with over 2,500 relief panels and 500 Buddha statues."},
+  {"name":"Bali Rice Terraces","iso3":"IDN","difficulty":"medium","image":"Bali_Reisterrassen.jpg","description":"Ancient stepped rice paddies carved into hillsides, maintained by a traditional irrigation system over 1,000 years old."},
+  {"name":"Prambanan","iso3":"IDN","difficulty":"hard","image":"Prambanan_Temple.jpg","description":"A 9th-century Hindu temple compound of towering ornate spires, abandoned after an earthquake and reclaimed by jungle."},
+
+  {"name":"Machu Picchu","iso3":"PER","difficulty":"easy","image":"Machu_Picchu,_Peru.jpg","description":"A 15th-century Inca citadel set on a mountain ridge more than 2,400 m above sea level, unknown to outsiders until 1911."},
+  {"name":"Nazca Lines","iso3":"PER","difficulty":"hard","image":"Nazca-lineas_aerea.jpg","description":"Enormous geoglyphs of animals etched into a desert plateau, visible only from the air and still unexplained."},
+
+  {"name":"Chichen Itza","iso3":"MEX","difficulty":"easy","image":"Chichen_Itza_3.jpg","description":"A pre-Columbian archaeological site featuring the iconic El Castillo step pyramid, aligned with solar events."},
+  {"name":"Teotihuacan","iso3":"MEX","difficulty":"medium","image":"Teotihuacan_Pyramid_of_the_Sun.jpg","description":"An ancient city once among the world's largest, famous for its towering pyramids of the Sun and Moon."},
+
+  {"name":"Christ the Redeemer","iso3":"BRA","difficulty":"easy","image":"Christ_the_Redeemer_-_Corcovado.jpg","description":"A 30-metre Art Deco statue of Jesus with outstretched arms atop a mountain overlooking a vibrant coastal metropolis."},
+  {"name":"Amazon Rainforest","iso3":"BRA","difficulty":"medium","image":"Amazon_rainforest.jpg","description":"The world's largest tropical rainforest, covering over 5 million km² and home to roughly 10% of all species on Earth."},
+
+  {"name":"Iguazu Falls","iso3":"ARG","difficulty":"easy","image":"Iguazú_falls,_argentinian_side.jpg","description":"A system of 275 waterfalls spanning nearly 3 km — taller and wider in volume than Niagara."},
+  {"name":"Perito Moreno Glacier","iso3":"ARG","difficulty":"hard","image":"Perito_Moreno_Glacier_Patagonia_Argentina_Luca_Galuzzi_2005.jpg","description":"One of the world's few advancing glaciers — a 5-km-wide wall of blue ice dramatically calving into a glacial lake."},
+
+  {"name":"Pyramids of Giza","iso3":"EGY","difficulty":"easy","image":"Giza_pyramid_complex_(2020).jpg","description":"The only surviving wonder of the ancient world — three massive limestone tombs built over 4,500 years ago."},
+  {"name":"Abu Simbel","iso3":"EGY","difficulty":"medium","image":"Abu_Simbel_temple_of_Ramesses_II.jpg","description":"Two temples carved into a mountainside in the 13th century BC, later relocated to save them from rising waters."},
+
+  {"name":"Petra","iso3":"JOR","difficulty":"easy","image":"Al_Khazneh_Petra_crop.jpg","description":"A city of rose-red facades carved into cliff faces, once the capital of a powerful ancient trading empire."},
+  {"name":"Dead Sea","iso3":"JOR","difficulty":"medium","image":"Dead_sea_newspaper.jpg","description":"The world's saltiest large body of water — so dense that swimmers float effortlessly on its surface."},
+
+  {"name":"Burj Khalifa","iso3":"ARE","difficulty":"easy","image":"Burj_Khalifa.jpg","description":"The world's tallest building at 828 m, a gleaming skyscraper towering over a modern desert metropolis."},
+  {"name":"Palm Jumeirah","iso3":"ARE","difficulty":"medium","image":"Dubai_Aerial_View.jpg","description":"A palm-shaped artificial archipelago built in the sea, hosting luxury hotels and thousands of residences."},
+
+  {"name":"Sagrada Familia","iso3":"ESP","difficulty":"easy","image":"Sagrada_Família_(2020).jpg","description":"A still-unfinished Gothic-inspired basilica under continuous construction since 1882, with towering sculpted facades."},
+  {"name":"Alhambra","iso3":"ESP","difficulty":"medium","image":"Patio_de_los_Leones.jpg","description":"A palatial fortress of exquisite Moorish architecture, intricate geometric tile work and serene courtyard fountains."},
+  {"name":"Park Güell","iso3":"ESP","difficulty":"hard","image":"Park_Güell_dragon_edit.jpg","description":"A public park of mosaic terraces, gingerbread gatehouses and curving viaducts by a visionary modernist architect."},
+
+  {"name":"Acropolis of Athens","iso3":"GRC","difficulty":"easy","image":"The_Parthenon_in_Athens.jpg","description":"An ancient citadel atop a rocky hill, home to the Parthenon temple dedicated to a goddess of wisdom, built in 447 BC."},
+  {"name":"Santorini","iso3":"GRC","difficulty":"easy","image":"Oia_Santorini_Greece.jpg","description":"A volcanic island of whitewashed cubic houses and blue-domed churches perched above a sweeping flooded caldera."},
+  {"name":"Meteora","iso3":"GRC","difficulty":"medium","image":"Meteora_monastery.jpg","description":"Ancient monasteries balanced atop towering natural rock pillars rising dramatically from a wide fertile plain."},
+
+  {"name":"Big Ben","iso3":"GBR","difficulty":"easy","image":"Clock_Tower_-_Palace_of_Westminster,_London_-_September_2006.jpg","description":"An iconic Gothic clock tower completed in 1859, recognized worldwide for its deep resonant bell and riverside setting."},
+  {"name":"Stonehenge","iso3":"GBR","difficulty":"easy","image":"Stonehenge2007_07_30.jpg","description":"A prehistoric stone circle on a windswept plain, constructed in stages between 3000 and 1500 BC for unknown purposes."},
+  {"name":"Edinburgh Castle","iso3":"GBR","difficulty":"medium","image":"Edinburgh_Castle_from_the_north.jpg","description":"A historic fortress perched on volcanic rock, dominating the skyline of a picturesque northern city of spires."},
+  {"name":"Giant's Causeway","iso3":"GBR","difficulty":"medium","image":"Giants_Causeway_-_Northern_Ireland.jpg","description":"Around 40,000 interlocking basalt columns formed by ancient volcanic activity on a rugged coastal headland."},
+
+  {"name":"Neuschwanstein Castle","iso3":"DEU","difficulty":"easy","image":"Neuschwanstein_Castle_from_the_Marienbrücke.jpg","description":"A 19th-century fairy-tale castle perched on a rugged cliff, built by a reclusive king as a personal romantic retreat."},
+  {"name":"Brandenburg Gate","iso3":"DEU","difficulty":"easy","image":"Brandenburger_Tor_abends.jpg","description":"An 18th-century neoclassical gate that became a potent symbol of division and later of peaceful reunification."},
+  {"name":"Rhine Valley Castles","iso3":"DEU","difficulty":"medium","image":"Loreley_AvdBerg.jpg","description":"A river valley lined with steep vineyards, medieval market towns and dozens of hilltop fortresses."},
+
+  {"name":"Hagia Sophia","iso3":"TUR","difficulty":"easy","image":"Hagia_Sophia_Mars_2013.jpg","description":"A 6th-century domed masterpiece that has served successively as a cathedral, a mosque and a museum."},
+  {"name":"Cappadocia","iso3":"TUR","difficulty":"medium","image":"Göreme_ballon_cappadoce.jpg","description":"A region of extraordinary volcanic rock formations, ancient cave dwellings and hot-air balloons drifting at dawn."},
+  {"name":"Pamukkale","iso3":"TUR","difficulty":"medium","image":"Pamukkale_Turkey_Luca_Galuzzi_2006.jpg","description":"Gleaming white terraced mineral pools cascading down a hillside, resembling a vast cotton castle from a distance."},
+  {"name":"Ephesus","iso3":"TUR","difficulty":"hard","image":"Efes_Celsus_Library_angles.jpg","description":"One of the best-preserved ancient Mediterranean cities, featuring a grand library facade and a 25,000-seat theater."},
+
+  {"name":"Sydney Opera House","iso3":"AUS","difficulty":"easy","image":"Sydney_Opera_House_-_Dec_2008.jpg","description":"A sail-shaped performing arts center on a harbour, completed in 1973 and instantly recognized as an architectural icon."},
+  {"name":"Great Barrier Reef","iso3":"AUS","difficulty":"easy","image":"Great_Barrier_Reef_from_Space.jpg","description":"The world's largest coral reef system, stretching over 2,300 km and visible from outer space."},
+  {"name":"Uluru","iso3":"AUS","difficulty":"medium","image":"Uluru_Australia(2).jpg","description":"A colossal sandstone monolith rising 348 m from a flat red desert, sacred to the local indigenous custodians."},
+
+  {"name":"Mount Fuji","iso3":"JPN","difficulty":"easy","image":"MtFuji_FujiCity.jpg","description":"A perfectly symmetrical snow-capped stratovolcano — the highest peak in its country and a revered sacred mountain."},
+  {"name":"Fushimi Inari Shrine","iso3":"JPN","difficulty":"medium","image":"Fushimi_Inari-taisha_(3).jpg","description":"A Shinto shrine famous for thousands of vermilion torii gates forming tunnels winding up a forested mountain."},
+  {"name":"Hiroshima Peace Memorial","iso3":"JPN","difficulty":"medium","image":"Hiroshima_Peace_Memorial_(Genbaku_Dome)_1.jpg","description":"The skeletal ruins of a domed building preserved as a memorial to the world's first nuclear bomb attack in 1945."},
+
+  {"name":"Statue of Liberty","iso3":"USA","difficulty":"easy","image":"Statue_of_Liberty_7.jpg","description":"A colossal copper statue of a torch-bearing woman gifted in 1886, standing on an island at the entrance to a major harbor."},
+  {"name":"Grand Canyon","iso3":"USA","difficulty":"easy","image":"Grand_Canyon_view_from_Pima_Point_2010.jpg","description":"A vast gorge carved over millions of years, exposing nearly 2 billion years of geological history in vivid layered rock."},
+  {"name":"Golden Gate Bridge","iso3":"USA","difficulty":"medium","image":"GoldenGateBridge-001.jpg","description":"A suspension bridge spanning a Pacific bay strait, completed in 1937 with signature orange towers often shrouded in fog."},
+  {"name":"Yellowstone","iso3":"USA","difficulty":"medium","image":"Grand_Prismatic_Spring_2013.jpg","description":"The world's first national park, home to half of all Earth's active geysers and thousands of colorful hot springs."},
+
+  {"name":"Ha Long Bay","iso3":"VNM","difficulty":"easy","image":"A-Boat-in-Ha-Long-Bay.jpg","description":"A seascape of thousands of limestone islands topped with rainforest, many concealing caves and floating villages."},
+  {"name":"Hoi An Ancient Town","iso3":"VNM","difficulty":"hard","image":"Hoi_An_Night_reflection.jpg","description":"A remarkably intact trading port from the 15th–19th centuries, glowing with lanterns reflected in the river at night."},
+
+  {"name":"Matterhorn","iso3":"CHE","difficulty":"easy","image":"Matterhorn_from_Domhütte_-_August_2018.jpg","description":"A near-perfect pyramid-shaped peak at 4,478 m on a European border — one of the world's most photographed mountains."},
+  {"name":"Jungfraujoch","iso3":"CHE","difficulty":"hard","image":"Jungfraujoch-mit-Sphinx.jpg","description":"A mountain saddle at 3,454 m known as the 'Top of Europe', served by the highest railway station on the continent."},
+
+  {"name":"Hallstatt","iso3":"AUT","difficulty":"easy","image":"Hallstatt_in_2015.jpg","description":"A postcard-perfect lakeside village of pastel houses nestled between steep mountains and a mirror-still lake."},
+  {"name":"Schönbrunn Palace","iso3":"AUT","difficulty":"medium","image":"Schonbrunn_front.jpg","description":"A grand Baroque imperial palace of 1,441 rooms set in formal gardens on the edge of a Central European capital."},
+
+  {"name":"Prague Castle","iso3":"CZE","difficulty":"easy","image":"Prague_castle_night.jpg","description":"The world's largest ancient castle complex — a silhouette of spires and towers dominating a medieval city skyline."},
+
+  {"name":"Plitvice Lakes","iso3":"HRV","difficulty":"easy","image":"NP_Plitvicka_jezera.jpg","description":"Sixteen terraced lakes linked by waterfalls shimmering in vivid shades of blue, green and grey."},
+  {"name":"Dubrovnik Old Town","iso3":"HRV","difficulty":"medium","image":"Dubrovnik_stara_luka.jpg","description":"A walled medieval city of limestone streets, Baroque churches and terracotta rooftops hugging a rocky sea coast."},
+
+  {"name":"Northern Lights","iso3":"ISL","difficulty":"easy","image":"Aurora_borealis_above_Lyngen_Alps,_2013_March.jpg","description":"Ribbons of green, purple and pink light dancing across the Arctic sky, triggered by charged solar particles."},
+  {"name":"Blue Lagoon","iso3":"ISL","difficulty":"medium","image":"Blue_lagoon_in_southwest_Iceland.jpg","description":"A geothermal spa in a lava field, filled with milky-turquoise silica-rich water at a constant soothing temperature."},
+
+  {"name":"Table Mountain","iso3":"ZAF","difficulty":"easy","image":"Table_Mountain_DanieVDM.jpg","description":"A flat-topped mountain forming a dramatic natural backdrop to a coastal city at the southern tip of a continent."},
+
+  {"name":"Victoria Falls","iso3":"ZWE","difficulty":"easy","image":"Victoria_Falls_-_August_2009.jpg","description":"One of the world's largest waterfalls — its roar and mist cloud visible from over 50 km away."},
+
+  {"name":"Serengeti Migration","iso3":"TZA","difficulty":"easy","image":"Wildebeest_migration_in_Masai_Mara.jpg","description":"The planet's largest land migration, with over a million wildebeest crossing open savanna in a vast annual circuit."},
+  {"name":"Mount Kilimanjaro","iso3":"TZA","difficulty":"easy","image":"Kilimanjaro_Dec_2009_edit1.jpg","description":"The tallest free-standing mountain on Earth at 5,895 m, its snow-capped summit rising above equatorial plains."},
+
+  {"name":"Sahara Dunes","iso3":"DZA","difficulty":"medium","image":"Sahara_Desert,_Algeria.jpg","description":"The world's largest hot desert — over 9 million km² of sand seas, rocky plateaus and ancient stone cities."},
+
+  {"name":"Marrakech Medina","iso3":"MAR","difficulty":"medium","image":"Jamaa_el_Fna_at_night.jpg","description":"A labyrinthine medieval city of crowded souks, spice bazaars and a central square alive with storytellers and musicians."},
+
+  {"name":"Kremlin & Red Square","iso3":"RUS","difficulty":"easy","image":"Moscow_Kremlin_from_Kamenny_Bridge.jpg","description":"A fortress complex at the heart of a historic capital, flanked by a vast cobblestone square and a brightly domed cathedral."},
+  {"name":"Lake Baikal","iso3":"RUS","difficulty":"medium","image":"LakeBaikal_ice.jpg","description":"The world's deepest and oldest freshwater lake, holding roughly 20% of the planet's unfrozen surface fresh water."},
+
+  {"name":"Norwegian Fjords","iso3":"NOR","difficulty":"easy","image":"Geiranger_fjord,_Norway_(cropped).jpg","description":"Narrow sea inlets carved by ancient glaciers, flanked by sheer cliffs plunging thousands of metres into dark water."},
+
+  {"name":"Nyhavn","iso3":"DNK","difficulty":"medium","image":"Nyhavn_-_Copenhagen.jpg","description":"A 17th-century waterfront of brightly painted townhouses, old wooden vessels and outdoor cafes lining a historic canal."},
+
+  {"name":"Cliffs of Moher","iso3":"IRL","difficulty":"easy","image":"Cliffs_of_Moher_-_Doolin.jpg","description":"Sheer sea cliffs rising up to 214 m along an Atlantic coast, battered by waves and home to vast seabird colonies."},
+
+  {"name":"Angel Falls","iso3":"VEN","difficulty":"easy","image":"Angel_falls.jpg","description":"The world's highest uninterrupted waterfall at 979 m, plunging from a tepui plateau deep in tropical jungle."},
+
+  {"name":"Salar de Uyuni","iso3":"BOL","difficulty":"medium","image":"Salar_de_uyuni_Bolivia.jpg","description":"The world's largest salt flat — a blinding white expanse that becomes a perfect sky mirror after seasonal rains."},
+  {"name":"Lake Titicaca","iso3":"BOL","difficulty":"hard","image":"TiticacaFromBolivia.jpg","description":"The world's highest navigable lake at 3,812 m, with floating reed islands inhabited by an ancient indigenous community."},
+
+  {"name":"Galápagos Islands","iso3":"ECU","difficulty":"medium","image":"Galapagos_giant_tortoise.jpg","description":"A remote volcanic archipelago whose fearless, unique wildlife directly inspired the theory of evolution."},
+
+  {"name":"Bagan Temples","iso3":"MMR","difficulty":"medium","image":"Bagan_Myanmar_(2).jpg","description":"A plain dotted with over 2,000 Buddhist temples and pagodas built between the 9th and 13th centuries."},
+
+  {"name":"Sigiriya Rock","iso3":"LKA","difficulty":"medium","image":"Sigiriya_mirror_wall.jpg","description":"A 180-metre rock fortress topped with 5th-century palace ruins, surrounded by ancient water gardens."},
+
+  {"name":"Mount Everest","iso3":"NPL","difficulty":"easy","image":"Mt._Everest_from_Gokyo_Ri_November_5,_2012.jpg","description":"The highest mountain on Earth at 8,849 m — the ultimate mountaineering goal since its first summit in 1953."},
+
+  {"name":"Banff National Park","iso3":"CAN","difficulty":"easy","image":"Banff_NP_(js)_24.jpg","description":"A mountain park of turquoise glacier-fed lakes, ancient ice fields and dense pine forests in the spine of a continent."},
+  {"name":"Niagara Falls","iso3":"CAN","difficulty":"easy","image":"Niagara_Falls_Canada_side.jpg","description":"Three powerful waterfalls straddling an international border, thundering with the combined flow of four Great Lakes."},
+
+  {"name":"Tikal","iso3":"GTM","difficulty":"hard","image":"Tikal-guatemala.jpg","description":"A lost Mayan city of soaring temple pyramids whose peaks emerge above an unbroken tropical rainforest canopy."},
+
+  {"name":"Easter Island Moai","iso3":"CHL","difficulty":"easy","image":"Rano_Raraku_(Easter_Island)_5.jpg","description":"Nearly 1,000 monumental stone statues carved by an ancient civilization on one of the world's most remote islands."},
+  {"name":"Atacama Desert","iso3":"CHL","difficulty":"medium","image":"Atacama_near_San_Pedro.jpg","description":"The driest non-polar desert on Earth — alien salt flats, geysers and the clearest night skies on the planet."},
+
+  {"name":"Wieliczka Salt Mine","iso3":"POL","difficulty":"medium","image":"Wieliczka_salt_mine_2.jpg","description":"A labyrinth of underground chambers and chapels hand-carved from salt over 700 years of continuous mining."},
+
+  {"name":"Gamla Stan","iso3":"SWE","difficulty":"medium","image":"Stockholm_gamla_stan.jpg","description":"One of Europe's best-preserved medieval old towns — cobblestone lanes, ochre buildings and centuries of history."},
+
+  {"name":"Chocolate Hills","iso3":"PHL","difficulty":"hard","image":"Chocolate_Hills_Bohol.jpg","description":"Over 1,200 nearly perfect cone-shaped hills that turn chocolate-brown in the dry season across a vast plateau."}
+]

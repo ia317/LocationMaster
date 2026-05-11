@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.1.0';
+const VERSION = '1.2.0';
 
 // ============================================================
 // STATE
@@ -26,6 +26,7 @@ const state = {
 // ============================================================
 let i18n = {};
 let countriesMeta = [];
+let landmarksData = [];
 let geoData = null;
 
 // ============================================================
@@ -93,6 +94,11 @@ async function loadCountriesMeta() {
 async function loadGeoData() {
   const res = await fetch(GEO_URL);
   geoData = await res.json();
+}
+
+async function loadLandmarksData() {
+  const res = await fetch('data/landmarks.json');
+  landmarksData = await res.json();
 }
 
 // ============================================================
@@ -428,6 +434,9 @@ const DIFFICULTY_CONFIG = {
 
 function buildQuestionPool() {
   const w = DIFFICULTY_WEIGHTS[state.difficulty];
+  if (state.gameMode === 'landmarks') {
+    return weightedShuffle(landmarksData, c => w[c.difficulty] || 1);
+  }
   const seen = new Set();
   return weightedShuffle(countriesMeta, c => w[c.difficulty] || 1)
     .filter(c => seen.has(c.iso3) ? false : (seen.add(c.iso3), true));
@@ -649,7 +658,9 @@ function updatePromptCard() {
 
   flagEl.innerHTML = '';
 
-  const countryName = country.name[lang] || country.name.en;
+  const countryName = typeof country.name === 'string'
+    ? country.name
+    : (country.name[lang] || country.name.en);
 
   if (state.gameMode === 'countries') {
     textEl.textContent = `${t('find_country')}: ${countryName}`;
@@ -660,7 +671,9 @@ function updatePromptCard() {
     const cap = country.capital[lang] || country.capital.en;
     textEl.textContent = `${t('find_capital')}: ${cap} (${countryName})`;
   } else if (state.gameMode === 'landmarks') {
-    textEl.textContent = `${t('find_landmark')}: ${country.landmark || countryName}`;
+    const imgUrl = `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(country.image)}`;
+    flagEl.innerHTML = `<img class="landmark-img" src="${imgUrl}" alt="${escHtml(country.name)}" onerror="this.style.display='none'">`;
+    textEl.innerHTML = `<span class="landmark-name">${escHtml(country.name)}</span><span class="landmark-desc">${escHtml(country.description)}</span>`;
   }
 }
 
@@ -727,7 +740,9 @@ function showClickDebug(latlng, countryName, result) {
     resultHtml = `<div class="click-debug-correct">✅ Correct!</div>`;
   } else if (result === 'wrong') {
     const target = state.targetCountry;
-    const targetName = target ? (target.name[state.lang] || target.name.en) : '?';
+    const targetName = target
+      ? (typeof target.name === 'string' ? target.name : (target.name[state.lang] || target.name.en))
+      : '?';
     resultHtml = `<div class="click-debug-wrong">❌ Wrong — find: ${escHtml(targetName)}</div>`;
   } else if (result === 'ocean') {
     resultHtml = `<div class="click-debug-ocean">🌊 Not a country</div>`;
@@ -835,9 +850,10 @@ window.addEventListener('DOMContentLoaded', async () => {
     loadingText.textContent = 'Loading translations...';
     await loadI18n('en');
 
-    // Load country metadata
+    // Load country metadata and landmarks
     loadingText.textContent = t('loading');
     await loadCountriesMeta();
+    await loadLandmarksData();
 
     // Load GeoJSON (may take a moment)
     loadingText.textContent = t('loading');

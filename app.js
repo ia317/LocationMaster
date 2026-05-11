@@ -1,12 +1,12 @@
 'use strict';
 
-const VERSION = '1.0.4';
+const VERSION = '1.0.5';
 
 // ── Leaderboard ──────────────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
 // Setup: firebase.google.com → new project → Realtime Database → create in test mode.
 // Rules: { "rules": { "leaderboard": { ".read": true, ".write": true } } }
-const FIREBASE_URL = '';
+const FIREBASE_URL = 'https://locationmaster-306f0-default-rtdb.firebaseio.com';
 
 // ============================================================
 // STATE

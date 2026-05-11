@@ -42,6 +42,7 @@
     <div class="panel-inner center">
       <div class="logo">🌍 locationMaster</div>
       <button id="btn-play" class="btn-primary" data-i18n="play">Play</button>
+      <button id="btn-open-leaderboard" class="btn-ghost">🏆 Leaderboard</button>
       <button id="btn-lang" class="btn-ghost" data-i18n="change_lang">Language</button>
     </div>
   </div>
@@ -129,6 +130,7 @@
       <div id="wrong-list"></div>
       <div class="results-actions">
         <button id="btn-play-again" class="btn-primary" data-i18n="play_again">Play Again</button>
+        <button id="btn-results-leaderboard" class="btn-ghost">🏆 Leaderboard</button>
         <button id="btn-results-home" class="btn-ghost" data-i18n="home">Home</button>
       </div>
     </div>
@@ -142,7 +144,35 @@
       <p id="perfect-subtitle"></p>
       <div id="perfect-score" class="perfect-score-display"></div>
       <button id="btn-perfect-again" class="btn-primary" data-i18n="play_again">Play Again</button>
+      <button id="btn-perfect-leaderboard" class="btn-ghost">🏆 Leaderboard</button>
       <button id="btn-perfect-home" class="btn-ghost" data-i18n="home">Home</button>
+    </div>
+  </div>
+
+  <!-- PANEL: Leaderboard -->
+  <div id="panel-leaderboard" class="panel panel-solid hidden">
+    <div class="panel-inner scrollable">
+      <h2 class="setup-title">🏆 Leaderboard</h2>
+      <div class="toggle-group wrap" id="tg-leaderboard-mode">
+        <button class="toggle-btn active" data-value="countries">Countries</button>
+        <button class="toggle-btn" data-value="flags">Flags</button>
+        <button class="toggle-btn" data-value="capitals">Capitals</button>
+        <button class="toggle-btn" data-value="landmarks">Landmarks</button>
+      </div>
+      <div id="leaderboard-table-container" class="leaderboard-container"></div>
+      <button id="btn-leaderboard-home" class="btn-ghost" data-i18n="home">Home</button>
+    </div>
+  </div>
+
+  <!-- Modal: leaderboard name entry (overlays everything) -->
+  <div id="modal-leaderboard-entry" class="modal-overlay hidden">
+    <div class="modal-box">
+      <div class="modal-icon">🏆</div>
+      <h2 class="modal-title">Top 10!</h2>
+      <p class="modal-subtitle">Enter your name for the leaderboard</p>
+      <input type="text" id="leaderboard-name-input" class="leaderboard-name-input"
+             maxlength="20" placeholder="Your name" autocomplete="off">
+      <button id="btn-leaderboard-submit" class="btn-primary">Save Score</button>
     </div>
   </div>
 

@@ -1,6 +1,12 @@
 'use strict';
 
-const VERSION = '1.0.3';
+const VERSION = '1.0.4';
+
+// ── Leaderboard ──────────────────────────────────────────────
+// Paste your Firebase Realtime Database URL here (no trailing slash).
+// Setup: firebase.google.com → new project → Realtime Database → create in test mode.
+// Rules: { "rules": { "leaderboard": { ".read": true, ".write": true } } }
+const FIREBASE_URL = '';
 
 // ============================================================
 // STATE
@@ -100,6 +106,126 @@ async function loadGeoData() {
 async function loadLandmarksData() {
   const res = await fetch('data/landmarks.json');
   landmarksData = await res.json();
+}
+
+// ============================================================
+// LEADERBOARD  (Firebase Realtime Database via REST)
+// ============================================================
+function leaderboardEnabled() { return !!FIREBASE_URL; }
+
+async function loadLeaderboard(mode) {
+  if (!leaderboardEnabled()) return [];
+  try {
+    const res = await fetch(`${FIREBASE_URL}/leaderboard/${mode}.json`);
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data ? Object.values(data) : [];
+  } catch { return []; }
+}
+
+async function saveLeaderboardEntry(entry) {
+  if (!leaderboardEnabled()) return;
+  try {
+    await fetch(`${FIREBASE_URL}/leaderboard/${entry.mode}.json`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(entry),
+    });
+  } catch (e) { console.warn('Leaderboard save failed:', e); }
+}
+
+async function checkLeaderboardQualification() {
+  if (!leaderboardEnabled() || state.numPlayers !== 1) return;
+  const player = state.players[0];
+  if (player.score === 0) return;
+
+  const all = await loadLeaderboard(state.gameMode);
+  const sorted = all.sort((a, b) => b.score - a.score);
+  if (sorted.length >= 10 && player.score <= sorted[9].score) return;
+
+  showNameEntryModal(player.score);
+}
+
+function showNameEntryModal(finalScore) {
+  const modal  = document.getElementById('modal-leaderboard-entry');
+  const input  = document.getElementById('leaderboard-name-input');
+  const submit = document.getElementById('btn-leaderboard-submit');
+  modal.classList.remove('hidden');
+  input.value = '';
+  setTimeout(() => input.focus(), 100);
+
+  const done = async () => {
+    submit.removeEventListener('click', done);
+    input.removeEventListener('keydown', onKey);
+    modal.classList.add('hidden');
+
+    const name = input.value.trim() || 'Anonymous';
+    const pts  = DIFFICULTY_CONFIG[state.difficulty].points;
+    const correct = Math.round(finalScore / pts);
+    await saveLeaderboardEntry({
+      name,
+      score:      finalScore,
+      difficulty: state.difficulty,
+      mode:       state.gameMode,
+      correct,
+      total:      state.questionIdx,
+      date:       new Date().toLocaleDateString('en-GB'),
+      timestamp:  Date.now(),
+    });
+    showLeaderboard(state.gameMode);
+  };
+  const onKey = e => { if (e.key === 'Enter') done(); };
+  submit.addEventListener('click', done);
+  input.addEventListener('keydown', onKey);
+}
+
+async function showLeaderboard(mode) {
+  showPanel('leaderboard');
+  document.querySelectorAll('#tg-leaderboard-mode .toggle-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.value === mode);
+  });
+  renderLeaderboardTable(null);
+  const scores = await loadLeaderboard(mode);
+  renderLeaderboardTable(scores);
+}
+
+function renderLeaderboardTable(scores) {
+  const el = document.getElementById('leaderboard-table-container');
+  if (!leaderboardEnabled()) {
+    el.innerHTML = '<p class="leaderboard-msg">Leaderboard not configured yet.</p>';
+    return;
+  }
+  if (scores === null) {
+    el.innerHTML = '<p class="leaderboard-msg">Loading…</p>';
+    return;
+  }
+  if (scores.length === 0) {
+    el.innerHTML = '<p class="leaderboard-msg">No scores yet — be the first!</p>';
+    return;
+  }
+  const top10 = scores.sort((a, b) => b.score - a.score).slice(0, 10);
+  const medal = ['🥇','🥈','🥉'];
+  const diff  = { easy: '⭐', medium: '⭐⭐', hard: '⭐⭐⭐' };
+  el.innerHTML = `
+    <table class="lb-table">
+      <thead>
+        <tr>
+          <th>#</th><th>Name</th><th>Score</th>
+          <th>Difficulty</th><th>Correct</th><th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${top10.map((e, i) => `
+          <tr class="${i < 3 ? 'lb-top3' : ''}">
+            <td class="lb-rank">${medal[i] || i + 1}</td>
+            <td class="lb-name">${escHtml(e.name)}</td>
+            <td class="lb-score">${e.score}</td>
+            <td>${diff[e.difficulty] || e.difficulty}</td>
+            <td>${e.correct ?? '—'}/${e.total ?? '—'}</td>
+            <td class="lb-date">${e.date || '—'}</td>
+          </tr>`).join('')}
+      </tbody>
+    </table>`;
 }
 
 async function getWikiImage(title) {
@@ -317,7 +443,7 @@ function clickToSkip() {
 // PANELS / SCREENS
 // ============================================================
 function showPanel(name) {
-  const panels = ['lang', 'home', 'setup', 'results', 'perfect'];
+  const panels = ['lang', 'home', 'setup', 'results', 'perfect', 'leaderboard'];
   panels.forEach(p => {
     const el = document.getElementById(`panel-${p}`);
     if (el) el.classList.add('hidden');
@@ -595,11 +721,13 @@ function endGame(reason) {
       reason === 'questions_done') {
     setTimeout(() => sounds.perfect(), 300);
     showPerfectScreen();
+    setTimeout(() => checkLeaderboardQualification(), 800);
     return;
   }
 
   setTimeout(() => sounds.gameOver(), 300);
   showResultsScreen(reason);
+  setTimeout(() => checkLeaderboardQualification(), 800);
 }
 
 // ============================================================
@@ -827,6 +955,7 @@ function initEventListeners() {
 
   // Results screen
   document.getElementById('btn-play-again').addEventListener('click', () => showPanel('setup'));
+  document.getElementById('btn-results-leaderboard').addEventListener('click', () => showLeaderboard(state.gameMode));
   document.getElementById('btn-results-home').addEventListener('click', () => {
     resetAllCountryStyles();
     showPanel('home');
@@ -834,10 +963,16 @@ function initEventListeners() {
 
   // Perfect screen
   document.getElementById('btn-perfect-again').addEventListener('click', () => showPanel('setup'));
+  document.getElementById('btn-perfect-leaderboard').addEventListener('click', () => showLeaderboard(state.gameMode));
   document.getElementById('btn-perfect-home').addEventListener('click', () => {
     resetAllCountryStyles();
     showPanel('home');
   });
+
+  // Leaderboard screen
+  document.getElementById('btn-open-leaderboard').addEventListener('click', () => showLeaderboard(state.gameMode || 'countries'));
+  document.getElementById('btn-leaderboard-home').addEventListener('click', () => showPanel('home'));
+  setupToggleGroup('tg-leaderboard-mode', val => showLeaderboard(val));
 
   // Finish game
   document.getElementById('btn-finish-game').addEventListener('click', () => {

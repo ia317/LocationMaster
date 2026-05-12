@@ -180,11 +180,11 @@ async function loadAndShowStats() {
   const locs  = stats.locationsFound || 0;
 
   if (games > 0 || locs > 0) {
-    gamesEl.innerHTML = `🌍 <strong>${games.toLocaleString()}</strong> games played — yours is next!`;
-    locEl.innerHTML   = `📍 <strong>${locs.toLocaleString()}</strong> locations found worldwide`;
+    gamesEl.innerHTML = `🌍 <strong>${games.toLocaleString()}</strong> games played`;
+    locEl.innerHTML   = `📍 <strong>${locs.toLocaleString()}</strong> locations found`;
   } else {
     gamesEl.innerHTML = `🌍 Be the first to play!`;
-    locEl.innerHTML   = `📍 No locations found yet — start exploring!`;
+    locEl.innerHTML   = ``;
   }
 }
 

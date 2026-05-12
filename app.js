@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.0.7';
+const VERSION = '1.0.8';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -34,7 +34,7 @@ let i18n = {};
 let countriesMeta = [];
 let landmarksData = [];
 let geoData = null;
-const wikiImageCache = new Map();
+const wikiInfoCache = new Map();
 
 // ============================================================
 // MAP
@@ -269,17 +269,52 @@ function renderLeaderboardTable(scores) {
     </table>`;
 }
 
-async function getWikiImage(title) {
-  if (wikiImageCache.has(title)) return wikiImageCache.get(title);
+async function getWikiInfo(enTitle, lang) {
+  const key = `${lang}:${enTitle}`;
+  if (wikiInfoCache.has(key)) return wikiInfoCache.get(key);
+
+  const store = v => { wikiInfoCache.set(key, v); return v; };
+  const enFallback = async () => {
+    try {
+      const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(enTitle)}`);
+      if (r.ok) { const d = await r.json(); return { imageUrl: d.thumbnail?.source || null, translatedName: null, description: null }; }
+    } catch {}
+    return { imageUrl: null, translatedName: null, description: null };
+  };
+
   try {
-    const res = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`);
-    const url = res.ok ? ((await res.json()).thumbnail?.source || null) : null;
-    wikiImageCache.set(title, url);
-    return url;
-  } catch {
-    wikiImageCache.set(title, null);
-    return null;
-  }
+    if (lang === 'en') {
+      return store(await enFallback());
+    }
+
+    // Step 1 — get translated title via langlinks
+    const lr = await fetch(
+      `https://en.wikipedia.org/w/api.php?action=query&prop=langlinks&titles=${encodeURIComponent(enTitle)}&lllang=${lang}&format=json&origin=*`
+    );
+    if (lr.ok) {
+      const ld = await lr.json();
+      const ll = Object.values(ld.query?.pages || {})[0]?.langlinks?.[0]?.['*'];
+      if (ll) {
+        // Step 2 — fetch summary in target language
+        const sr = await fetch(`https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(ll)}`);
+        if (sr.ok) {
+          const d = await sr.json();
+          const result = { imageUrl: d.thumbnail?.source || null, translatedName: d.title || ll, description: d.extract || null };
+          if (!result.imageUrl) result.imageUrl = (await enFallback()).imageUrl;
+          return store(result);
+        }
+      }
+    }
+  } catch (e) { console.warn('Wiki info fetch failed:', e); }
+
+  return store(await enFallback());
+}
+
+function firstSentence(text, max = 280) {
+  if (!text) return '';
+  const m = text.match(/^.+?[.!?](?:\s|$)/);
+  const s = m ? m[0].trim() : text;
+  return s.length > max ? s.slice(0, max) + '…' : s;
 }
 
 // ============================================================
@@ -719,10 +754,10 @@ function nextQuestion() {
   state.targetCountry = state.questionPool[state.questionIdx++];
   state.awaitingNext = false;
 
-  // Pre-fetch next landmark image while player answers current question
+  // Pre-fetch next landmark info while player answers current question
   if (state.gameMode === 'landmarks') {
     const next = state.questionPool[state.questionIdx];
-    if (next) getWikiImage(next.wikipedia || next.name);
+    if (next) getWikiInfo(next.wikipedia || next.name, state.lang);
   }
 
   sounds.newQuestion();
@@ -934,13 +969,21 @@ function updatePromptCard() {
     textEl.textContent = `${t('find_capital')}: ${cap} (${countryName})`;
   } else if (state.gameMode === 'landmarks') {
     const snapshot = country;
+    const enTitle = country.wikipedia || country.name;
     flagEl.innerHTML = '<div class="landmark-img-placeholder"></div>';
     textEl.innerHTML = `<span class="landmark-name">${escHtml(country.name)}</span><span class="landmark-desc">${escHtml(country.description)}</span>`;
-    getWikiImage(country.wikipedia || country.name).then(url => {
+    getWikiInfo(enTitle, state.lang).then(info => {
       if (state.targetCountry !== snapshot) return;
-      flagEl.innerHTML = url
-        ? `<img class="landmark-img" src="${url}" alt="${escHtml(snapshot.name)}">`
+      flagEl.innerHTML = info.imageUrl
+        ? `<img class="landmark-img" src="${info.imageUrl}" alt="${escHtml(snapshot.name)}">`
         : '';
+      const displayName = (state.lang !== 'en' && info.translatedName && info.translatedName !== snapshot.name)
+        ? `${info.translatedName} (${snapshot.name})`
+        : snapshot.name;
+      const displayDesc = (state.lang !== 'en' && info.description)
+        ? firstSentence(info.description)
+        : snapshot.description;
+      textEl.innerHTML = `<span class="landmark-name">${escHtml(displayName)}</span><span class="landmark-desc">${escHtml(displayDesc)}</span>`;
     });
   }
 }

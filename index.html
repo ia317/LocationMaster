@@ -44,6 +44,10 @@
       <button id="btn-play" class="btn-primary" data-i18n="play">Play</button>
       <button id="btn-open-leaderboard" class="btn-ghost">🏆 Leaderboard</button>
       <button id="btn-lang" class="btn-ghost" data-i18n="change_lang">Language</button>
+      <div id="home-stats" class="home-stats hidden">
+        <div id="home-games-counter" class="stat-line"></div>
+        <div id="home-locations-counter" class="stat-line"></div>
+      </div>
     </div>
   </div>
 
@@ -108,6 +112,10 @@
     <div id="prompt-card">
       <div id="prompt-flag"></div>
       <div id="prompt-text"></div>
+      <div id="timer-container" class="hidden">
+        <div id="timer-track"><div id="timer-fill"></div></div>
+        <span id="timer-label">20</span>
+      </div>
     </div>
 
     <div id="scoreboard">

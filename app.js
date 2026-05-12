@@ -1,11 +1,11 @@
 'use strict';
 
-const VERSION = '1.0.5';
+const VERSION = '1.0.6';
 
-// ── Leaderboard ──────────────────────────────────────────────
+// ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
 // Setup: firebase.google.com → new project → Realtime Database → create in test mode.
-// Rules: { "rules": { "leaderboard": { ".read": true, ".write": true } } }
+// Rules: { "rules": { "leaderboard": { ".read": true, ".write": true }, "stats": { ".read": true, ".write": true } } }
 const FIREBASE_URL = 'https://locationmaster-306f0-default-rtdb.firebaseio.com';
 
 // ============================================================
@@ -47,6 +47,7 @@ let awaitTimeout = null;
 let awaitResolveFn = null;
 let clickDebugTimeout = null;
 let _layerClickHandled = false;
+let questionTimerRAF = null;
 
 const TILES = {
   solid: {
@@ -132,6 +133,46 @@ async function saveLeaderboardEntry(entry) {
       body: JSON.stringify(entry),
     });
   } catch (e) { console.warn('Leaderboard save failed:', e); }
+}
+
+async function loadStats() {
+  if (!leaderboardEnabled()) return { gamesPlayed: 0, locationsFound: 0 };
+  try {
+    const res = await fetch(`${FIREBASE_URL}/stats.json`);
+    if (!res.ok) return { gamesPlayed: 0, locationsFound: 0 };
+    const data = await res.json();
+    return data || { gamesPlayed: 0, locationsFound: 0 };
+  } catch { return { gamesPlayed: 0, locationsFound: 0 }; }
+}
+
+async function incrementStat(field) {
+  if (!leaderboardEnabled()) return;
+  try {
+    const res = await fetch(`${FIREBASE_URL}/stats/${field}.json`);
+    const cur = res.ok ? (await res.json() || 0) : 0;
+    await fetch(`${FIREBASE_URL}/stats/${field}.json`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(cur + 1),
+    });
+  } catch (e) { console.warn('Stats update failed:', e); }
+}
+
+async function loadAndShowStats() {
+  const statsEl = document.getElementById('home-stats');
+  const gamesEl = document.getElementById('home-games-counter');
+  const locEl   = document.getElementById('home-locations-counter');
+  if (!statsEl) return;
+
+  const stats = await loadStats();
+  const games = stats.gamesPlayed  || 0;
+  const locs  = stats.locationsFound || 0;
+
+  if (games > 0 || locs > 0) {
+    gamesEl.innerHTML = `🌍 <strong>${games.toLocaleString()}</strong> games played — yours is next!`;
+    locEl.innerHTML   = `📍 <strong>${locs.toLocaleString()}</strong> locations found worldwide`;
+    statsEl.classList.remove('hidden');
+  }
 }
 
 async function checkLeaderboardQualification() {
@@ -440,6 +481,54 @@ function clickToSkip() {
 }
 
 // ============================================================
+// QUESTION TIMER
+// ============================================================
+function startQuestionTimer() {
+  clearQuestionTimer();
+  const total = DIFFICULTY_CONFIG[state.difficulty].time;
+  const startTime = Date.now();
+
+  const container = document.getElementById('timer-container');
+  container.classList.remove('hidden');
+  updateTimerUI(total, total);
+
+  const tick = () => {
+    const elapsed = (Date.now() - startTime) / 1000;
+    const remaining = Math.max(0, total - elapsed);
+    updateTimerUI(remaining, total);
+
+    if (remaining <= 0) {
+      clearQuestionTimer();
+      if (state.gameActive && !state.awaitingNext) handleWrong(null);
+      return;
+    }
+    questionTimerRAF = requestAnimationFrame(tick);
+  };
+  questionTimerRAF = requestAnimationFrame(tick);
+}
+
+function clearQuestionTimer() {
+  if (questionTimerRAF !== null) {
+    cancelAnimationFrame(questionTimerRAF);
+    questionTimerRAF = null;
+  }
+  const el = document.getElementById('timer-container');
+  if (el) el.classList.add('hidden');
+}
+
+function updateTimerUI(remaining, total) {
+  const fill  = document.getElementById('timer-fill');
+  const label = document.getElementById('timer-label');
+  if (!fill || !label) return;
+  const pct = (remaining / total) * 100;
+  fill.style.width = `${pct}%`;
+  label.textContent = Math.ceil(remaining);
+  const color = pct > 50 ? 'var(--green)' : pct > 25 ? 'var(--yellow)' : 'var(--red)';
+  fill.style.background = color;
+  label.style.color = color;
+}
+
+// ============================================================
 // PANELS / SCREENS
 // ============================================================
 function showPanel(name) {
@@ -450,6 +539,8 @@ function showPanel(name) {
   });
   const hud = document.getElementById('hud');
   hud.classList.add('hidden');
+
+  if (name === 'home') loadAndShowStats();
 
   if (name === 'game') {
     hud.classList.remove('hidden');
@@ -553,6 +644,7 @@ function startGame() {
   setTileLayer(state.mapStyle);
   showPanel('game');
   updateScoreboard();
+  incrementStat('gamesPlayed');
   nextQuestion();
 }
 
@@ -567,9 +659,9 @@ const DIFFICULTY_WEIGHTS = {
 };
 
 const DIFFICULTY_CONFIG = {
-  easy:   { lives: 3, points: 1 },
-  medium: { lives: 2, points: 2 },
-  hard:   { lives: 1, points: 3 },
+  easy:   { lives: 3, points: 1, time: 20 },
+  medium: { lives: 2, points: 2, time: 13 },
+  hard:   { lives: 1, points: 3, time: 7 },
 };
 
 function buildQuestionPool() {
@@ -628,6 +720,7 @@ function nextQuestion() {
   updatePromptCard();
   updateScoreboard();
   updateGameHeader();
+  startQuestionTimer();
 }
 
 function onCountryClick(iso) {
@@ -642,9 +735,11 @@ function onCountryClick(iso) {
 }
 
 function handleCorrect() {
+  clearQuestionTimer();
   const player = state.players[state.currentPlayerIdx];
   player.score += DIFFICULTY_CONFIG[state.difficulty].points;
 
+  incrementStat('locationsFound');
   sounds.correct();
   highlightCountry(state.targetCountry.iso3, '#22c55e');
   showFeedback('correct', `✅ ${t('correct')}!`);
@@ -657,14 +752,17 @@ function handleCorrect() {
 }
 
 function handleWrong(clickedIso) {
+  if (!state.gameActive || state.awaitingNext) return;
+  clearQuestionTimer();
+
   const player = state.players[state.currentPlayerIdx];
   player.strikes++;
   if (!player.wrongCountries.includes(state.targetCountry.iso3)) {
     player.wrongCountries.push(state.targetCountry.iso3);
   }
 
-  // Show where they clicked (red) and correct answer (orange)
-  highlightCountry(clickedIso, '#ef4444');
+  const isTimeout = clickedIso === null;
+  if (!isTimeout) highlightCountry(clickedIso, '#ef4444');
   highlightCountry(state.targetCountry.iso3, '#f97316');
 
   state.awaitingNext = true;
@@ -672,7 +770,10 @@ function handleWrong(clickedIso) {
   if (player.strikes >= DIFFICULTY_CONFIG[state.difficulty].lives) {
     player.eliminated = true;
     sounds.eliminated();
-    showFeedback('eliminated', `💀 ${player.name} ${t('eliminated')}!`);
+    const elimMsg = isTimeout
+      ? `⏰ ${player.name} — time's up! Eliminated!`
+      : `💀 ${player.name} ${t('eliminated')}!`;
+    showFeedback('eliminated', elimMsg);
     updateScoreboard();
 
     scheduleNext(2000, () => {
@@ -687,7 +788,10 @@ function handleWrong(clickedIso) {
   } else {
     sounds.wrong();
     const left = DIFFICULTY_CONFIG[state.difficulty].lives - player.strikes;
-    showFeedback('wrong', `❌ ${t('wrong')}! ${left} ${t('lives_left')}`);
+    const wrongMsg = isTimeout
+      ? `⏰ Time's up! ${left} ${t('lives_left')}`
+      : `❌ ${t('wrong')}! ${left} ${t('lives_left')}`;
+    showFeedback('wrong', wrongMsg);
     updateScoreboard();
 
     scheduleNext(1500, () => {
@@ -713,6 +817,7 @@ function advanceTurn() {
 
 function endGame(reason) {
   state.gameActive = false;
+  clearQuestionTimer();
   if (awaitTimeout) { clearTimeout(awaitTimeout); awaitTimeout = null; awaitResolveFn = null; }
 
   // Perfect single-player game

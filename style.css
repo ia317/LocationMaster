@@ -641,6 +641,68 @@ html, body {
 }
 
 /* ============================================
+   QUESTION TIMER
+   ============================================ */
+#timer-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  width: 100%;
+}
+
+#timer-container.hidden { display: none; }
+
+#timer-track {
+  flex: 1;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+#timer-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--green);
+  width: 100%;
+}
+
+#timer-label {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--green);
+  min-width: 22px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================
+   HOME STATS
+   ============================================ */
+.home-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.home-stats.hidden { display: none; }
+
+.stat-line {
+  font-size: 13px;
+  color: var(--text2);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.stat-line strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ============================================
    FEEDBACK OVERLAY
    ============================================ */
 #feedback {

@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.0.10';
+const VERSION = '1.0.11';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -171,6 +171,10 @@ async function loadAndShowStats() {
   const locEl   = document.getElementById('home-locations-counter');
   if (!statsEl) return;
 
+  statsEl.classList.remove('hidden');
+  gamesEl.innerHTML = `🌍 Loading stats...`;
+  locEl.innerHTML   = ``;
+
   const stats = await loadStats();
   const games = stats.gamesPlayed  || 0;
   const locs  = stats.locationsFound || 0;
@@ -178,7 +182,9 @@ async function loadAndShowStats() {
   if (games > 0 || locs > 0) {
     gamesEl.innerHTML = `🌍 <strong>${games.toLocaleString()}</strong> games played — yours is next!`;
     locEl.innerHTML   = `📍 <strong>${locs.toLocaleString()}</strong> locations found worldwide`;
-    statsEl.classList.remove('hidden');
+  } else {
+    gamesEl.innerHTML = `🌍 Be the first to play!`;
+    locEl.innerHTML   = `📍 No locations found yet — start exploring!`;
   }
 }
 

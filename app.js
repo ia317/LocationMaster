@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.0.6';
+const VERSION = '1.0.7';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -383,9 +383,12 @@ function renderGeoLayer() {
     style: () => getDefaultStyle(),
     onEachFeature: (feature, layer) => {
       const p = feature.properties;
-      const iso = p['ISO3166-1-Alpha-3'] || p.ISO_A3 || p.iso_a3 || p.ISO3 || p.iso3 || p.ADM0_A3;
-      if (!iso || iso === '-99') return;
-      countryLayers[iso] = layer;
+      const rawIso = p['ISO3166-1-Alpha-3'] || p.ISO_A3 || p.iso_a3 || p.ISO3 || p.iso3 || p.ADM0_A3;
+      if (!rawIso || rawIso === '-99') return;
+      const iso = ISO_REMAP[rawIso] || rawIso;
+
+      if (!countryLayers[iso]) countryLayers[iso] = [];
+      countryLayers[iso].push(layer);
 
       layer.options.bubblingMouseEvents = false;
 
@@ -444,14 +447,16 @@ function applyBorders() {
 }
 
 function highlightCountry(iso, color, permanent = false) {
-  const layer = countryLayers[iso];
-  if (!layer) return;
-  layer.setStyle({ fillColor: color, fillOpacity: 0.75, color: '#fff', weight: 2 });
-  if (!permanent) {
-    setTimeout(() => {
-      if (geoLayer) geoLayer.resetStyle(layer);
-    }, 1600);
-  }
+  const layers = countryLayers[iso];
+  if (!layers || !layers.length) return;
+  layers.forEach(layer => {
+    layer.setStyle({ fillColor: color, fillOpacity: 0.75, color: '#fff', weight: 2 });
+    if (!permanent) {
+      setTimeout(() => {
+        if (geoLayer) geoLayer.resetStyle(layer);
+      }, 1600);
+    }
+  });
 }
 
 function resetAllCountryStyles() {
@@ -647,6 +652,10 @@ function startGame() {
   incrementStat('gamesPlayed');
   nextQuestion();
 }
+
+// ISO codes to merge into another country (key → value).
+// These regions will be treated as clicks on the target country.
+const ISO_REMAP = { PSE: 'ISR' };
 
 // Weights per country-difficulty for each selected difficulty level.
 // Easy mode:   easy=8, medium=3, hard=1  → mostly easy countries

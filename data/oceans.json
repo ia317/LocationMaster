@@ -1,0 +1,165 @@
+[
+  {
+    "id": "pacific",
+    "name": { "en": "Pacific Ocean", "he": "האוקיינוס השקט", "fr": "Océan Pacifique", "es": "Océano Pacífico", "pt": "Oceano Pacífico", "zh": "太平洋" },
+    "difficulty": "easy",
+    "center": [0, -160],
+    "bounds": { "latMin": -60, "latMax": 60, "lngMin": 120, "lngMax": -70, "crossesDateLine": true }
+  },
+  {
+    "id": "atlantic",
+    "name": { "en": "Atlantic Ocean", "he": "האוקיינוס האטלנטי", "fr": "Océan Atlantique", "es": "Océano Atlántico", "pt": "Oceano Atlântico", "zh": "大西洋" },
+    "difficulty": "easy",
+    "center": [0, -30],
+    "bounds": { "latMin": -55, "latMax": 65, "lngMin": -80, "lngMax": 20, "crossesDateLine": false }
+  },
+  {
+    "id": "indian",
+    "name": { "en": "Indian Ocean", "he": "האוקיינוס ההודי", "fr": "Océan Indien", "es": "Océano Índico", "pt": "Oceano Índico", "zh": "印度洋" },
+    "difficulty": "easy",
+    "center": [-20, 80],
+    "bounds": { "latMin": -60, "latMax": 25, "lngMin": 20, "lngMax": 120, "crossesDateLine": false }
+  },
+  {
+    "id": "arctic",
+    "name": { "en": "Arctic Ocean", "he": "האוקיינוס הארקטי", "fr": "Océan Arctique", "es": "Océano Ártico", "pt": "Oceano Ártico", "zh": "北冰洋" },
+    "difficulty": "easy",
+    "center": [85, 0],
+    "bounds": { "latMin": 65, "latMax": 90, "lngMin": -180, "lngMax": 180, "crossesDateLine": false }
+  },
+  {
+    "id": "southern",
+    "name": { "en": "Southern Ocean", "he": "האוקיינוס הדרומי", "fr": "Océan Austral", "es": "Océano Antártico", "pt": "Oceano Antártico", "zh": "南冰洋" },
+    "difficulty": "easy",
+    "center": [-70, 0],
+    "bounds": { "latMin": -90, "latMax": -56, "lngMin": -180, "lngMax": 180, "crossesDateLine": false }
+  },
+
+  {
+    "id": "mediterranean",
+    "name": { "en": "Mediterranean Sea", "he": "הים התיכון", "fr": "Mer Méditerranée", "es": "Mar Mediterráneo", "pt": "Mar Mediterrâneo", "zh": "地中海" },
+    "difficulty": "medium",
+    "center": [38, 15],
+    "bounds": { "latMin": 30, "latMax": 46, "lngMin": -6, "lngMax": 37, "crossesDateLine": false }
+  },
+  {
+    "id": "caribbean",
+    "name": { "en": "Caribbean Sea", "he": "הים הקריבי", "fr": "Mer des Caraïbes", "es": "Mar Caribe", "pt": "Mar do Caribe", "zh": "加勒比海" },
+    "difficulty": "medium",
+    "center": [16, -75],
+    "bounds": { "latMin": 8, "latMax": 25, "lngMin": -90, "lngMax": -59, "crossesDateLine": false }
+  },
+  {
+    "id": "red_sea",
+    "name": { "en": "Red Sea", "he": "ים סוף", "fr": "Mer Rouge", "es": "Mar Rojo", "pt": "Mar Vermelho", "zh": "红海" },
+    "difficulty": "medium",
+    "center": [22, 38],
+    "bounds": { "latMin": 12, "latMax": 30, "lngMin": 32, "lngMax": 44, "crossesDateLine": false }
+  },
+  {
+    "id": "arabian_sea",
+    "name": { "en": "Arabian Sea", "he": "הים הערבי", "fr": "Mer d'Arabie", "es": "Mar Arábigo", "pt": "Mar Arábico", "zh": "阿拉伯海" },
+    "difficulty": "medium",
+    "center": [15, 66],
+    "bounds": { "latMin": 5, "latMax": 26, "lngMin": 55, "lngMax": 78, "crossesDateLine": false }
+  },
+  {
+    "id": "south_china_sea",
+    "name": { "en": "South China Sea", "he": "הים הסיני הדרומי", "fr": "Mer de Chine méridionale", "es": "Mar de China Meridional", "pt": "Mar do Sul da China", "zh": "南海" },
+    "difficulty": "medium",
+    "center": [12, 113],
+    "bounds": { "latMin": 0, "latMax": 25, "lngMin": 100, "lngMax": 125, "crossesDateLine": false }
+  },
+  {
+    "id": "bay_of_bengal",
+    "name": { "en": "Bay of Bengal", "he": "מפרץ בנגל", "fr": "Golfe du Bengale", "es": "Golfo de Bengala", "pt": "Baía de Bengala", "zh": "孟加拉湾" },
+    "difficulty": "medium",
+    "center": [14, 88],
+    "bounds": { "latMin": 5, "latMax": 23, "lngMin": 79, "lngMax": 100, "crossesDateLine": false }
+  },
+  {
+    "id": "gulf_of_mexico",
+    "name": { "en": "Gulf of Mexico", "he": "מפרץ מקסיקו", "fr": "Golfe du Mexique", "es": "Golfo de México", "pt": "Golfo do México", "zh": "墨西哥湾" },
+    "difficulty": "medium",
+    "center": [25, -90],
+    "bounds": { "latMin": 18, "latMax": 31, "lngMin": -98, "lngMax": -81, "crossesDateLine": false }
+  },
+  {
+    "id": "sea_of_japan",
+    "name": { "en": "Sea of Japan", "he": "ים יפן", "fr": "Mer du Japon", "es": "Mar del Japón", "pt": "Mar do Japão", "zh": "日本海" },
+    "difficulty": "medium",
+    "center": [40, 135],
+    "bounds": { "latMin": 33, "latMax": 52, "lngMin": 127, "lngMax": 142, "crossesDateLine": false }
+  },
+
+  {
+    "id": "black_sea",
+    "name": { "en": "Black Sea", "he": "הים השחור", "fr": "Mer Noire", "es": "Mar Negro", "pt": "Mar Negro", "zh": "黑海" },
+    "difficulty": "hard",
+    "center": [43, 34],
+    "bounds": { "latMin": 40, "latMax": 47, "lngMin": 27, "lngMax": 42, "crossesDateLine": false }
+  },
+  {
+    "id": "north_sea",
+    "name": { "en": "North Sea", "he": "הים הצפוני", "fr": "Mer du Nord", "es": "Mar del Norte", "pt": "Mar do Norte", "zh": "北海" },
+    "difficulty": "hard",
+    "center": [57, 3],
+    "bounds": { "latMin": 51, "latMax": 62, "lngMin": -5, "lngMax": 10, "crossesDateLine": false }
+  },
+  {
+    "id": "bering_sea",
+    "name": { "en": "Bering Sea", "he": "ים ברינג", "fr": "Mer de Béring", "es": "Mar de Bering", "pt": "Mar de Bering", "zh": "白令海" },
+    "difficulty": "hard",
+    "center": [59, -174],
+    "bounds": { "latMin": 52, "latMax": 67, "lngMin": 160, "lngMax": -158, "crossesDateLine": true }
+  },
+  {
+    "id": "coral_sea",
+    "name": { "en": "Coral Sea", "he": "ים האלמוגים", "fr": "Mer de Corail", "es": "Mar del Coral", "pt": "Mar de Coral", "zh": "珊瑚海" },
+    "difficulty": "hard",
+    "center": [-18, 155],
+    "bounds": { "latMin": -25, "latMax": -8, "lngMin": 145, "lngMax": 165, "crossesDateLine": false }
+  },
+  {
+    "id": "tasman_sea",
+    "name": { "en": "Tasman Sea", "he": "ים טסמן", "fr": "Mer de Tasman", "es": "Mar de Tasmania", "pt": "Mar de Tasman", "zh": "塔斯曼海" },
+    "difficulty": "hard",
+    "center": [-38, 160],
+    "bounds": { "latMin": -47, "latMax": -30, "lngMin": 150, "lngMax": 175, "crossesDateLine": false }
+  },
+  {
+    "id": "aegean_sea",
+    "name": { "en": "Aegean Sea", "he": "הים האגאי", "fr": "Mer Égée", "es": "Mar Egeo", "pt": "Mar Egeu", "zh": "爱琴海" },
+    "difficulty": "hard",
+    "center": [39, 25],
+    "bounds": { "latMin": 35, "latMax": 42, "lngMin": 23, "lngMax": 30, "crossesDateLine": false }
+  },
+  {
+    "id": "persian_gulf",
+    "name": { "en": "Persian Gulf", "he": "המפרץ הפרסי", "fr": "Golfe Persique", "es": "Golfo Pérsico", "pt": "Golfo Pérsico", "zh": "波斯湾" },
+    "difficulty": "hard",
+    "center": [27, 52],
+    "bounds": { "latMin": 23, "latMax": 30, "lngMin": 48, "lngMax": 60, "crossesDateLine": false }
+  },
+  {
+    "id": "yellow_sea",
+    "name": { "en": "Yellow Sea", "he": "הים הצהוב", "fr": "Mer Jaune", "es": "Mar Amarillo", "pt": "Mar Amarelo", "zh": "黄海" },
+    "difficulty": "hard",
+    "center": [35, 122],
+    "bounds": { "latMin": 30, "latMax": 42, "lngMin": 118, "lngMax": 127, "crossesDateLine": false }
+  },
+  {
+    "id": "caspian_sea",
+    "name": { "en": "Caspian Sea", "he": "הים הכספי", "fr": "Mer Caspienne", "es": "Mar Caspio", "pt": "Mar Cáspio", "zh": "里海" },
+    "difficulty": "hard",
+    "center": [43, 52],
+    "bounds": { "latMin": 36, "latMax": 50, "lngMin": 49, "lngMax": 55, "crossesDateLine": false }
+  },
+  {
+    "id": "norwegian_sea",
+    "name": { "en": "Norwegian Sea", "he": "הים הנורבגי", "fr": "Mer de Norvège", "es": "Mar de Noruega", "pt": "Mar da Noruega", "zh": "挪威海" },
+    "difficulty": "hard",
+    "center": [67, 5],
+    "bounds": { "latMin": 60, "latMax": 75, "lngMin": -15, "lngMax": 20, "crossesDateLine": false }
+  }
+]

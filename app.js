@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.0.9';
+const VERSION = '1.0.10';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -33,6 +33,7 @@ const state = {
 let i18n = {};
 let countriesMeta = [];
 let landmarksData = [];
+let oceansData = [];
 let geoData = null;
 const wikiInfoCache = new Map();
 
@@ -48,6 +49,7 @@ let awaitResolveFn = null;
 let clickDebugTimeout = null;
 let _layerClickHandled = false;
 let questionTimerRAF = null;
+let oceanHighlightLayer = null;
 
 const TILES = {
   solid: {
@@ -107,6 +109,11 @@ async function loadGeoData() {
 async function loadLandmarksData() {
   const res = await fetch('data/landmarks.json');
   landmarksData = await res.json();
+}
+
+async function loadOceansData() {
+  const res = await fetch('data/oceans.json');
+  oceansData = await res.json();
 }
 
 // ============================================================
@@ -379,6 +386,7 @@ function initMap() {
     showClickDebug(e.latlng, null, 'ocean');
     if (!state.gameActive) return;
     if (state.awaitingNext) { clickToSkip(); return; }
+    if (state.gameMode === 'oceans') { onOceanWaterClick(e.latlng); return; }
     showFeedback('info', t('click_country'));
     setTimeout(hideFeedback, 1200);
   });
@@ -432,6 +440,7 @@ function renderGeoLayer() {
         showClickDebug(e.latlng, countryName, result);
         if (!state.gameActive) return;
         if (state.awaitingNext) { clickToSkip(); return; }
+        if (state.gameMode === 'oceans') { handleWrong(iso); return; }
         onCountryClick(iso);
       });
 
@@ -560,6 +569,42 @@ function updateTimerUI(remaining, total) {
   const color = pct > 50 ? 'var(--green)' : pct > 25 ? 'var(--yellow)' : 'var(--red)';
   fill.style.background = color;
   label.style.color = color;
+}
+
+// ============================================================
+// OCEAN HELPERS
+// ============================================================
+function isInOceanBounds(latlng, ocean) {
+  const { lat, lng } = latlng;
+  const { latMin, latMax, lngMin, lngMax, crossesDateLine } = ocean.bounds;
+  if (lat < latMin || lat > latMax) return false;
+  if (crossesDateLine) return lng >= lngMin || lng <= lngMax;
+  return lng >= lngMin && lng <= lngMax;
+}
+
+function highlightOcean(ocean, color, permanent = false) {
+  clearOceanHighlight();
+  const radii = { easy: 2200000, medium: 1100000, hard: 650000 };
+  oceanHighlightLayer = L.circle(ocean.center, {
+    radius: radii[ocean.difficulty] || 1000000,
+    color, fillColor: color, fillOpacity: 0.35, weight: 2, interactive: false,
+  }).addTo(map);
+  if (!permanent) {
+    setTimeout(clearOceanHighlight, 1700);
+  }
+}
+
+function clearOceanHighlight() {
+  if (oceanHighlightLayer) { map.removeLayer(oceanHighlightLayer); oceanHighlightLayer = null; }
+}
+
+function onOceanWaterClick(latlng) {
+  if (!state.gameActive || state.awaitingNext) return;
+  if (isInOceanBounds(latlng, state.targetCountry)) {
+    handleCorrect();
+  } else {
+    handleWrong(null);
+  }
 }
 
 // ============================================================
@@ -707,6 +752,9 @@ function buildQuestionPool() {
   if (state.gameMode === 'landmarks') {
     return weightedShuffle(landmarksData, c => w[c.difficulty] || 1);
   }
+  if (state.gameMode === 'oceans') {
+    return weightedShuffle(oceansData, c => w[c.difficulty] || 1);
+  }
   const seen = new Set();
   return weightedShuffle(countriesMeta, c => w[c.difficulty] || 1)
     .filter(c => seen.has(c.iso3) ? false : (seen.add(c.iso3), true));
@@ -779,7 +827,11 @@ function handleCorrect() {
 
   incrementStat('locationsFound');
   sounds.correct();
-  highlightCountry(state.targetCountry.iso3, '#22c55e');
+  if (state.gameMode === 'oceans') {
+    highlightOcean(state.targetCountry, '#22c55e');
+  } else {
+    highlightCountry(state.targetCountry.iso3, '#22c55e');
+  }
   showFeedback('correct', `✅ ${t('correct')}!`);
   state.awaitingNext = true;
 
@@ -795,13 +847,16 @@ function handleWrong(clickedIso) {
 
   const player = state.players[state.currentPlayerIdx];
   player.strikes++;
-  if (!player.wrongCountries.includes(state.targetCountry.iso3)) {
-    player.wrongCountries.push(state.targetCountry.iso3);
-  }
+  const wrongId = state.gameMode === 'oceans' ? state.targetCountry.id : state.targetCountry.iso3;
+  if (!player.wrongCountries.includes(wrongId)) player.wrongCountries.push(wrongId);
 
   const isTimeout = clickedIso === null;
-  if (!isTimeout) highlightCountry(clickedIso, '#ef4444');
-  highlightCountry(state.targetCountry.iso3, '#f97316');
+  if (state.gameMode === 'oceans') {
+    highlightOcean(state.targetCountry, '#f97316');
+  } else {
+    if (!isTimeout) highlightCountry(clickedIso, '#ef4444');
+    highlightCountry(state.targetCountry.iso3, '#f97316');
+  }
 
   state.awaitingNext = true;
 
@@ -856,6 +911,7 @@ function advanceTurn() {
 function endGame(reason) {
   state.gameActive = false;
   clearQuestionTimer();
+  clearOceanHighlight();
   if (awaitTimeout) { clearTimeout(awaitTimeout); awaitTimeout = null; awaitResolveFn = null; }
 
   // Perfect single-player game
@@ -914,16 +970,23 @@ function showResultsScreen(reason) {
 
   if (allWrong.length > 0) {
     wrongLabel.classList.remove('hidden');
-    wrongList.innerHTML = allWrong.map(iso => {
-      const meta = countriesMeta.find(c => c.iso3 === iso);
-      const name = meta ? (meta.name[state.lang] || meta.name.en) : iso;
+    wrongLabel.textContent = state.gameMode === 'oceans' ? t('wrong_oceans') : t('wrong_countries');
+    wrongList.innerHTML = allWrong.map(id => {
+      if (state.gameMode === 'oceans') {
+        const ocean = oceansData.find(o => o.id === id);
+        const name = ocean ? (ocean.name[state.lang] || ocean.name.en) : id;
+        return `<span class="wrong-tag">${escHtml(name)}</span>`;
+      }
+      const meta = countriesMeta.find(c => c.iso3 === id);
+      const name = meta ? (meta.name[state.lang] || meta.name.en) : id;
       return `<span class="wrong-tag">${escHtml(name)}</span>`;
     }).join('');
 
-    // Highlight on map
-    setTimeout(() => {
-      allWrong.forEach(iso => highlightCountry(iso, '#ef4444', true));
-    }, 400);
+    if (state.gameMode !== 'oceans') {
+      setTimeout(() => {
+        allWrong.forEach(iso => highlightCountry(iso, '#ef4444', true));
+      }, 400);
+    }
   } else {
     wrongLabel.classList.add('hidden');
     wrongList.innerHTML = '';
@@ -952,6 +1015,12 @@ function updatePromptCard() {
   const countryName = typeof country.name === 'string'
     ? country.name
     : (country.name[lang] || country.name.en);
+
+  if (state.gameMode === 'oceans') {
+    const oceanName = country.name[lang] || country.name.en;
+    textEl.textContent = `${t('find_ocean')}: ${oceanName}`;
+    return;
+  }
 
   if (state.gameMode === 'countries') {
     textEl.textContent = `${t('find_country')}: ${countryName}`;
@@ -1163,6 +1232,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     loadingText.textContent = t('loading');
     await loadCountriesMeta();
     await loadLandmarksData();
+    await loadOceansData();
 
     // Load GeoJSON (may take a moment)
     loadingText.textContent = t('loading');

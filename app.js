@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.0.11';
+const VERSION = '1.0.13';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -36,6 +36,7 @@ let landmarksData = [];
 let oceansData = [];
 let geoData = null;
 const wikiInfoCache = new Map();
+const descTranslateCache = new Map();
 
 // ============================================================
 // MAP
@@ -280,6 +281,24 @@ function renderLeaderboardTable(scores) {
           </tr>`).join('')}
       </tbody>
     </table>`;
+}
+
+async function translateText(text, lang) {
+  if (lang === 'en') return text;
+  const key = `${lang}:${text}`;
+  if (descTranslateCache.has(key)) return descTranslateCache.get(key);
+  try {
+    const langCode = lang === 'zh' ? 'zh-CN' : lang;
+    const r = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|${langCode}`);
+    if (r.ok) {
+      const d = await r.json();
+      if (d.responseStatus === 200 && d.responseData?.translatedText) {
+        descTranslateCache.set(key, d.responseData.translatedText);
+        return d.responseData.translatedText;
+      }
+    }
+  } catch {}
+  return text;
 }
 
 async function getWikiInfo(enTitle, lang) {
@@ -1041,7 +1060,10 @@ function updatePromptCard() {
     const enTitle = country.wikipedia || country.name;
     flagEl.innerHTML = '<div class="landmark-img-placeholder"></div>';
     textEl.innerHTML = `<span class="landmark-name">${escHtml(country.name)}</span><span class="landmark-desc">${escHtml(country.description)}</span>`;
-    getWikiInfo(enTitle, state.lang).then(info => {
+    Promise.all([
+      getWikiInfo(enTitle, state.lang),
+      translateText(snapshot.description, state.lang)
+    ]).then(([info, translatedDesc]) => {
       if (state.targetCountry !== snapshot) return;
       flagEl.innerHTML = info.imageUrl
         ? `<img class="landmark-img" src="${info.imageUrl}" alt="${escHtml(snapshot.name)}">`
@@ -1049,7 +1071,7 @@ function updatePromptCard() {
       const displayName = (state.lang !== 'en' && info.translatedName && info.translatedName !== snapshot.name)
         ? `${info.translatedName} (${snapshot.name})`
         : snapshot.name;
-      textEl.innerHTML = `<span class="landmark-name">${escHtml(displayName)}</span><span class="landmark-desc">${escHtml(snapshot.description)}</span>`;
+      textEl.innerHTML = `<span class="landmark-name">${escHtml(displayName)}</span><span class="landmark-desc">${escHtml(translatedDesc)}</span>`;
     });
   }
 }

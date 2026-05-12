@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.0.8';
+const VERSION = '1.0.9';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -310,12 +310,6 @@ async function getWikiInfo(enTitle, lang) {
   return store(await enFallback());
 }
 
-function firstSentence(text, max = 280) {
-  if (!text) return '';
-  const m = text.match(/^.+?[.!?](?:\s|$)/);
-  const s = m ? m[0].trim() : text;
-  return s.length > max ? s.slice(0, max) + '…' : s;
-}
 
 // ============================================================
 // MAP INIT
@@ -980,10 +974,7 @@ function updatePromptCard() {
       const displayName = (state.lang !== 'en' && info.translatedName && info.translatedName !== snapshot.name)
         ? `${info.translatedName} (${snapshot.name})`
         : snapshot.name;
-      const displayDesc = (state.lang !== 'en' && info.description)
-        ? firstSentence(info.description)
-        : snapshot.description;
-      textEl.innerHTML = `<span class="landmark-name">${escHtml(displayName)}</span><span class="landmark-desc">${escHtml(displayDesc)}</span>`;
+      textEl.innerHTML = `<span class="landmark-name">${escHtml(displayName)}</span><span class="landmark-desc">${escHtml(snapshot.description)}</span>`;
     });
   }
 }

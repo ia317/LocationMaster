@@ -48,5 +48,11 @@
   "enter_name": "Enter name...",
   "loading": "Loading map data...",
   "turn": "Turn",
-  "finish_game": "Finish Game"
+  "finish_game": "Finish Game",
+  "game_type": "Type",
+  "quiz_mode": "Quiz",
+  "training_mode": "Training",
+  "training_next": "Next →",
+  "training_done": "Training Complete!",
+  "training_items_reviewed": "items reviewed"
 }

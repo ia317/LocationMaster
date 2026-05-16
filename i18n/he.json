@@ -48,5 +48,11 @@
   "enter_name": "הכנס שם...",
   "loading": "טוען נתוני מפה...",
   "turn": "תור",
-  "finish_game": "סיים משחק"
+  "finish_game": "סיים משחק",
+  "game_type": "סוג",
+  "quiz_mode": "חידון",
+  "training_mode": "אימון",
+  "training_next": "← הבא",
+  "training_done": "האימון הסתיים!",
+  "training_items_reviewed": "פריטים נלמדו"
 }

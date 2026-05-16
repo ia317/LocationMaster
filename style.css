@@ -653,6 +653,29 @@ html, body {
 
 #timer-container.hidden { display: none; }
 
+.btn-training-next {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-training-next:hover { background: var(--accent-h); }
+.btn-training-next.hidden { display: none; }
+
+.training-complete-msg {
+  color: var(--text2);
+  font-size: 16px;
+  text-align: center;
+  padding: 12px 0;
+}
+
 #timer-track {
   flex: 1;
   height: 5px;

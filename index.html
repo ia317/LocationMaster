@@ -77,6 +77,14 @@
       </div>
 
       <div class="setup-row">
+        <label data-i18n="game_type">Type</label>
+        <div class="toggle-group" id="tg-training">
+          <button class="toggle-btn active" data-value="quiz" data-i18n="quiz_mode">Quiz</button>
+          <button class="toggle-btn" data-value="training" data-i18n="training_mode">Training</button>
+        </div>
+      </div>
+
+      <div class="setup-row">
         <label data-i18n="difficulty">Difficulty</label>
         <div class="toggle-group" id="tg-difficulty">
           <button class="toggle-btn active" data-value="easy" data-i18n="easy">Easy</button>
@@ -117,6 +125,7 @@
         <div id="timer-track"><div id="timer-fill"></div></div>
         <span id="timer-label">20</span>
       </div>
+      <button id="btn-training-next" class="btn-training-next hidden" data-i18n="training_next">Next →</button>
     </div>
 
     <div id="scoreboard">

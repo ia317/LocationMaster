@@ -48,5 +48,11 @@
   "enter_name": "Digite o nome...",
   "loading": "Carregando dados do mapa...",
   "turn": "Vez",
-  "finish_game": "Encerrar Jogo"
+  "finish_game": "Encerrar Jogo",
+  "game_type": "Tipo",
+  "quiz_mode": "Quiz",
+  "training_mode": "Treino",
+  "training_next": "Próximo →",
+  "training_done": "Treino concluído!",
+  "training_items_reviewed": "itens revisados"
 }

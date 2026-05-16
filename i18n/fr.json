@@ -48,5 +48,11 @@
   "enter_name": "Entrez le nom...",
   "loading": "Chargement des données...",
   "turn": "Tour",
-  "finish_game": "Terminer le Jeu"
+  "finish_game": "Terminer le Jeu",
+  "game_type": "Type",
+  "quiz_mode": "Quiz",
+  "training_mode": "Entraînement",
+  "training_next": "Suivant →",
+  "training_done": "Entraînement terminé !",
+  "training_items_reviewed": "éléments révisés"
 }

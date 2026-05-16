@@ -48,5 +48,11 @@
   "enter_name": "输入名字...",
   "loading": "正在加载地图数据...",
   "turn": "回合",
-  "finish_game": "结束游戏"
+  "finish_game": "结束游戏",
+  "game_type": "类型",
+  "quiz_mode": "答题",
+  "training_mode": "训练",
+  "training_next": "下一个 →",
+  "training_done": "训练完成！",
+  "training_items_reviewed": "个条目已复习"
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.0.16';
+const VERSION = '1.0.17';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -16,6 +16,7 @@ const state = {
   mapStyle: 'solid',
   borders: true,
   gameMode: 'countries',
+  training: false,
   difficulty: 'easy',
   numPlayers: 1,
   players: [],
@@ -538,6 +539,13 @@ function scheduleNext(delay, fn) {
 }
 
 function clickToSkip() {
+  document.getElementById('btn-training-next').classList.add('hidden');
+  if (state.training) {
+    resetAllCountryStyles();
+    clearOceanHighlight();
+    advanceTurn();
+    return;
+  }
   if (awaitTimeout !== null) {
     clearTimeout(awaitTimeout);
     const fn = awaitResolveFn;
@@ -552,6 +560,7 @@ function clickToSkip() {
 // QUESTION TIMER
 // ============================================================
 function startQuestionTimer() {
+  if (state.training) return;
   clearQuestionTimer();
   const total = DIFFICULTY_CONFIG[state.difficulty].time;
   const startTime = Date.now();
@@ -672,6 +681,7 @@ function initSetupScreen() {
   });
 
   setupToggleGroup('tg-mode', val => { state.gameMode = val; });
+  setupToggleGroup('tg-training', val => { state.training = val === 'training'; });
   setupToggleGroup('tg-difficulty', val => { state.difficulty = val; });
 
   setupToggleGroup('tg-players', val => {
@@ -724,6 +734,9 @@ function renderPlayerInputs() {
 // GAME ENGINE
 // ============================================================
 function startGame() {
+  // Training mode: always single player, no scoring
+  if (state.training) state.numPlayers = 1;
+
   // Collect player names
   state.players = [];
   for (let i = 1; i <= state.numPlayers; i++) {
@@ -747,8 +760,9 @@ function startGame() {
   applyBorders();
   setTileLayer(state.mapStyle);
   showPanel('game');
+  document.getElementById('scoreboard').classList.toggle('hidden', state.training);
   updateScoreboard();
-  incrementStat('gamesPlayed');
+  if (!state.training) incrementStat('gamesPlayed');
   nextQuestion();
 }
 
@@ -831,7 +845,22 @@ function nextQuestion() {
   updatePromptCard();
   updateScoreboard();
   updateGameHeader();
-  startQuestionTimer();
+  if (state.training) {
+    showTrainingAnswer();
+  } else {
+    startQuestionTimer();
+  }
+}
+
+function showTrainingAnswer() {
+  state.awaitingNext = true;
+  const item = state.targetCountry;
+  if (state.gameMode === 'oceans') {
+    highlightOcean(item, '#4a90d9', true);
+  } else if (item.iso3) {
+    highlightCountry(item.iso3, '#4a90d9', true);
+  }
+  document.getElementById('btn-training-next').classList.remove('hidden');
 }
 
 function onCountryClick(iso) {
@@ -937,7 +966,13 @@ function endGame(reason) {
   state.gameActive = false;
   clearQuestionTimer();
   clearOceanHighlight();
+  document.getElementById('btn-training-next').classList.add('hidden');
   if (awaitTimeout) { clearTimeout(awaitTimeout); awaitTimeout = null; awaitResolveFn = null; }
+
+  if (state.training) {
+    showTrainingComplete();
+    return;
+  }
 
   // Perfect single-player game
   if (state.numPlayers === 1 &&
@@ -952,6 +987,14 @@ function endGame(reason) {
   setTimeout(() => sounds.gameOver(), 300);
   showResultsScreen(reason);
   setTimeout(() => checkLeaderboardQualification(), 800);
+}
+
+function showTrainingComplete() {
+  showPanel('results');
+  document.getElementById('results-title').textContent = `✅ ${t('training_done')}`;
+  document.getElementById('results-scores').innerHTML = `<p class="training-complete-msg">${state.questionPool.length} ${t('training_items_reviewed')}</p>`;
+  document.getElementById('wrong-label').classList.add('hidden');
+  document.getElementById('wrong-list').innerHTML = '';
 }
 
 // ============================================================
@@ -1049,13 +1092,13 @@ function updatePromptCard() {
   }
 
   if (state.gameMode === 'countries') {
-    textEl.textContent = `${t('find_country')}: ${countryName}`;
+    textEl.textContent = countryName;
   } else if (state.gameMode === 'flags') {
     flagEl.innerHTML = getFlagHtml(country.iso2);
-    textEl.textContent = t('find_flag');
+    textEl.textContent = state.training ? countryName : t('find_flag');
   } else if (state.gameMode === 'capitals') {
     const cap = country.capital[lang] || country.capital.en;
-    textEl.textContent = `${t('find_capital')}: ${cap}`;
+    textEl.textContent = state.training ? `${cap} — ${countryName}` : `${t('find_capital')}: ${cap}`;
   } else if (state.gameMode === 'landmarks') {
     const snapshot = country;
     const enTitle = country.wikipedia || country.name;
@@ -1204,6 +1247,7 @@ function initEventListeners() {
   document.getElementById('btn-results-leaderboard').addEventListener('click', () => showLeaderboard(state.gameMode));
   document.getElementById('btn-results-home').addEventListener('click', () => {
     resetAllCountryStyles();
+    document.getElementById('scoreboard').classList.remove('hidden');
     showPanel('home');
   });
 
@@ -1223,6 +1267,11 @@ function initEventListeners() {
   // Finish game
   document.getElementById('btn-finish-game').addEventListener('click', () => {
     if (state.gameActive) endGame('manual');
+  });
+
+  // Training next
+  document.getElementById('btn-training-next').addEventListener('click', () => {
+    if (state.gameActive && state.awaitingNext) clickToSkip();
   });
 
   // Sound controls

@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.0.14';
+const VERSION = '1.0.15';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -1054,7 +1054,7 @@ function updatePromptCard() {
     textEl.textContent = t('find_flag');
   } else if (state.gameMode === 'capitals') {
     const cap = country.capital[lang] || country.capital.en;
-    textEl.textContent = `${t('find_capital')}: ${cap} (${countryName})`;
+    textEl.textContent = `${t('find_capital')}: ${cap}`;
   } else if (state.gameMode === 'landmarks') {
     const snapshot = country;
     const enTitle = country.wikipedia || country.name;

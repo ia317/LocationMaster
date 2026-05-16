@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.0.19';
+const VERSION = '1.0.20';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -461,7 +461,16 @@ function renderGeoLayer() {
         const countryName = meta ? (meta.name[state.lang] || meta.name.en) : iso;
         let result = 'inactive';
         if (state.gameActive && !state.awaitingNext && state.targetCountry) {
-          result = iso === state.targetCountry.iso3 ? 'correct' : 'wrong';
+          const t = state.targetCountry;
+          if (state.gameMode === 'oceans') {
+            if (t.type === 'river' && t.countries) {
+              result = (t.countries.includes(iso) || isInOceanBounds(e.latlng, t)) ? 'correct' : 'wrong';
+            } else {
+              result = isInOceanBounds(e.latlng, t) ? 'correct' : 'wrong';
+            }
+          } else {
+            result = iso === t.iso3 ? 'correct' : 'wrong';
+          }
         }
         showClickDebug(e.latlng, countryName, result);
         if (!state.gameActive) return;
@@ -469,7 +478,11 @@ function renderGeoLayer() {
         if (state.gameMode === 'oceans') {
           const target = state.targetCountry;
           if (target && target.type === 'river' && target.countries) {
-            if (target.countries.includes(iso)) { handleCorrect(); } else { handleWrong(iso); }
+            if (target.countries.includes(iso) || isInOceanBounds(e.latlng, target)) {
+              handleCorrect();
+            } else {
+              handleWrong(iso);
+            }
           } else {
             onOceanWaterClick(e.latlng);
           }

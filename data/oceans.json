@@ -42,6 +42,7 @@
   {
     "id": "amazon",
     "type": "river",
+    "countries": ["BRA", "PER", "COL"],
     "name": { "en": "Amazon River", "he": "נהר האמזונס", "fr": "Fleuve Amazone", "es": "Río Amazonas", "pt": "Rio Amazonas", "zh": "亚马逊河" },
     "difficulty": "easy",
     "center": [-4, -58],
@@ -50,6 +51,7 @@
   {
     "id": "nile",
     "type": "river",
+    "countries": ["EGY", "SDN", "SSD", "ETH", "UGA"],
     "name": { "en": "Nile River", "he": "נהר הנילוס", "fr": "Fleuve Nil", "es": "Río Nilo", "pt": "Rio Nilo", "zh": "尼罗河" },
     "difficulty": "easy",
     "center": [18, 33],
@@ -58,6 +60,7 @@
   {
     "id": "mississippi",
     "type": "river",
+    "countries": ["USA"],
     "name": { "en": "Mississippi River", "he": "נהר המיסיסיפי", "fr": "Fleuve Mississippi", "es": "Río Misisipi", "pt": "Rio Mississípi", "zh": "密西西比河" },
     "difficulty": "easy",
     "center": [38, -91],
@@ -66,6 +69,7 @@
   {
     "id": "yangtze",
     "type": "river",
+    "countries": ["CHN"],
     "name": { "en": "Yangtze River", "he": "נהר היאנגצה", "fr": "Fleuve Yangtsé", "es": "Río Yangtsé", "pt": "Rio Yangtzé", "zh": "长江" },
     "difficulty": "easy",
     "center": [31, 109],
@@ -74,6 +78,7 @@
   {
     "id": "congo",
     "type": "river",
+    "countries": ["COD", "COG", "CAF", "CMR"],
     "name": { "en": "Congo River", "he": "נהר הקונגו", "fr": "Fleuve Congo", "es": "Río Congo", "pt": "Rio Congo", "zh": "刚果河" },
     "difficulty": "easy",
     "center": [-3, 22],
@@ -147,6 +152,7 @@
   {
     "id": "volga",
     "type": "river",
+    "countries": ["RUS"],
     "name": { "en": "Volga River", "he": "נהר הוולגה", "fr": "Fleuve Volga", "es": "Río Volga", "pt": "Rio Volga", "zh": "伏尔加河" },
     "difficulty": "medium",
     "center": [55, 49],
@@ -155,6 +161,7 @@
   {
     "id": "ganges",
     "type": "river",
+    "countries": ["IND", "BGD"],
     "name": { "en": "Ganges River", "he": "נהר הגנגס", "fr": "Fleuve Gange", "es": "Río Ganges", "pt": "Rio Ganges", "zh": "恒河" },
     "difficulty": "medium",
     "center": [26, 84],
@@ -163,6 +170,7 @@
   {
     "id": "niger",
     "type": "river",
+    "countries": ["GIN", "MLI", "NER", "BEN", "NGA"],
     "name": { "en": "Niger River", "he": "נהר הניז'ר", "fr": "Fleuve Niger", "es": "Río Níger", "pt": "Rio Níger", "zh": "尼日尔河" },
     "difficulty": "medium",
     "center": [13, 3],
@@ -171,6 +179,7 @@
   {
     "id": "mekong",
     "type": "river",
+    "countries": ["CHN", "MMR", "LAO", "THA", "KHM", "VNM"],
     "name": { "en": "Mekong River", "he": "נהר המקונג", "fr": "Fleuve Mékong", "es": "Río Mekong", "pt": "Rio Mekong", "zh": "湄公河" },
     "difficulty": "medium",
     "center": [18, 103],
@@ -179,6 +188,7 @@
   {
     "id": "danube",
     "type": "river",
+    "countries": ["DEU", "AUT", "SVK", "HUN", "HRV", "SRB", "ROU", "BGR", "MDA", "UKR"],
     "name": { "en": "Danube River", "he": "נהר הדנובה", "fr": "Fleuve Danube", "es": "Río Danubio", "pt": "Rio Danúbio", "zh": "多瑙河" },
     "difficulty": "medium",
     "center": [47, 19],
@@ -268,6 +278,7 @@
   {
     "id": "indus",
     "type": "river",
+    "countries": ["CHN", "IND", "PAK"],
     "name": { "en": "Indus River", "he": "נהר האינדוס", "fr": "Fleuve Indus", "es": "Río Indo", "pt": "Rio Indo", "zh": "印度河" },
     "difficulty": "hard",
     "center": [28, 70],
@@ -276,6 +287,7 @@
   {
     "id": "zambezi",
     "type": "river",
+    "countries": ["ZMB", "AGO", "NAM", "BWA", "ZWE", "MOZ"],
     "name": { "en": "Zambezi River", "he": "נהר הזמבזי", "fr": "Fleuve Zambèze", "es": "Río Zambeze", "pt": "Rio Zambeze", "zh": "赞比西河" },
     "difficulty": "hard",
     "center": [-16, 28],
@@ -284,6 +296,7 @@
   {
     "id": "colorado",
     "type": "river",
+    "countries": ["USA", "MEX"],
     "name": { "en": "Colorado River", "he": "נהר קולורדו", "fr": "Fleuve Colorado", "es": "Río Colorado", "pt": "Rio Colorado", "zh": "科罗拉多河" },
     "difficulty": "hard",
     "center": [37, -113],
@@ -292,6 +305,7 @@
   {
     "id": "lena",
     "type": "river",
+    "countries": ["RUS"],
     "name": { "en": "Lena River", "he": "נהר הלנה", "fr": "Fleuve Lena", "es": "Río Lena", "pt": "Rio Lena", "zh": "勒拿河" },
     "difficulty": "hard",
     "center": [65, 127],
@@ -300,6 +314,7 @@
   {
     "id": "rhine",
     "type": "river",
+    "countries": ["CHE", "LIE", "AUT", "DEU", "FRA", "LUX", "NLD"],
     "name": { "en": "Rhine River", "he": "נהר הריין", "fr": "Fleuve Rhin", "es": "Río Rin", "pt": "Rio Reno", "zh": "莱茵河" },
     "difficulty": "hard",
     "center": [50, 8],
@@ -308,6 +323,7 @@
   {
     "id": "murray",
     "type": "river",
+    "countries": ["AUS"],
     "name": { "en": "Murray River", "he": "נהר מארי", "fr": "Fleuve Murray", "es": "Río Murray", "pt": "Rio Murray", "zh": "墨累河" },
     "difficulty": "hard",
     "center": [-34, 143],

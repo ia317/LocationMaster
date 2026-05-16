@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.0.18';
+const VERSION = '1.0.19';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -466,7 +466,15 @@ function renderGeoLayer() {
         showClickDebug(e.latlng, countryName, result);
         if (!state.gameActive) return;
         if (state.awaitingNext) { clickToSkip(); return; }
-        if (state.gameMode === 'oceans') { onOceanWaterClick(e.latlng); return; }
+        if (state.gameMode === 'oceans') {
+          const target = state.targetCountry;
+          if (target && target.type === 'river' && target.countries) {
+            if (target.countries.includes(iso)) { handleCorrect(); } else { handleWrong(iso); }
+          } else {
+            onOceanWaterClick(e.latlng);
+          }
+          return;
+        }
         onCountryClick(iso);
       });
 

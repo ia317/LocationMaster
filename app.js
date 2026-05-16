@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.0.15';
+const VERSION = '1.0.16';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -995,7 +995,7 @@ function showResultsScreen(reason) {
 
   if (allWrong.length > 0) {
     wrongLabel.classList.remove('hidden');
-    wrongLabel.textContent = state.gameMode === 'oceans' ? t('wrong_oceans') : t('wrong_countries');
+    wrongLabel.textContent = state.gameMode === 'oceans' ? t('wrong_waters') : t('wrong_countries');
     wrongList.innerHTML = allWrong.map(id => {
       if (state.gameMode === 'oceans') {
         const ocean = oceansData.find(o => o.id === id);
@@ -1042,8 +1042,9 @@ function updatePromptCard() {
     : (country.name[lang] || country.name.en);
 
   if (state.gameMode === 'oceans') {
-    const oceanName = country.name[lang] || country.name.en;
-    textEl.textContent = `${t('find_ocean')}: ${oceanName}`;
+    const itemName = country.name[lang] || country.name.en;
+    const promptKey = country.type === 'river' ? 'find_river' : 'find_ocean';
+    textEl.textContent = `${t(promptKey)}: ${itemName}`;
     return;
   }
 

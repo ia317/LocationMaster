@@ -1,6 +1,7 @@
 [
   {
     "id": "pacific",
+    "type": "ocean",
     "name": { "en": "Pacific Ocean", "he": "האוקיינוס השקט", "fr": "Océan Pacifique", "es": "Océano Pacífico", "pt": "Oceano Pacífico", "zh": "太平洋" },
     "difficulty": "easy",
     "center": [0, -160],
@@ -8,6 +9,7 @@
   },
   {
     "id": "atlantic",
+    "type": "ocean",
     "name": { "en": "Atlantic Ocean", "he": "האוקיינוס האטלנטי", "fr": "Océan Atlantique", "es": "Océano Atlántico", "pt": "Oceano Atlântico", "zh": "大西洋" },
     "difficulty": "easy",
     "center": [0, -30],
@@ -15,6 +17,7 @@
   },
   {
     "id": "indian",
+    "type": "ocean",
     "name": { "en": "Indian Ocean", "he": "האוקיינוס ההודי", "fr": "Océan Indien", "es": "Océano Índico", "pt": "Oceano Índico", "zh": "印度洋" },
     "difficulty": "easy",
     "center": [-20, 80],
@@ -22,6 +25,7 @@
   },
   {
     "id": "arctic",
+    "type": "ocean",
     "name": { "en": "Arctic Ocean", "he": "האוקיינוס הארקטי", "fr": "Océan Arctique", "es": "Océano Ártico", "pt": "Oceano Ártico", "zh": "北冰洋" },
     "difficulty": "easy",
     "center": [85, 0],
@@ -29,14 +33,56 @@
   },
   {
     "id": "southern",
+    "type": "ocean",
     "name": { "en": "Southern Ocean", "he": "האוקיינוס הדרומי", "fr": "Océan Austral", "es": "Océano Antártico", "pt": "Oceano Antártico", "zh": "南冰洋" },
     "difficulty": "easy",
     "center": [-70, 0],
     "bounds": { "latMin": -90, "latMax": -56, "lngMin": -180, "lngMax": 180, "crossesDateLine": false }
   },
+  {
+    "id": "amazon",
+    "type": "river",
+    "name": { "en": "Amazon River", "he": "נהר האמזונס", "fr": "Fleuve Amazone", "es": "Río Amazonas", "pt": "Rio Amazonas", "zh": "亚马逊河" },
+    "difficulty": "easy",
+    "center": [-4, -58],
+    "bounds": { "latMin": -12, "latMax": 4, "lngMin": -75, "lngMax": -48, "crossesDateLine": false }
+  },
+  {
+    "id": "nile",
+    "type": "river",
+    "name": { "en": "Nile River", "he": "נהר הנילוס", "fr": "Fleuve Nil", "es": "Río Nilo", "pt": "Rio Nilo", "zh": "尼罗河" },
+    "difficulty": "easy",
+    "center": [18, 33],
+    "bounds": { "latMin": -3, "latMax": 31, "lngMin": 29, "lngMax": 38, "crossesDateLine": false }
+  },
+  {
+    "id": "mississippi",
+    "type": "river",
+    "name": { "en": "Mississippi River", "he": "נהר המיסיסיפי", "fr": "Fleuve Mississippi", "es": "Río Misisipi", "pt": "Rio Mississípi", "zh": "密西西比河" },
+    "difficulty": "easy",
+    "center": [38, -91],
+    "bounds": { "latMin": 29, "latMax": 48, "lngMin": -97, "lngMax": -88, "crossesDateLine": false }
+  },
+  {
+    "id": "yangtze",
+    "type": "river",
+    "name": { "en": "Yangtze River", "he": "נהר היאנגצה", "fr": "Fleuve Yangtsé", "es": "Río Yangtsé", "pt": "Rio Yangtzé", "zh": "长江" },
+    "difficulty": "easy",
+    "center": [31, 109],
+    "bounds": { "latMin": 26, "latMax": 35, "lngMin": 97, "lngMax": 122, "crossesDateLine": false }
+  },
+  {
+    "id": "congo",
+    "type": "river",
+    "name": { "en": "Congo River", "he": "נהר הקונגו", "fr": "Fleuve Congo", "es": "Río Congo", "pt": "Rio Congo", "zh": "刚果河" },
+    "difficulty": "easy",
+    "center": [-3, 22],
+    "bounds": { "latMin": -9, "latMax": 5, "lngMin": 14, "lngMax": 32, "crossesDateLine": false }
+  },
 
   {
     "id": "mediterranean",
+    "type": "sea",
     "name": { "en": "Mediterranean Sea", "he": "הים התיכון", "fr": "Mer Méditerranée", "es": "Mar Mediterráneo", "pt": "Mar Mediterrâneo", "zh": "地中海" },
     "difficulty": "medium",
     "center": [38, 15],
@@ -44,6 +90,7 @@
   },
   {
     "id": "caribbean",
+    "type": "sea",
     "name": { "en": "Caribbean Sea", "he": "הים הקריבי", "fr": "Mer des Caraïbes", "es": "Mar Caribe", "pt": "Mar do Caribe", "zh": "加勒比海" },
     "difficulty": "medium",
     "center": [16, -75],
@@ -51,6 +98,7 @@
   },
   {
     "id": "red_sea",
+    "type": "sea",
     "name": { "en": "Red Sea", "he": "ים סוף", "fr": "Mer Rouge", "es": "Mar Rojo", "pt": "Mar Vermelho", "zh": "红海" },
     "difficulty": "medium",
     "center": [22, 38],
@@ -58,6 +106,7 @@
   },
   {
     "id": "arabian_sea",
+    "type": "sea",
     "name": { "en": "Arabian Sea", "he": "הים הערבי", "fr": "Mer d'Arabie", "es": "Mar Arábigo", "pt": "Mar Arábico", "zh": "阿拉伯海" },
     "difficulty": "medium",
     "center": [15, 66],
@@ -65,6 +114,7 @@
   },
   {
     "id": "south_china_sea",
+    "type": "sea",
     "name": { "en": "South China Sea", "he": "הים הסיני הדרומי", "fr": "Mer de Chine méridionale", "es": "Mar de China Meridional", "pt": "Mar do Sul da China", "zh": "南海" },
     "difficulty": "medium",
     "center": [12, 113],
@@ -72,6 +122,7 @@
   },
   {
     "id": "bay_of_bengal",
+    "type": "sea",
     "name": { "en": "Bay of Bengal", "he": "מפרץ בנגל", "fr": "Golfe du Bengale", "es": "Golfo de Bengala", "pt": "Baía de Bengala", "zh": "孟加拉湾" },
     "difficulty": "medium",
     "center": [14, 88],
@@ -79,6 +130,7 @@
   },
   {
     "id": "gulf_of_mexico",
+    "type": "sea",
     "name": { "en": "Gulf of Mexico", "he": "מפרץ מקסיקו", "fr": "Golfe du Mexique", "es": "Golfo de México", "pt": "Golfo do México", "zh": "墨西哥湾" },
     "difficulty": "medium",
     "center": [25, -90],
@@ -86,14 +138,56 @@
   },
   {
     "id": "sea_of_japan",
+    "type": "sea",
     "name": { "en": "Sea of Japan", "he": "ים יפן", "fr": "Mer du Japon", "es": "Mar del Japón", "pt": "Mar do Japão", "zh": "日本海" },
     "difficulty": "medium",
     "center": [40, 135],
     "bounds": { "latMin": 33, "latMax": 52, "lngMin": 127, "lngMax": 142, "crossesDateLine": false }
   },
+  {
+    "id": "volga",
+    "type": "river",
+    "name": { "en": "Volga River", "he": "נהר הוולגה", "fr": "Fleuve Volga", "es": "Río Volga", "pt": "Rio Volga", "zh": "伏尔加河" },
+    "difficulty": "medium",
+    "center": [55, 49],
+    "bounds": { "latMin": 45, "latMax": 58, "lngMin": 44, "lngMax": 55, "crossesDateLine": false }
+  },
+  {
+    "id": "ganges",
+    "type": "river",
+    "name": { "en": "Ganges River", "he": "נהר הגנגס", "fr": "Fleuve Gange", "es": "Río Ganges", "pt": "Rio Ganges", "zh": "恒河" },
+    "difficulty": "medium",
+    "center": [26, 84],
+    "bounds": { "latMin": 22, "latMax": 31, "lngMin": 75, "lngMax": 90, "crossesDateLine": false }
+  },
+  {
+    "id": "niger",
+    "type": "river",
+    "name": { "en": "Niger River", "he": "נהר הניז'ר", "fr": "Fleuve Niger", "es": "Río Níger", "pt": "Rio Níger", "zh": "尼日尔河" },
+    "difficulty": "medium",
+    "center": [13, 3],
+    "bounds": { "latMin": 5, "latMax": 22, "lngMin": -9, "lngMax": 15, "crossesDateLine": false }
+  },
+  {
+    "id": "mekong",
+    "type": "river",
+    "name": { "en": "Mekong River", "he": "נהר המקונג", "fr": "Fleuve Mékong", "es": "Río Mekong", "pt": "Rio Mekong", "zh": "湄公河" },
+    "difficulty": "medium",
+    "center": [18, 103],
+    "bounds": { "latMin": 10, "latMax": 28, "lngMin": 96, "lngMax": 108, "crossesDateLine": false }
+  },
+  {
+    "id": "danube",
+    "type": "river",
+    "name": { "en": "Danube River", "he": "נהר הדנובה", "fr": "Fleuve Danube", "es": "Río Danubio", "pt": "Rio Danúbio", "zh": "多瑙河" },
+    "difficulty": "medium",
+    "center": [47, 19],
+    "bounds": { "latMin": 44, "latMax": 50, "lngMin": 8, "lngMax": 30, "crossesDateLine": false }
+  },
 
   {
     "id": "black_sea",
+    "type": "sea",
     "name": { "en": "Black Sea", "he": "הים השחור", "fr": "Mer Noire", "es": "Mar Negro", "pt": "Mar Negro", "zh": "黑海" },
     "difficulty": "hard",
     "center": [43, 34],
@@ -101,6 +195,7 @@
   },
   {
     "id": "north_sea",
+    "type": "sea",
     "name": { "en": "North Sea", "he": "הים הצפוני", "fr": "Mer du Nord", "es": "Mar del Norte", "pt": "Mar do Norte", "zh": "北海" },
     "difficulty": "hard",
     "center": [57, 3],
@@ -108,6 +203,7 @@
   },
   {
     "id": "bering_sea",
+    "type": "sea",
     "name": { "en": "Bering Sea", "he": "ים ברינג", "fr": "Mer de Béring", "es": "Mar de Bering", "pt": "Mar de Bering", "zh": "白令海" },
     "difficulty": "hard",
     "center": [59, -174],
@@ -115,6 +211,7 @@
   },
   {
     "id": "coral_sea",
+    "type": "sea",
     "name": { "en": "Coral Sea", "he": "ים האלמוגים", "fr": "Mer de Corail", "es": "Mar del Coral", "pt": "Mar de Coral", "zh": "珊瑚海" },
     "difficulty": "hard",
     "center": [-18, 155],
@@ -122,6 +219,7 @@
   },
   {
     "id": "tasman_sea",
+    "type": "sea",
     "name": { "en": "Tasman Sea", "he": "ים טסמן", "fr": "Mer de Tasman", "es": "Mar de Tasmania", "pt": "Mar de Tasman", "zh": "塔斯曼海" },
     "difficulty": "hard",
     "center": [-38, 160],
@@ -129,6 +227,7 @@
   },
   {
     "id": "aegean_sea",
+    "type": "sea",
     "name": { "en": "Aegean Sea", "he": "הים האגאי", "fr": "Mer Égée", "es": "Mar Egeo", "pt": "Mar Egeu", "zh": "爱琴海" },
     "difficulty": "hard",
     "center": [39, 25],
@@ -136,6 +235,7 @@
   },
   {
     "id": "persian_gulf",
+    "type": "sea",
     "name": { "en": "Persian Gulf", "he": "המפרץ הפרסי", "fr": "Golfe Persique", "es": "Golfo Pérsico", "pt": "Golfo Pérsico", "zh": "波斯湾" },
     "difficulty": "hard",
     "center": [27, 52],
@@ -143,6 +243,7 @@
   },
   {
     "id": "yellow_sea",
+    "type": "sea",
     "name": { "en": "Yellow Sea", "he": "הים הצהוב", "fr": "Mer Jaune", "es": "Mar Amarillo", "pt": "Mar Amarelo", "zh": "黄海" },
     "difficulty": "hard",
     "center": [35, 122],
@@ -150,6 +251,7 @@
   },
   {
     "id": "caspian_sea",
+    "type": "sea",
     "name": { "en": "Caspian Sea", "he": "הים הכספי", "fr": "Mer Caspienne", "es": "Mar Caspio", "pt": "Mar Cáspio", "zh": "里海" },
     "difficulty": "hard",
     "center": [43, 52],
@@ -157,9 +259,58 @@
   },
   {
     "id": "norwegian_sea",
+    "type": "sea",
     "name": { "en": "Norwegian Sea", "he": "הים הנורבגי", "fr": "Mer de Norvège", "es": "Mar de Noruega", "pt": "Mar da Noruega", "zh": "挪威海" },
     "difficulty": "hard",
     "center": [67, 5],
     "bounds": { "latMin": 60, "latMax": 75, "lngMin": -15, "lngMax": 20, "crossesDateLine": false }
+  },
+  {
+    "id": "indus",
+    "type": "river",
+    "name": { "en": "Indus River", "he": "נהר האינדוס", "fr": "Fleuve Indus", "es": "Río Indo", "pt": "Rio Indo", "zh": "印度河" },
+    "difficulty": "hard",
+    "center": [28, 70],
+    "bounds": { "latMin": 22, "latMax": 36, "lngMin": 66, "lngMax": 78, "crossesDateLine": false }
+  },
+  {
+    "id": "zambezi",
+    "type": "river",
+    "name": { "en": "Zambezi River", "he": "נהר הזמבזי", "fr": "Fleuve Zambèze", "es": "Río Zambeze", "pt": "Rio Zambeze", "zh": "赞比西河" },
+    "difficulty": "hard",
+    "center": [-16, 28],
+    "bounds": { "latMin": -20, "latMax": -10, "lngMin": 22, "lngMax": 37, "crossesDateLine": false }
+  },
+  {
+    "id": "colorado",
+    "type": "river",
+    "name": { "en": "Colorado River", "he": "נהר קולורדו", "fr": "Fleuve Colorado", "es": "Río Colorado", "pt": "Rio Colorado", "zh": "科罗拉多河" },
+    "difficulty": "hard",
+    "center": [37, -113],
+    "bounds": { "latMin": 31, "latMax": 41, "lngMin": -116, "lngMax": -110, "crossesDateLine": false }
+  },
+  {
+    "id": "lena",
+    "type": "river",
+    "name": { "en": "Lena River", "he": "נהר הלנה", "fr": "Fleuve Lena", "es": "Río Lena", "pt": "Rio Lena", "zh": "勒拿河" },
+    "difficulty": "hard",
+    "center": [65, 127],
+    "bounds": { "latMin": 53, "latMax": 73, "lngMin": 119, "lngMax": 136, "crossesDateLine": false }
+  },
+  {
+    "id": "rhine",
+    "type": "river",
+    "name": { "en": "Rhine River", "he": "נהר הריין", "fr": "Fleuve Rhin", "es": "Río Rin", "pt": "Rio Reno", "zh": "莱茵河" },
+    "difficulty": "hard",
+    "center": [50, 8],
+    "bounds": { "latMin": 46, "latMax": 54, "lngMin": 6, "lngMax": 10, "crossesDateLine": false }
+  },
+  {
+    "id": "murray",
+    "type": "river",
+    "name": { "en": "Murray River", "he": "נהר מארי", "fr": "Fleuve Murray", "es": "Río Murray", "pt": "Rio Murray", "zh": "墨累河" },
+    "difficulty": "hard",
+    "center": [-34, 143],
+    "bounds": { "latMin": -37, "latMax": -30, "lngMin": 138, "lngMax": 149, "crossesDateLine": false }
   }
 ]

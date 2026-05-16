@@ -88,5 +88,23 @@
     "difficulty": "hard",
     "name": { "en": "Herzliya", "he": "הרצליה", "fr": "Herzliya", "es": "Herzliyya", "pt": "Herzliya", "zh": "赫茨利亚" },
     "center": [32.166, 34.843]
+  },
+  {
+    "id": "ariel",
+    "difficulty": "hard",
+    "name": { "en": "Ariel", "he": "אריאל", "fr": "Ariel", "es": "Ariel", "pt": "Ariel", "zh": "阿里埃勒" },
+    "center": [32.103, 35.172]
+  },
+  {
+    "id": "maale_adumim",
+    "difficulty": "hard",
+    "name": { "en": "Ma'ale Adumim", "he": "מעלה אדומים", "fr": "Ma'ale Adumim", "es": "Ma'ale Adumim", "pt": "Ma'ale Adumim", "zh": "马阿勒阿杜明" },
+    "center": [31.772, 35.299]
+  },
+  {
+    "id": "beitar_illit",
+    "difficulty": "hard",
+    "name": { "en": "Beitar Illit", "he": "ביתר עילית", "fr": "Beitar Illit", "es": "Beitar Illit", "pt": "Beitar Illit", "zh": "贝塔尔伊利特" },
+    "center": [31.697, 35.118]
   }
 ]

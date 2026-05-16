@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.1.0';
+const VERSION = '1.1.1';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -44,6 +44,7 @@ let usaGeoData = null;
 let israelCitiesData = [];
 let israelLandmarksData = [];
 let israelWatersData = [];
+let israelGeoData = null;
 const wikiInfoCache = new Map();
 const descTranslateCache = new Map();
 
@@ -77,6 +78,7 @@ const TILES = {
 
 const GEO_URL = 'https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson';
 const USA_GEO_URL = 'https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json';
+const ISRAEL_GEO_URL = 'https://raw.githubusercontent.com/glynnbird/countriesgeojson/master/israel.geojson';
 
 const USA_STATE_MAP = {
   "Alabama":"AL","Alaska":"AK","Arizona":"AZ","Arkansas":"AR","California":"CA",
@@ -155,14 +157,16 @@ async function loadDataForRegion(region) {
     usaGeoData = geo;
   }
   if (region === 'israel' && israelCitiesData.length === 0) {
-    const [cities, landmarks, waters] = await Promise.all([
+    const [cities, landmarks, waters, geo] = await Promise.all([
       fetch('data/israel-cities.json').then(r => r.json()),
       fetch('data/israel-landmarks.json').then(r => r.json()),
       fetch('data/israel-waters.json').then(r => r.json()),
+      fetch(ISRAEL_GEO_URL).then(r => r.json()),
     ]);
     israelCitiesData = cities;
     israelLandmarksData = landmarks;
     israelWatersData = waters;
+    israelGeoData = geo;
   }
 }
 
@@ -518,7 +522,7 @@ function renderGeoLayer() {
     console.warn('[GeoJSON] geoData is empty or missing!');
   }
 
-  const activeGeoData = state.region === 'usa' ? usaGeoData : geoData;
+  const activeGeoData = state.region === 'usa' ? usaGeoData : state.region === 'israel' ? israelGeoData : geoData;
   if (!activeGeoData) return;
 
   geoLayer = L.geoJSON(activeGeoData, {
@@ -528,6 +532,8 @@ function renderGeoLayer() {
       let rawIso;
       if (state.region === 'usa') {
         rawIso = USA_STATE_MAP[p.name] || p.name;
+      } else if (state.region === 'israel') {
+        rawIso = 'ISR';
       } else {
         rawIso = p['ISO3166-1-Alpha-3'] || p.ISO_A3 || p.iso_a3 || p.ISO3 || p.iso3 || p.ADM0_A3;
       }

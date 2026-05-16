@@ -1,0 +1,129 @@
+[
+  {
+    "id": "mississippi_us",
+    "type": "river",
+    "countries": ["USA"],
+    "name": { "en": "Mississippi River", "he": "נהר המיסיסיפי", "fr": "Fleuve Mississippi", "es": "Río Misisipi", "pt": "Rio Mississípi", "zh": "密西西比河" },
+    "difficulty": "easy",
+    "center": [38, -91],
+    "bounds": { "latMin": 29, "latMax": 48, "lngMin": -97, "lngMax": -88, "crossesDateLine": false }
+  },
+  {
+    "id": "colorado_us",
+    "type": "river",
+    "countries": ["USA", "MEX"],
+    "name": { "en": "Colorado River", "he": "נהר קולורדו", "fr": "Fleuve Colorado", "es": "Río Colorado", "pt": "Rio Colorado", "zh": "科罗拉多河" },
+    "difficulty": "easy",
+    "center": [37, -113],
+    "bounds": { "latMin": 31, "latMax": 41, "lngMin": -116, "lngMax": -110, "crossesDateLine": false }
+  },
+  {
+    "id": "great_lakes",
+    "type": "sea",
+    "name": { "en": "Great Lakes", "he": "האגמים הגדולים", "fr": "Grands Lacs", "es": "Grandes Lagos", "pt": "Grandes Lagos", "zh": "五大湖" },
+    "difficulty": "easy",
+    "center": [46, -84],
+    "bounds": { "latMin": 41.5, "latMax": 49, "lngMin": -93, "lngMax": -76, "crossesDateLine": false }
+  },
+  {
+    "id": "gulf_of_mexico_us",
+    "type": "sea",
+    "name": { "en": "Gulf of Mexico", "he": "מפרץ מקסיקו", "fr": "Golfe du Mexique", "es": "Golfo de México", "pt": "Golfo do México", "zh": "墨西哥湾" },
+    "difficulty": "easy",
+    "center": [27, -90],
+    "bounds": { "latMin": 24, "latMax": 31, "lngMin": -98, "lngMax": -81, "crossesDateLine": false }
+  },
+  {
+    "id": "lake_michigan",
+    "type": "sea",
+    "name": { "en": "Lake Michigan", "he": "אגם מישיגן", "fr": "Lac Michigan", "es": "Lago Míchigan", "pt": "Lago Michigan", "zh": "密歇根湖" },
+    "difficulty": "medium",
+    "center": [44, -87],
+    "bounds": { "latMin": 41.6, "latMax": 46, "lngMin": -88, "lngMax": -84.7, "crossesDateLine": false }
+  },
+  {
+    "id": "lake_superior",
+    "type": "sea",
+    "name": { "en": "Lake Superior", "he": "אגם סופריור", "fr": "Lac Supérieur", "es": "Lago Superior", "pt": "Lago Superior", "zh": "苏必利尔湖" },
+    "difficulty": "medium",
+    "center": [47.5, -87],
+    "bounds": { "latMin": 46.4, "latMax": 49, "lngMin": -92.2, "lngMax": -84.2, "crossesDateLine": false }
+  },
+  {
+    "id": "missouri_river",
+    "type": "river",
+    "countries": ["USA"],
+    "name": { "en": "Missouri River", "he": "נהר מיזורי", "fr": "Fleuve Missouri", "es": "Río Misuri", "pt": "Rio Missouri", "zh": "密苏里河" },
+    "difficulty": "medium",
+    "center": [44, -100],
+    "bounds": { "latMin": 38, "latMax": 48.5, "lngMin": -113, "lngMax": -90, "crossesDateLine": false }
+  },
+  {
+    "id": "ohio_river",
+    "type": "river",
+    "countries": ["USA"],
+    "name": { "en": "Ohio River", "he": "נהר אוהיו", "fr": "Fleuve Ohio", "es": "Río Ohio", "pt": "Rio Ohio", "zh": "俄亥俄河" },
+    "difficulty": "medium",
+    "center": [38.5, -84],
+    "bounds": { "latMin": 37, "latMax": 40.5, "lngMin": -89, "lngMax": -80.5, "crossesDateLine": false }
+  },
+  {
+    "id": "columbia_river",
+    "type": "river",
+    "countries": ["USA"],
+    "name": { "en": "Columbia River", "he": "נהר קולומביה", "fr": "Fleuve Columbia", "es": "Río Columbia", "pt": "Rio Columbia", "zh": "哥伦比亚河" },
+    "difficulty": "hard",
+    "center": [46, -120],
+    "bounds": { "latMin": 45.5, "latMax": 49, "lngMin": -124, "lngMax": -116, "crossesDateLine": false }
+  },
+  {
+    "id": "rio_grande",
+    "type": "river",
+    "countries": ["USA", "MEX"],
+    "name": { "en": "Rio Grande", "he": "ריו גראנדה", "fr": "Río Bravo", "es": "Río Bravo", "pt": "Rio Grande", "zh": "格兰德河" },
+    "difficulty": "hard",
+    "center": [29.5, -103],
+    "bounds": { "latMin": 25.8, "latMax": 37.5, "lngMin": -107, "lngMax": -97, "crossesDateLine": false }
+  },
+  {
+    "id": "chesapeake_bay",
+    "type": "sea",
+    "name": { "en": "Chesapeake Bay", "he": "מפרץ צ'סאפיק", "fr": "Baie de Chesapeake", "es": "Bahía de Chesapeake", "pt": "Baía de Chesapeake", "zh": "切萨皮克湾" },
+    "difficulty": "hard",
+    "center": [38.5, -76.2],
+    "bounds": { "latMin": 36.9, "latMax": 39.7, "lngMin": -77, "lngMax": -75.9, "crossesDateLine": false }
+  },
+  {
+    "id": "puget_sound",
+    "type": "sea",
+    "name": { "en": "Puget Sound", "he": "מפרץ פיוג'ט", "fr": "Puget Sound", "es": "Puget Sound", "pt": "Puget Sound", "zh": "普吉特海湾" },
+    "difficulty": "hard",
+    "center": [47.6, -122.5],
+    "bounds": { "latMin": 47.1, "latMax": 48.4, "lngMin": -123, "lngMax": -122, "crossesDateLine": false }
+  },
+  {
+    "id": "hudson_river",
+    "type": "river",
+    "countries": ["USA"],
+    "name": { "en": "Hudson River", "he": "נהר הדסון", "fr": "Fleuve Hudson", "es": "Río Hudson", "pt": "Rio Hudson", "zh": "哈德逊河" },
+    "difficulty": "hard",
+    "center": [41.5, -74],
+    "bounds": { "latMin": 40.7, "latMax": 43.9, "lngMin": -74.3, "lngMax": -73.7, "crossesDateLine": false }
+  },
+  {
+    "id": "lake_erie",
+    "type": "sea",
+    "name": { "en": "Lake Erie", "he": "אגם אירי", "fr": "Lac Érié", "es": "Lago Erie", "pt": "Lago Erie", "zh": "伊利湖" },
+    "difficulty": "hard",
+    "center": [42.2, -81],
+    "bounds": { "latMin": 41.4, "latMax": 42.9, "lngMin": -83.5, "lngMax": -78.9, "crossesDateLine": false }
+  },
+  {
+    "id": "lake_tahoe",
+    "type": "sea",
+    "name": { "en": "Lake Tahoe", "he": "אגם טהו", "fr": "Lac Tahoe", "es": "Lago Tahoe", "pt": "Lago Tahoe", "zh": "太浩湖" },
+    "difficulty": "hard",
+    "center": [39.1, -120],
+    "bounds": { "latMin": 38.9, "latMax": 39.3, "lngMin": -120.2, "lngMax": -119.9, "crossesDateLine": false }
+  }
+]

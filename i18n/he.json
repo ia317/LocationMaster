@@ -54,5 +54,17 @@
   "training_mode": "אימון",
   "training_next": "← הבא",
   "training_done": "האימון הסתיים!",
-  "training_items_reviewed": "פריטים נלמדו"
+  "training_items_reviewed": "פריטים נלמדו",
+  "region_title": "בחר אזור",
+  "region_world": "עולם",
+  "region_usa": "ארה\"ב",
+  "region_israel": "ישראל",
+  "change_region": "אזור",
+  "mode_states": "מדינות",
+  "mode_cities": "ערים",
+  "mode_waters": "מים",
+  "find_state": "מצא את המדינה",
+  "find_city": "מצא את העיר",
+  "wrong_states": "מדינות שפספסת:",
+  "wrong_cities": "ערים שפספסת:"
 }

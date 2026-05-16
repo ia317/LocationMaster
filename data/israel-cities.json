@@ -1,0 +1,92 @@
+[
+  {
+    "id": "jerusalem",
+    "difficulty": "easy",
+    "name": { "en": "Jerusalem", "he": "ירושלים", "fr": "Jérusalem", "es": "Jerusalén", "pt": "Jerusalém", "zh": "耶路撒冷" },
+    "center": [31.768, 35.214]
+  },
+  {
+    "id": "tel_aviv",
+    "difficulty": "easy",
+    "name": { "en": "Tel Aviv", "he": "תל אביב", "fr": "Tel Aviv", "es": "Tel Aviv", "pt": "Tel Aviv", "zh": "特拉维夫" },
+    "center": [32.087, 34.787]
+  },
+  {
+    "id": "haifa",
+    "difficulty": "easy",
+    "name": { "en": "Haifa", "he": "חיפה", "fr": "Haïfa", "es": "Haifa", "pt": "Haifa", "zh": "海法" },
+    "center": [32.819, 34.998]
+  },
+  {
+    "id": "beer_sheva",
+    "difficulty": "easy",
+    "name": { "en": "Be'er Sheva", "he": "באר שבע", "fr": "Beersheba", "es": "Beerseba", "pt": "Bersabeia", "zh": "别是巴" },
+    "center": [31.252, 34.791]
+  },
+  {
+    "id": "eilat",
+    "difficulty": "medium",
+    "name": { "en": "Eilat", "he": "אילת", "fr": "Eilat", "es": "Eilat", "pt": "Eilat", "zh": "埃拉特" },
+    "center": [29.558, 34.949]
+  },
+  {
+    "id": "netanya",
+    "difficulty": "medium",
+    "name": { "en": "Netanya", "he": "נתניה", "fr": "Netanya", "es": "Netanya", "pt": "Netanya", "zh": "纳塔尼亚" },
+    "center": [32.332, 34.858]
+  },
+  {
+    "id": "ashdod",
+    "difficulty": "medium",
+    "name": { "en": "Ashdod", "he": "אשדוד", "fr": "Ashdod", "es": "Asdod", "pt": "Asdode", "zh": "阿什杜德" },
+    "center": [31.804, 34.644]
+  },
+  {
+    "id": "rishon_lezion",
+    "difficulty": "medium",
+    "name": { "en": "Rishon LeZion", "he": "ראשון לציון", "fr": "Rishon LeZion", "es": "Rishón LeziyOn", "pt": "Rishon LeZion", "zh": "里雄莱锡安" },
+    "center": [31.964, 34.805]
+  },
+  {
+    "id": "petah_tikva",
+    "difficulty": "medium",
+    "name": { "en": "Petah Tikva", "he": "פתח תקווה", "fr": "Petah Tikva", "es": "Petah Tikva", "pt": "Petah Tikva", "zh": "佩塔提克瓦" },
+    "center": [32.087, 34.888]
+  },
+  {
+    "id": "ashkelon",
+    "difficulty": "medium",
+    "name": { "en": "Ashkelon", "he": "אשקלון", "fr": "Ashkelon", "es": "Ascalón", "pt": "Ascalom", "zh": "阿什克隆" },
+    "center": [31.666, 34.571]
+  },
+  {
+    "id": "tiberias",
+    "difficulty": "hard",
+    "name": { "en": "Tiberias", "he": "טבריה", "fr": "Tibériade", "es": "Tiberíades", "pt": "Tiberíades", "zh": "太巴列" },
+    "center": [32.794, 35.531]
+  },
+  {
+    "id": "nazareth",
+    "difficulty": "hard",
+    "name": { "en": "Nazareth", "he": "נצרת", "fr": "Nazareth", "es": "Nazaret", "pt": "Nazaré", "zh": "拿撒勒" },
+    "center": [32.699, 35.303]
+  },
+  {
+    "id": "akko",
+    "difficulty": "hard",
+    "name": { "en": "Akko", "he": "עכו", "fr": "Acre", "es": "Acre", "pt": "Acre", "zh": "阿卡" },
+    "center": [32.924, 35.071]
+  },
+  {
+    "id": "rehovot",
+    "difficulty": "hard",
+    "name": { "en": "Rehovot", "he": "רחובות", "fr": "Rehovot", "es": "Rejovot", "pt": "Rehovot", "zh": "雷霍沃特" },
+    "center": [31.894, 34.811]
+  },
+  {
+    "id": "herzliya",
+    "difficulty": "hard",
+    "name": { "en": "Herzliya", "he": "הרצליה", "fr": "Herzliya", "es": "Herzliyya", "pt": "Herzliya", "zh": "赫茨利亚" },
+    "center": [32.166, 34.843]
+  }
+]

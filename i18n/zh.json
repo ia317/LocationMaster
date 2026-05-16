@@ -54,5 +54,17 @@
   "training_mode": "训练",
   "training_next": "下一个 →",
   "training_done": "训练完成！",
-  "training_items_reviewed": "个条目已复习"
+  "training_items_reviewed": "个条目已复习",
+  "region_title": "选择区域",
+  "region_world": "世界",
+  "region_usa": "美国",
+  "region_israel": "以色列",
+  "change_region": "区域",
+  "mode_states": "州",
+  "mode_cities": "城市",
+  "mode_waters": "水域",
+  "find_state": "找到这个州",
+  "find_city": "找到这个城市",
+  "wrong_states": "你答错的州：",
+  "wrong_cities": "你答错的城市："
 }

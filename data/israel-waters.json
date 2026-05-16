@@ -1,0 +1,43 @@
+[
+  {
+    "id": "mediterranean_il",
+    "type": "sea",
+    "name": { "en": "Mediterranean Sea", "he": "הים התיכון", "fr": "Mer Méditerranée", "es": "Mar Mediterráneo", "pt": "Mar Mediterrâneo", "zh": "地中海" },
+    "difficulty": "easy",
+    "center": [32.5, 34.5],
+    "bounds": { "latMin": 29.5, "latMax": 33.3, "lngMin": 33.5, "lngMax": 35.2, "crossesDateLine": false }
+  },
+  {
+    "id": "dead_sea",
+    "type": "sea",
+    "name": { "en": "Dead Sea", "he": "ים המלח", "fr": "Mer Morte", "es": "Mar Muerto", "pt": "Mar Morto", "zh": "死海" },
+    "difficulty": "easy",
+    "center": [31.5, 35.48],
+    "bounds": { "latMin": 30.97, "latMax": 31.78, "lngMin": 35.35, "lngMax": 35.62, "crossesDateLine": false }
+  },
+  {
+    "id": "sea_of_galilee",
+    "type": "sea",
+    "name": { "en": "Sea of Galilee", "he": "ים כינרת", "fr": "Mer de Galilée", "es": "Mar de Galilea", "pt": "Mar da Galileia", "zh": "加利利海" },
+    "difficulty": "easy",
+    "center": [32.83, 35.6],
+    "bounds": { "latMin": 32.67, "latMax": 33.0, "lngMin": 35.5, "lngMax": 35.68, "crossesDateLine": false }
+  },
+  {
+    "id": "jordan_river",
+    "type": "river",
+    "countries": ["ISR", "JOR", "SYR"],
+    "name": { "en": "Jordan River", "he": "נהר הירדן", "fr": "Fleuve Jourdain", "es": "Río Jordán", "pt": "Rio Jordão", "zh": "约旦河" },
+    "difficulty": "medium",
+    "center": [32.1, 35.57],
+    "bounds": { "latMin": 31.0, "latMax": 33.2, "lngMin": 35.4, "lngMax": 35.7, "crossesDateLine": false }
+  },
+  {
+    "id": "gulf_of_eilat",
+    "type": "sea",
+    "name": { "en": "Gulf of Eilat", "he": "ים סוף", "fr": "Golfe d'Aqaba", "es": "Golfo de Aqaba", "pt": "Golfo de Aqaba", "zh": "亚喀巴湾" },
+    "difficulty": "medium",
+    "center": [29.5, 34.9],
+    "bounds": { "latMin": 28.0, "latMax": 30.0, "lngMin": 34.7, "lngMax": 35.2, "crossesDateLine": false }
+  }
+]

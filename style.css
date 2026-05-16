@@ -669,6 +669,34 @@ html, body {
 .btn-training-next:hover { background: var(--accent-h); }
 .btn-training-next.hidden { display: none; }
 
+/* ============================================
+   REGION SELECTOR
+   ============================================ */
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.region-btn {
+  background: var(--bg2);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 20px 8px;
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s;
+}
+.region-btn:first-child { font-size: 28px; padding-top: 10px; }
+.region-btn:hover, .region-btn:focus { border-color: var(--accent); background: var(--bg3); outline: none; }
+
 .training-complete-msg {
   color: var(--text2);
   font-size: 16px;

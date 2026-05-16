@@ -1,0 +1,302 @@
+[
+  {
+    "iso3": "CA",
+    "difficulty": "easy",
+    "name": { "en": "California", "he": "קליפורניה", "fr": "Californie", "es": "California", "pt": "Califórnia", "zh": "加利福尼亚州" },
+    "capital": { "en": "Sacramento", "he": "סקרמנטו", "fr": "Sacramento", "es": "Sacramento", "pt": "Sacramento", "zh": "萨克拉门托" }
+  },
+  {
+    "iso3": "TX",
+    "difficulty": "easy",
+    "name": { "en": "Texas", "he": "טקסס", "fr": "Texas", "es": "Texas", "pt": "Texas", "zh": "得克萨斯州" },
+    "capital": { "en": "Austin", "he": "אוסטין", "fr": "Austin", "es": "Austin", "pt": "Austin", "zh": "奥斯汀" }
+  },
+  {
+    "iso3": "NY",
+    "difficulty": "easy",
+    "name": { "en": "New York", "he": "ניו יורק", "fr": "New York", "es": "Nueva York", "pt": "Nova Iorque", "zh": "纽约州" },
+    "capital": { "en": "Albany", "he": "אולבני", "fr": "Albany", "es": "Albany", "pt": "Albany", "zh": "奥尔巴尼" }
+  },
+  {
+    "iso3": "FL",
+    "difficulty": "easy",
+    "name": { "en": "Florida", "he": "פלורידה", "fr": "Floride", "es": "Florida", "pt": "Flórida", "zh": "佛罗里达州" },
+    "capital": { "en": "Tallahassee", "he": "טאלהאסי", "fr": "Tallahassee", "es": "Talahásee", "pt": "Tallahassee", "zh": "塔拉哈西" }
+  },
+  {
+    "iso3": "AK",
+    "difficulty": "easy",
+    "name": { "en": "Alaska", "he": "אלסקה", "fr": "Alaska", "es": "Alaska", "pt": "Alasca", "zh": "阿拉斯加州" },
+    "capital": { "en": "Juneau", "he": "ג'ונו", "fr": "Juneau", "es": "Juneau", "pt": "Juneau", "zh": "朱诺" }
+  },
+  {
+    "iso3": "HI",
+    "difficulty": "easy",
+    "name": { "en": "Hawaii", "he": "הוואי", "fr": "Hawaï", "es": "Hawái", "pt": "Havaí", "zh": "夏威夷州" },
+    "capital": { "en": "Honolulu", "he": "הונולולו", "fr": "Honolulu", "es": "Honolulu", "pt": "Honolulu", "zh": "檀香山" }
+  },
+  {
+    "iso3": "AZ",
+    "difficulty": "easy",
+    "name": { "en": "Arizona", "he": "אריזונה", "fr": "Arizona", "es": "Arizona", "pt": "Arizona", "zh": "亚利桑那州" },
+    "capital": { "en": "Phoenix", "he": "פניקס", "fr": "Phoenix", "es": "Fénix", "pt": "Fênix", "zh": "凤凰城" }
+  },
+  {
+    "iso3": "CO",
+    "difficulty": "easy",
+    "name": { "en": "Colorado", "he": "קולורדו", "fr": "Colorado", "es": "Colorado", "pt": "Colorado", "zh": "科罗拉多州" },
+    "capital": { "en": "Denver", "he": "דנוור", "fr": "Denver", "es": "Denver", "pt": "Denver", "zh": "丹佛" }
+  },
+  {
+    "iso3": "WA",
+    "difficulty": "easy",
+    "name": { "en": "Washington", "he": "וושינגטון", "fr": "Washington", "es": "Washington", "pt": "Washington", "zh": "华盛顿州" },
+    "capital": { "en": "Olympia", "he": "אולימפיה", "fr": "Olympia", "es": "Olympia", "pt": "Olympia", "zh": "奥林匹亚" }
+  },
+  {
+    "iso3": "GA",
+    "difficulty": "easy",
+    "name": { "en": "Georgia", "he": "ג'ורג'יה", "fr": "Géorgie", "es": "Georgia", "pt": "Geórgia", "zh": "佐治亚州" },
+    "capital": { "en": "Atlanta", "he": "אטלנטה", "fr": "Atlanta", "es": "Atlanta", "pt": "Atlanta", "zh": "亚特兰大" }
+  },
+  {
+    "iso3": "IL",
+    "difficulty": "medium",
+    "name": { "en": "Illinois", "he": "אילינוי", "fr": "Illinois", "es": "Illinois", "pt": "Illinois", "zh": "伊利诺伊州" },
+    "capital": { "en": "Springfield", "he": "ספרינגפילד", "fr": "Springfield", "es": "Springfield", "pt": "Springfield", "zh": "斯普林菲尔德" }
+  },
+  {
+    "iso3": "PA",
+    "difficulty": "medium",
+    "name": { "en": "Pennsylvania", "he": "פנסילבניה", "fr": "Pennsylvanie", "es": "Pensilvania", "pt": "Pensilvânia", "zh": "宾夕法尼亚州" },
+    "capital": { "en": "Harrisburg", "he": "האריסבורג", "fr": "Harrisburg", "es": "Harrisburg", "pt": "Harrisburg", "zh": "哈里斯堡" }
+  },
+  {
+    "iso3": "OH",
+    "difficulty": "medium",
+    "name": { "en": "Ohio", "he": "אוהיו", "fr": "Ohio", "es": "Ohio", "pt": "Ohio", "zh": "俄亥俄州" },
+    "capital": { "en": "Columbus", "he": "קולומבוס", "fr": "Columbus", "es": "Columbus", "pt": "Columbus", "zh": "哥伦布" }
+  },
+  {
+    "iso3": "NC",
+    "difficulty": "medium",
+    "name": { "en": "North Carolina", "he": "קרוליינה הצפונית", "fr": "Caroline du Nord", "es": "Carolina del Norte", "pt": "Carolina do Norte", "zh": "北卡罗来纳州" },
+    "capital": { "en": "Raleigh", "he": "ראלי", "fr": "Raleigh", "es": "Raleigh", "pt": "Raleigh", "zh": "罗利" }
+  },
+  {
+    "iso3": "MI",
+    "difficulty": "medium",
+    "name": { "en": "Michigan", "he": "מישיגן", "fr": "Michigan", "es": "Míchigan", "pt": "Michigan", "zh": "密歇根州" },
+    "capital": { "en": "Lansing", "he": "לנסינג", "fr": "Lansing", "es": "Lansing", "pt": "Lansing", "zh": "兰辛" }
+  },
+  {
+    "iso3": "NJ",
+    "difficulty": "medium",
+    "name": { "en": "New Jersey", "he": "ניו ג'רזי", "fr": "New Jersey", "es": "Nueva Jersey", "pt": "Nova Jérsia", "zh": "新泽西州" },
+    "capital": { "en": "Trenton", "he": "טרנטון", "fr": "Trenton", "es": "Trenton", "pt": "Trenton", "zh": "特伦顿" }
+  },
+  {
+    "iso3": "VA",
+    "difficulty": "medium",
+    "name": { "en": "Virginia", "he": "וירג'יניה", "fr": "Virginie", "es": "Virginia", "pt": "Virgínia", "zh": "弗吉尼亚州" },
+    "capital": { "en": "Richmond", "he": "ריצ'מונד", "fr": "Richmond", "es": "Richmond", "pt": "Richmond", "zh": "里士满" }
+  },
+  {
+    "iso3": "TN",
+    "difficulty": "medium",
+    "name": { "en": "Tennessee", "he": "טנסי", "fr": "Tennessee", "es": "Tennessee", "pt": "Tennessee", "zh": "田纳西州" },
+    "capital": { "en": "Nashville", "he": "נאשוויל", "fr": "Nashville", "es": "Nashville", "pt": "Nashville", "zh": "纳什维尔" }
+  },
+  {
+    "iso3": "IN",
+    "difficulty": "medium",
+    "name": { "en": "Indiana", "he": "אינדיאנה", "fr": "Indiana", "es": "Indiana", "pt": "Indiana", "zh": "印第安纳州" },
+    "capital": { "en": "Indianapolis", "he": "אינדיאנאפוליס", "fr": "Indianapolis", "es": "Indianápolis", "pt": "Indianápolis", "zh": "印第安纳波利斯" }
+  },
+  {
+    "iso3": "MO",
+    "difficulty": "medium",
+    "name": { "en": "Missouri", "he": "מיזורי", "fr": "Missouri", "es": "Misuri", "pt": "Missouri", "zh": "密苏里州" },
+    "capital": { "en": "Jefferson City", "he": "ג'פרסון סיטי", "fr": "Jefferson City", "es": "Jefferson City", "pt": "Jefferson City", "zh": "杰斐逊城" }
+  },
+  {
+    "iso3": "WI",
+    "difficulty": "medium",
+    "name": { "en": "Wisconsin", "he": "ויסקונסין", "fr": "Wisconsin", "es": "Wisconsin", "pt": "Wisconsin", "zh": "威斯康星州" },
+    "capital": { "en": "Madison", "he": "מדיסון", "fr": "Madison", "es": "Madison", "pt": "Madison", "zh": "麦迪逊" }
+  },
+  {
+    "iso3": "MN",
+    "difficulty": "medium",
+    "name": { "en": "Minnesota", "he": "מינסוטה", "fr": "Minnesota", "es": "Minnesota", "pt": "Minnesota", "zh": "明尼苏达州" },
+    "capital": { "en": "Saint Paul", "he": "סנט פול", "fr": "Saint Paul", "es": "Saint Paul", "pt": "Saint Paul", "zh": "圣保罗" }
+  },
+  {
+    "iso3": "MA",
+    "difficulty": "medium",
+    "name": { "en": "Massachusetts", "he": "מסצ'וסטס", "fr": "Massachusetts", "es": "Massachusetts", "pt": "Massachusetts", "zh": "马萨诸塞州" },
+    "capital": { "en": "Boston", "he": "בוסטון", "fr": "Boston", "es": "Boston", "pt": "Boston", "zh": "波士顿" }
+  },
+  {
+    "iso3": "SC",
+    "difficulty": "medium",
+    "name": { "en": "South Carolina", "he": "קרוליינה הדרומית", "fr": "Caroline du Sud", "es": "Carolina del Sur", "pt": "Carolina do Sul", "zh": "南卡罗来纳州" },
+    "capital": { "en": "Columbia", "he": "קולומביה", "fr": "Columbia", "es": "Columbia", "pt": "Columbia", "zh": "哥伦比亚" }
+  },
+  {
+    "iso3": "MD",
+    "difficulty": "medium",
+    "name": { "en": "Maryland", "he": "מרילנד", "fr": "Maryland", "es": "Maryland", "pt": "Maryland", "zh": "马里兰州" },
+    "capital": { "en": "Annapolis", "he": "אנאפוליס", "fr": "Annapolis", "es": "Annapolis", "pt": "Annapolis", "zh": "安纳波利斯" }
+  },
+  {
+    "iso3": "LA",
+    "difficulty": "medium",
+    "name": { "en": "Louisiana", "he": "לואיזיאנה", "fr": "Louisiane", "es": "Luisiana", "pt": "Luisiana", "zh": "路易斯安那州" },
+    "capital": { "en": "Baton Rouge", "he": "באטון רוז'", "fr": "Baton Rouge", "es": "Baton Rouge", "pt": "Baton Rouge", "zh": "巴吞鲁日" }
+  },
+  {
+    "iso3": "KY",
+    "difficulty": "medium",
+    "name": { "en": "Kentucky", "he": "קנטאקי", "fr": "Kentucky", "es": "Kentucky", "pt": "Kentucky", "zh": "肯塔基州" },
+    "capital": { "en": "Frankfort", "he": "פרנקפורט", "fr": "Frankfort", "es": "Frankfort", "pt": "Frankfort", "zh": "法兰克福" }
+  },
+  {
+    "iso3": "OR",
+    "difficulty": "medium",
+    "name": { "en": "Oregon", "he": "אורגון", "fr": "Oregon", "es": "Oregón", "pt": "Oregon", "zh": "俄勒冈州" },
+    "capital": { "en": "Salem", "he": "סיילם", "fr": "Salem", "es": "Salem", "pt": "Salem", "zh": "塞勒姆" }
+  },
+  {
+    "iso3": "AL",
+    "difficulty": "medium",
+    "name": { "en": "Alabama", "he": "אלבמה", "fr": "Alabama", "es": "Alabama", "pt": "Alabama", "zh": "阿拉巴马州" },
+    "capital": { "en": "Montgomery", "he": "מונטגומרי", "fr": "Montgomery", "es": "Montgomery", "pt": "Montgomery", "zh": "蒙哥马利" }
+  },
+  {
+    "iso3": "NV",
+    "difficulty": "medium",
+    "name": { "en": "Nevada", "he": "נבדה", "fr": "Nevada", "es": "Nevada", "pt": "Nevada", "zh": "内华达州" },
+    "capital": { "en": "Carson City", "he": "קרסון סיטי", "fr": "Carson City", "es": "Carson City", "pt": "Carson City", "zh": "卡森城" }
+  },
+  {
+    "iso3": "UT",
+    "difficulty": "hard",
+    "name": { "en": "Utah", "he": "יוטה", "fr": "Utah", "es": "Utah", "pt": "Utah", "zh": "犹他州" },
+    "capital": { "en": "Salt Lake City", "he": "סולט לייק סיטי", "fr": "Salt Lake City", "es": "Salt Lake City", "pt": "Salt Lake City", "zh": "盐湖城" }
+  },
+  {
+    "iso3": "NM",
+    "difficulty": "hard",
+    "name": { "en": "New Mexico", "he": "ניו מקסיקו", "fr": "Nouveau-Mexique", "es": "Nuevo México", "pt": "Novo México", "zh": "新墨西哥州" },
+    "capital": { "en": "Santa Fe", "he": "סנטה פה", "fr": "Santa Fe", "es": "Santa Fe", "pt": "Santa Fé", "zh": "圣菲" }
+  },
+  {
+    "iso3": "KS",
+    "difficulty": "hard",
+    "name": { "en": "Kansas", "he": "קנזס", "fr": "Kansas", "es": "Kansas", "pt": "Kansas", "zh": "堪萨斯州" },
+    "capital": { "en": "Topeka", "he": "טופיקה", "fr": "Topeka", "es": "Topeka", "pt": "Topeka", "zh": "托皮卡" }
+  },
+  {
+    "iso3": "NE",
+    "difficulty": "hard",
+    "name": { "en": "Nebraska", "he": "נברסקה", "fr": "Nebraska", "es": "Nebraska", "pt": "Nebraska", "zh": "内布拉斯加州" },
+    "capital": { "en": "Lincoln", "he": "לינקולן", "fr": "Lincoln", "es": "Lincoln", "pt": "Lincoln", "zh": "林肯" }
+  },
+  {
+    "iso3": "IA",
+    "difficulty": "hard",
+    "name": { "en": "Iowa", "he": "איווה", "fr": "Iowa", "es": "Iowa", "pt": "Iowa", "zh": "爱荷华州" },
+    "capital": { "en": "Des Moines", "he": "דה מוין", "fr": "Des Moines", "es": "Des Moines", "pt": "Des Moines", "zh": "得梅因" }
+  },
+  {
+    "iso3": "AR",
+    "difficulty": "hard",
+    "name": { "en": "Arkansas", "he": "ארקנסו", "fr": "Arkansas", "es": "Arkansas", "pt": "Arkansas", "zh": "阿肯色州" },
+    "capital": { "en": "Little Rock", "he": "ליטל רוק", "fr": "Little Rock", "es": "Little Rock", "pt": "Little Rock", "zh": "小石城" }
+  },
+  {
+    "iso3": "MS",
+    "difficulty": "hard",
+    "name": { "en": "Mississippi", "he": "מיסיסיפי", "fr": "Mississippi", "es": "Misisipi", "pt": "Mississípi", "zh": "密西西比州" },
+    "capital": { "en": "Jackson", "he": "ג'קסון", "fr": "Jackson", "es": "Jackson", "pt": "Jackson", "zh": "杰克逊" }
+  },
+  {
+    "iso3": "OK",
+    "difficulty": "hard",
+    "name": { "en": "Oklahoma", "he": "אוקלהומה", "fr": "Oklahoma", "es": "Oklahoma", "pt": "Oklahoma", "zh": "俄克拉何马州" },
+    "capital": { "en": "Oklahoma City", "he": "אוקלהומה סיטי", "fr": "Oklahoma City", "es": "Oklahoma City", "pt": "Oklahoma City", "zh": "俄克拉何马城" }
+  },
+  {
+    "iso3": "WV",
+    "difficulty": "hard",
+    "name": { "en": "West Virginia", "he": "וירג'יניה המערבית", "fr": "Virginie-Occidentale", "es": "Virginia Occidental", "pt": "Virgínia Ocidental", "zh": "西弗吉尼亚州" },
+    "capital": { "en": "Charleston", "he": "צ'רלסטון", "fr": "Charleston", "es": "Charleston", "pt": "Charleston", "zh": "查尔斯顿" }
+  },
+  {
+    "iso3": "CT",
+    "difficulty": "hard",
+    "name": { "en": "Connecticut", "he": "קונטיקט", "fr": "Connecticut", "es": "Connecticut", "pt": "Connecticut", "zh": "康涅狄格州" },
+    "capital": { "en": "Hartford", "he": "הארטפורד", "fr": "Hartford", "es": "Hartford", "pt": "Hartford", "zh": "哈特福德" }
+  },
+  {
+    "iso3": "SD",
+    "difficulty": "hard",
+    "name": { "en": "South Dakota", "he": "דקוטה הדרומית", "fr": "Dakota du Sud", "es": "Dakota del Sur", "pt": "Dakota do Sul", "zh": "南达科他州" },
+    "capital": { "en": "Pierre", "he": "פייר", "fr": "Pierre", "es": "Pierre", "pt": "Pierre", "zh": "皮尔" }
+  },
+  {
+    "iso3": "ND",
+    "difficulty": "hard",
+    "name": { "en": "North Dakota", "he": "דקוטה הצפונית", "fr": "Dakota du Nord", "es": "Dakota del Norte", "pt": "Dakota do Norte", "zh": "北达科他州" },
+    "capital": { "en": "Bismarck", "he": "ביסמארק", "fr": "Bismarck", "es": "Bismarck", "pt": "Bismarck", "zh": "俾斯麦" }
+  },
+  {
+    "iso3": "MT",
+    "difficulty": "hard",
+    "name": { "en": "Montana", "he": "מונטנה", "fr": "Montana", "es": "Montana", "pt": "Montana", "zh": "蒙大拿州" },
+    "capital": { "en": "Helena", "he": "הלנה", "fr": "Helena", "es": "Helena", "pt": "Helena", "zh": "海伦娜" }
+  },
+  {
+    "iso3": "WY",
+    "difficulty": "hard",
+    "name": { "en": "Wyoming", "he": "ויומינג", "fr": "Wyoming", "es": "Wyoming", "pt": "Wyoming", "zh": "怀俄明州" },
+    "capital": { "en": "Cheyenne", "he": "שאיין", "fr": "Cheyenne", "es": "Cheyenne", "pt": "Cheyenne", "zh": "夏延" }
+  },
+  {
+    "iso3": "ID",
+    "difficulty": "hard",
+    "name": { "en": "Idaho", "he": "איידהו", "fr": "Idaho", "es": "Idaho", "pt": "Idaho", "zh": "爱达荷州" },
+    "capital": { "en": "Boise", "he": "בויסי", "fr": "Boise", "es": "Boise", "pt": "Boise", "zh": "博伊西" }
+  },
+  {
+    "iso3": "NH",
+    "difficulty": "hard",
+    "name": { "en": "New Hampshire", "he": "ניו המפשייר", "fr": "New Hampshire", "es": "Nuevo Hampshire", "pt": "Nova Hampshire", "zh": "新罕布什尔州" },
+    "capital": { "en": "Concord", "he": "קונקורד", "fr": "Concord", "es": "Concord", "pt": "Concord", "zh": "康科德" }
+  },
+  {
+    "iso3": "ME",
+    "difficulty": "hard",
+    "name": { "en": "Maine", "he": "מיין", "fr": "Maine", "es": "Maine", "pt": "Maine", "zh": "缅因州" },
+    "capital": { "en": "Augusta", "he": "אוגוסטה", "fr": "Augusta", "es": "Augusta", "pt": "Augusta", "zh": "奥古斯塔" }
+  },
+  {
+    "iso3": "VT",
+    "difficulty": "hard",
+    "name": { "en": "Vermont", "he": "ורמונט", "fr": "Vermont", "es": "Vermont", "pt": "Vermont", "zh": "佛蒙特州" },
+    "capital": { "en": "Montpelier", "he": "מונטפלייה", "fr": "Montpelier", "es": "Montpelier", "pt": "Montpelier", "zh": "蒙彼利埃" }
+  },
+  {
+    "iso3": "RI",
+    "difficulty": "hard",
+    "name": { "en": "Rhode Island", "he": "רוד איילנד", "fr": "Rhode Island", "es": "Rhode Island", "pt": "Rhode Island", "zh": "罗得岛州" },
+    "capital": { "en": "Providence", "he": "פרובידנס", "fr": "Providence", "es": "Providence", "pt": "Providence", "zh": "普罗维登斯" }
+  },
+  {
+    "iso3": "DE",
+    "difficulty": "hard",
+    "name": { "en": "Delaware", "he": "דלאוור", "fr": "Delaware", "es": "Delaware", "pt": "Delaware", "zh": "特拉华州" },
+    "capital": { "en": "Dover", "he": "דובר", "fr": "Dover", "es": "Dover", "pt": "Dover", "zh": "多佛" }
+  }
+]

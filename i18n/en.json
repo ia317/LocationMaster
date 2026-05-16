@@ -54,5 +54,17 @@
   "training_mode": "Training",
   "training_next": "Next →",
   "training_done": "Training Complete!",
-  "training_items_reviewed": "items reviewed"
+  "training_items_reviewed": "items reviewed",
+  "region_title": "Choose a Region",
+  "region_world": "World",
+  "region_usa": "USA",
+  "region_israel": "Israel",
+  "change_region": "Region",
+  "mode_states": "States",
+  "mode_cities": "Cities",
+  "mode_waters": "Waters",
+  "find_state": "Find the state",
+  "find_city": "Find the city",
+  "wrong_states": "States you missed:",
+  "wrong_cities": "Cities you missed:"
 }

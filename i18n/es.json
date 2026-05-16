@@ -54,5 +54,17 @@
   "training_mode": "Entrenamiento",
   "training_next": "Siguiente →",
   "training_done": "¡Entrenamiento completo!",
-  "training_items_reviewed": "elementos revisados"
+  "training_items_reviewed": "elementos revisados",
+  "region_title": "Elige una región",
+  "region_world": "Mundo",
+  "region_usa": "EE.UU.",
+  "region_israel": "Israel",
+  "change_region": "Región",
+  "mode_states": "Estados",
+  "mode_cities": "Ciudades",
+  "mode_waters": "Aguas",
+  "find_state": "Encuentra el estado",
+  "find_city": "Encuentra la ciudad",
+  "wrong_states": "Estados que fallaste:",
+  "wrong_cities": "Ciudades que fallaste:"
 }

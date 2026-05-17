@@ -66,5 +66,9 @@
   "find_state": "מצא את המדינה",
   "find_city": "מצא את העיר",
   "wrong_states": "מדינות שפספסת:",
-  "wrong_cities": "ערים שפספסת:"
+  "wrong_cities": "ערים שפספסת:",
+  "filter_state": "סנן לפי מדינה",
+  "all_states": "כל המדינות",
+  "filter_area": "סנן לפי אזור",
+  "all_areas": "כל האזורים"
 }

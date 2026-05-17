@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.1.1';
+const VERSION = '1.1.3';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -27,6 +27,8 @@ const state = {
   targetCountry: null,
   gameActive: false,
   awaitingNext: false,
+  waterStateFilter: 'all',
+  israelAreaFilter: 'all',
 };
 
 // ============================================================
@@ -78,7 +80,16 @@ const TILES = {
 
 const GEO_URL = 'https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson';
 const USA_GEO_URL = 'https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json';
-const ISRAEL_GEO_URL = 'https://raw.githubusercontent.com/glynnbird/countriesgeojson/master/israel.geojson';
+const ISRAEL_GEO_URL = 'data/israel-unified.geojson';
+
+const ISRAEL_AREAS = [
+  { id: 'north',         name: { en: 'North',           he: 'הצפון',         fr: 'Nord',           es: 'Norte',          pt: 'Norte',            zh: '北部' }},
+  { id: 'center',        name: { en: 'Center',          he: 'המרכז',         fr: 'Centre',         es: 'Centro',         pt: 'Centro',           zh: '中部' }},
+  { id: 'jerusalem',     name: { en: 'Jerusalem',       he: 'ירושלים',       fr: 'Jérusalem',      es: 'Jerusalén',      pt: 'Jerusalém',        zh: '耶路撒冷' }},
+  { id: 'south',         name: { en: 'South',           he: 'הדרום',         fr: 'Sud',            es: 'Sur',            pt: 'Sul',              zh: '南部' }},
+  { id: 'judea_samaria', name: { en: 'Judea & Samaria', he: 'יהודה ושומרון', fr: 'Judée-Samarie',  es: 'Judea y Samaria', pt: 'Judeia e Samaria', zh: '犹大和撒马利亚' }},
+  { id: 'golan',         name: { en: 'Golan',           he: 'הגולן',         fr: 'Golan',          es: 'Golán',          pt: 'Golã',             zh: '戈兰' }},
+];
 
 const USA_STATE_MAP = {
   "Alabama":"AL","Alaska":"AK","Arizona":"AZ","Arkansas":"AR","California":"CA",
@@ -419,6 +430,11 @@ async function getWikiInfo(enTitle, lang) {
 // Mercator-safe world bounds (poles cut off at ±85°)
 const WORLD_BOUNDS = L.latLngBounds([[-85.051129, -180], [85.051129, 180]]);
 
+const STATE_BOUNDS_OVERRIDE = {
+  HI: [[18.9, -160.3], [22.2, -154.8]],
+  AK: [[51.2, -170.0], [71.4, -129.9]],
+};
+
 function initMap() {
   if (map) return;
 
@@ -492,9 +508,20 @@ function fitMapToRegion() {
   if (state.region === 'usa') {
     map.fitBounds([[24, -125], [50, -66]], { padding: [2, 2], animate: false });
   } else if (state.region === 'israel') {
-    map.fitBounds([[29.4, 34.2], [33.4, 36.0]], { padding: [20, 20], animate: false });
+    map.fitBounds([[29.4, 34.0], [33.4, 36.0]], { padding: [20, 20], animate: false });
   } else {
     map.fitBounds(WORLD_BOUNDS, { padding: [2, 2], animate: false });
+  }
+}
+
+function fitMapToTarget() {
+  if (state.region !== 'usa') return;
+  const iso = state.targetCountry && state.targetCountry.iso3;
+  const override = iso && STATE_BOUNDS_OVERRIDE[iso];
+  if (override) {
+    map.fitBounds(override, { padding: [30, 30], animate: true });
+  } else {
+    map.fitBounds([[24, -125], [50, -66]], { padding: [2, 2], animate: true });
   }
 }
 
@@ -823,6 +850,13 @@ function initSetupScreen() {
   });
 
   updateSetupModes();
+  document.getElementById('sel-area-filter').addEventListener('change', e => {
+    if (state.region === 'usa') {
+      state.waterStateFilter = e.target.value;
+    } else {
+      state.israelAreaFilter = e.target.value;
+    }
+  });
   setupToggleGroup('tg-training', val => { state.training = val === 'training'; });
   setupToggleGroup('tg-difficulty', val => { state.difficulty = val; });
 
@@ -847,7 +881,53 @@ function updateSetupModes() {
   ).join('');
   state.gameMode = defs[0][0];
 
-  setupToggleGroup('tg-mode', val => { state.gameMode = val; });
+  setupToggleGroup('tg-mode', val => {
+    state.gameMode = val;
+    updateAreaFilterRow();
+  });
+  updateAreaFilterRow();
+}
+
+function updateAreaFilterRow() {
+  const row = document.getElementById('row-area-filter');
+  if (!row) return;
+  const usaWaters = state.region === 'usa' && state.gameMode === 'waters';
+  const israelMode = state.region === 'israel' && (state.gameMode === 'cities' || state.gameMode === 'waters');
+  const visible = usaWaters || israelMode;
+  row.classList.toggle('hidden', !visible);
+  if (!visible) {
+    state.waterStateFilter = 'all';
+    state.israelAreaFilter = 'all';
+    return;
+  }
+  const label = row.querySelector('label');
+  const sel = document.getElementById('sel-area-filter');
+  if (usaWaters) {
+    label.setAttribute('data-i18n', 'filter_state');
+    label.textContent = t('filter_state');
+    const stateSet = new Set();
+    usaWatersData.forEach(w => { if (w.states) w.states.forEach(s => stateSet.add(s)); });
+    const relevant = usaStatesData
+      .filter(s => stateSet.has(s.iso3))
+      .sort((a, b) => (a.name[state.lang] || a.name.en).localeCompare(b.name[state.lang] || b.name.en));
+    sel.innerHTML = `<option value="all">${t('all_states')}</option>` +
+      relevant.map(s => `<option value="${s.iso3}">${s.name[state.lang] || s.name.en}</option>`).join('');
+    sel.value = state.waterStateFilter;
+  } else {
+    label.setAttribute('data-i18n', 'filter_area');
+    label.textContent = t('filter_area');
+    const areaSet = new Set();
+    if (state.gameMode === 'cities') {
+      israelCitiesData.forEach(c => { if (c.area) areaSet.add(c.area); });
+    } else {
+      israelWatersData.forEach(w => { if (w.areas) w.areas.forEach(a => areaSet.add(a)); });
+    }
+    const relevant = ISRAEL_AREAS.filter(a => areaSet.has(a.id));
+    state.israelAreaFilter = 'all';
+    sel.innerHTML = `<option value="all">${t('all_areas')}</option>` +
+      relevant.map(a => `<option value="${a.id}">${a.name[state.lang] || a.name.en}</option>`).join('');
+    sel.value = 'all';
+  }
 }
 
 function setupToggleGroup(groupId, onChange) {
@@ -951,10 +1031,21 @@ function buildQuestionPool() {
     return weightedShuffle(getActiveLandmarksData(), c => w[c.difficulty] || 1);
   }
   if (state.gameMode === 'oceans' || state.gameMode === 'waters') {
-    return weightedShuffle(getActiveWatersData(), c => w[c.difficulty] || 1);
+    let watersData = getActiveWatersData();
+    if (state.region === 'usa' && state.waterStateFilter !== 'all') {
+      watersData = watersData.filter(item => item.states && item.states.includes(state.waterStateFilter));
+    }
+    if (state.region === 'israel' && state.israelAreaFilter !== 'all') {
+      watersData = watersData.filter(item => item.areas && item.areas.includes(state.israelAreaFilter));
+    }
+    return weightedShuffle(watersData, c => w[c.difficulty] || 1);
   }
   if (state.gameMode === 'cities') {
-    return weightedShuffle(israelCitiesData, c => w[c.difficulty] || 1);
+    let citiesData = israelCitiesData;
+    if (state.israelAreaFilter !== 'all') {
+      citiesData = citiesData.filter(c => c.area === state.israelAreaFilter);
+    }
+    return weightedShuffle(citiesData, c => w[c.difficulty] || 1);
   }
   const data = getActiveEntityData();
   const seen = new Set();
@@ -997,6 +1088,7 @@ function nextQuestion() {
 
   state.targetCountry = state.questionPool[state.questionIdx++];
   state.awaitingNext = false;
+  fitMapToTarget();
 
   // Pre-fetch next landmark info while player answers current question
   if (state.gameMode === 'landmarks') {

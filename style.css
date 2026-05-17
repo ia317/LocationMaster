@@ -346,6 +346,34 @@ html, body {
   font-weight: 600;
 }
 
+.state-select {
+  background: var(--bg2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 36px 10px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  width: 100%;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+
+.state-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.state-select option {
+  background: var(--bg2);
+  color: var(--text);
+}
+
 #player-names {
   display: flex;
   flex-direction: column;

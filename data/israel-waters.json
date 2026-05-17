@@ -2,6 +2,7 @@
   {
     "id": "mediterranean_il",
     "type": "sea",
+    "areas": ["north", "center", "south"],
     "name": { "en": "Mediterranean Sea", "he": "הים התיכון", "fr": "Mer Méditerranée", "es": "Mar Mediterráneo", "pt": "Mar Mediterrâneo", "zh": "地中海" },
     "difficulty": "easy",
     "center": [32.5, 34.5],
@@ -10,6 +11,7 @@
   {
     "id": "dead_sea",
     "type": "sea",
+    "areas": ["jerusalem", "judea_samaria", "south"],
     "name": { "en": "Dead Sea", "he": "ים המלח", "fr": "Mer Morte", "es": "Mar Muerto", "pt": "Mar Morto", "zh": "死海" },
     "difficulty": "easy",
     "center": [31.5, 35.48],
@@ -18,6 +20,7 @@
   {
     "id": "sea_of_galilee",
     "type": "sea",
+    "areas": ["north", "golan"],
     "name": { "en": "Sea of Galilee", "he": "ים כינרת", "fr": "Mer de Galilée", "es": "Mar de Galilea", "pt": "Mar da Galileia", "zh": "加利利海" },
     "difficulty": "easy",
     "center": [32.83, 35.6],
@@ -27,6 +30,7 @@
     "id": "jordan_river",
     "type": "river",
     "countries": ["ISR", "JOR", "SYR"],
+    "areas": ["north", "judea_samaria"],
     "name": { "en": "Jordan River", "he": "נהר הירדן", "fr": "Fleuve Jourdain", "es": "Río Jordán", "pt": "Rio Jordão", "zh": "约旦河" },
     "difficulty": "medium",
     "center": [32.1, 35.57],
@@ -35,6 +39,7 @@
   {
     "id": "gulf_of_eilat",
     "type": "sea",
+    "areas": ["south"],
     "name": { "en": "Gulf of Eilat", "he": "ים סוף", "fr": "Golfe d'Aqaba", "es": "Golfo de Aqaba", "pt": "Golfo de Aqaba", "zh": "亚喀巴湾" },
     "difficulty": "medium",
     "center": [29.5, 34.9],

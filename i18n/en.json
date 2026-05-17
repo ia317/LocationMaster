@@ -66,5 +66,9 @@
   "find_state": "Find the state",
   "find_city": "Find the city",
   "wrong_states": "States you missed:",
-  "wrong_cities": "Cities you missed:"
+  "wrong_cities": "Cities you missed:",
+  "filter_state": "Filter by State",
+  "all_states": "All States",
+  "filter_area": "Filter by Area",
+  "all_areas": "All Areas"
 }

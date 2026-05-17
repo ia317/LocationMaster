@@ -66,5 +66,9 @@
   "find_state": "Trouvez l'état",
   "find_city": "Trouvez la ville",
   "wrong_states": "États manqués:",
-  "wrong_cities": "Villes manquées:"
+  "wrong_cities": "Villes manquées:",
+  "filter_state": "Filtrer par État",
+  "all_states": "Tous les États",
+  "filter_area": "Filtrer par Zone",
+  "all_areas": "Toutes les Zones"
 }

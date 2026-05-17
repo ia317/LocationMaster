@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.1.3';
+const VERSION = '1.1.4';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -80,7 +80,7 @@ const TILES = {
 
 const GEO_URL = 'https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson';
 const USA_GEO_URL = 'https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json';
-const ISRAEL_GEO_URL = 'data/israel-unified.geojson';
+const ISRAEL_GEO_URL = 'data/israel-areas.geojson';
 
 const ISRAEL_AREAS = [
   { id: 'north',         name: { en: 'North',           he: 'הצפון',         fr: 'Nord',           es: 'Norte',          pt: 'Norte',            zh: '北部' }},
@@ -498,7 +498,6 @@ function initMap() {
     if (!state.gameActive) return;
     if (state.awaitingNext) { clickToSkip(); return; }
     if (state.gameMode === 'oceans' || state.gameMode === 'waters') { onOceanWaterClick(e.latlng); return; }
-    if (state.region === 'israel' && state.gameMode === 'cities') { onIsraelCityClick(e.latlng); return; }
     showFeedback('info', t('click_country'));
     setTimeout(hideFeedback, 1200);
   });
@@ -560,7 +559,7 @@ function renderGeoLayer() {
       if (state.region === 'usa') {
         rawIso = USA_STATE_MAP[p.name] || p.name;
       } else if (state.region === 'israel') {
-        rawIso = 'ISR';
+        rawIso = p.id;
       } else {
         rawIso = p['ISO3166-1-Alpha-3'] || p.ISO_A3 || p.iso_a3 || p.ISO3 || p.iso3 || p.ADM0_A3;
       }
@@ -570,13 +569,62 @@ function renderGeoLayer() {
       if (!countryLayers[iso]) countryLayers[iso] = [];
       countryLayers[iso].push(layer);
 
-      // Israel: non-interactive so all clicks bubble to map for city proximity detection
+      // Israel areas: register all layers under 'ISR' too for landmarks highlighting
       if (state.region === 'israel') {
+        if (!countryLayers['ISR']) countryLayers['ISR'] = [];
+        countryLayers['ISR'].push(layer);
+      }
+
+      // Israel waters mode: keep non-interactive so water-body clicks bubble to map handler
+      if (state.region === 'israel' && state.gameMode === 'waters') {
         layer.options.bubblingMouseEvents = true;
         return;
       }
 
       layer.options.bubblingMouseEvents = false;
+
+      if (state.region === 'israel') {
+        layer.on('click', (e) => {
+          _layerClickHandled = true;
+          const areaObj = ISRAEL_AREAS.find(a => a.id === iso);
+          const displayName = areaObj ? (areaObj.name[state.lang] || areaObj.name.en) : iso;
+          let result = 'inactive';
+          if (state.gameActive && !state.awaitingNext && state.targetCountry) {
+            const t = state.targetCountry;
+            if (state.gameMode === 'cities') {
+              result = iso === t.area ? 'correct' : 'wrong';
+            } else if (state.gameMode === 'landmarks') {
+              result = 'correct';
+            }
+          }
+          showClickDebug(e.latlng, displayName, result);
+          if (!state.gameActive) return;
+          if (state.awaitingNext) { clickToSkip(); return; }
+          if (state.gameMode === 'cities') {
+            if (iso === state.targetCountry.area) {
+              handleCorrect();
+            } else {
+              handleWrong(iso);
+            }
+          } else if (state.gameMode === 'landmarks') {
+            handleCorrect();
+          }
+        });
+
+        layer.on('mouseover', () => {
+          if (state.gameActive && !state.awaitingNext) {
+            const hoverColor = state.mapStyle === 'solid' ? '#f0c040' : '#475569';
+            layer.setStyle({ fillOpacity: 0.6, fillColor: hoverColor });
+          }
+        });
+
+        layer.on('mouseout', () => {
+          if (state.gameActive && !state.awaitingNext) {
+            geoLayer.resetStyle(layer);
+          }
+        });
+        return;
+      }
 
       layer.on('click', (e) => {
         _layerClickHandled = true;
@@ -786,17 +834,6 @@ function onOceanWaterClick(latlng) {
   }
 }
 
-function onIsraelCityClick(latlng) {
-  if (!state.gameActive || state.awaitingNext) return;
-  const city = state.targetCountry;
-  const dist = latlng.distanceTo(L.latLng(city.center[0], city.center[1]));
-  const radius = { easy: 30000, medium: 15000, hard: 8000 };
-  if (dist <= (radius[state.difficulty] || 15000)) {
-    handleCorrect();
-  } else {
-    handleWrong(null);
-  }
-}
 
 function showCityMarker(city, color, permanent = false) {
   clearCityMarker();
@@ -1113,6 +1150,7 @@ function showTrainingAnswer() {
   if (state.gameMode === 'oceans' || state.gameMode === 'waters') {
     highlightOcean(item, '#4a90d9', true);
   } else if (state.gameMode === 'cities') {
+    if (state.region === 'israel') highlightCountry(item.area, '#4a90d9', true);
     showCityMarker(item, '#4a90d9', true);
   } else if (item.iso3) {
     highlightCountry(item.iso3, '#4a90d9', true);
@@ -1140,6 +1178,7 @@ function handleCorrect() {
   if (state.gameMode === 'oceans' || state.gameMode === 'waters') {
     highlightOcean(state.targetCountry, '#22c55e');
   } else if (state.gameMode === 'cities') {
+    if (state.region === 'israel') highlightCountry(state.targetCountry.area, '#22c55e');
     showCityMarker(state.targetCountry, '#22c55e');
   } else {
     highlightCountry(state.targetCountry.iso3, '#22c55e');
@@ -1169,6 +1208,10 @@ function handleWrong(clickedIso) {
   if (isWater) {
     highlightOcean(state.targetCountry, '#f97316');
   } else if (state.gameMode === 'cities') {
+    if (state.region === 'israel') {
+      if (!isTimeout) highlightCountry(clickedIso, '#ef4444');
+      highlightCountry(state.targetCountry.area, '#f97316');
+    }
     showCityMarker(state.targetCountry, '#f97316');
   } else {
     if (!isTimeout) highlightCountry(clickedIso, '#ef4444');

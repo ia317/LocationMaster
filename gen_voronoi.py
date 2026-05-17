@@ -8,37 +8,65 @@ import numpy as np
 from shapely.geometry import Polygon, MultiPolygon, mapping, Point
 from shapely.ops import unary_union
 
-# Israel boundary (simplified polygon covering Israel + West Bank + Golan + Gaza)
-# Coordinates: [lon, lat]
+# Israel boundary — detailed Mediterranean coastline + accurate land borders
+# Coordinates: [lon, lat], traced clockwise from Rosh HaNikra
 ISRAEL_BOUNDARY = Polygon([
-    [34.20, 29.50],  # Eilat / Egyptian border (SW)
-    [34.90, 29.50],  # Aqaba area
-    [35.00, 30.00],  # Wadi Rum area
-    [35.20, 30.80],  # Aqaba / south Jordan border
-    [35.55, 31.00],  # south Dead Sea
-    [35.60, 31.20],
-    [35.60, 31.50],  # Dead Sea east
-    [35.60, 31.72],
-    [35.60, 32.00],
+    # Lebanese border (west → east)
+    [35.10, 33.08],  # Rosh HaNikra (NW)
+    [35.25, 33.10],
+    [35.60, 33.09],
+    # Golan / Syrian border (north → south)
+    [36.05, 33.09],
+    [36.05, 32.50],
+    # Jordan River / Dead Sea / Wadi Araba (north → south)
     [35.60, 32.50],
-    [36.05, 32.50],  # Golan NE
-    [36.05, 33.25],  # Golan N
-    [35.60, 33.25],  # Lebanon/Syria corner
-    [35.10, 33.10],  # Lebanon border W
-    [34.95, 33.10],  # Rosh HaNikra (NW)
-    [34.90, 33.05],
-    [34.87, 32.90],  # Haifa coast N
-    [34.76, 32.65],  # Haifa-Netanya coast
-    [34.57, 32.22],  # coast
-    [34.40, 31.85],  # central coast
-    [34.36, 31.65],  # Ashkelon coast
-    [34.30, 31.50],  # Gaza coast
-    [34.22, 31.35],  # Gaza southern coast
-    [34.23, 31.22],
-    [34.26, 31.12],  # Rafah
-    [34.25, 31.00],
-    [34.20, 30.50],  # Sinai border
-    [34.20, 29.50],  # back to start
+    [35.58, 32.10],
+    [35.57, 31.78],
+    [35.55, 31.50],
+    [35.52, 31.20],
+    [35.50, 31.00],
+    [35.48, 30.85],  # Dead Sea south tip
+    [35.20, 30.50],  # Wadi Araba
+    [35.08, 30.20],
+    [34.97, 29.88],
+    [34.95, 29.53],  # Eilat (SE corner)
+    # Egyptian / Sinai border (SE → NW)
+    [34.65, 29.50],
+    [34.25, 30.10],
+    [34.20, 30.65],
+    [34.22, 31.00],
+    [34.24, 31.13],  # Rafah
+    # Mediterranean coast (south → north, detailed)
+    [34.28, 31.22],
+    [34.34, 31.28],
+    [34.38, 31.37],
+    [34.40, 31.43],
+    [34.43, 31.47],
+    [34.46, 31.50],  # north Gaza
+    [34.49, 31.54],
+    [34.54, 31.61],
+    [34.57, 31.67],  # Ashkelon
+    [34.60, 31.74],
+    [34.64, 31.80],  # Ashdod
+    [34.69, 31.86],
+    [34.71, 31.91],
+    [34.73, 31.97],
+    [34.75, 32.02],  # Bat Yam / Jaffa
+    [34.77, 32.09],  # Tel Aviv
+    [34.82, 32.17],  # Herzliya coast
+    [34.85, 32.25],
+    [34.87, 32.34],  # Netanya
+    [34.89, 32.43],
+    [34.92, 32.50],  # Caesarea
+    [34.93, 32.62],  # Atlit
+    [34.95, 32.70],  # Carmel coast
+    [34.97, 32.76],
+    [34.99, 32.82],  # Haifa port
+    [35.05, 32.87],  # Haifa bay north
+    [35.08, 32.93],  # Akko
+    [35.09, 32.97],
+    [35.10, 33.00],  # Nahariya
+    [35.10, 33.08],  # Rosh HaNikra (back to start)
 ])
 
 # Load cities

@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.1.5';
+const VERSION = '1.1.6';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -80,7 +80,7 @@ const TILES = {
 
 const GEO_URL = 'https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson';
 const USA_GEO_URL = 'https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json';
-const ISRAEL_GEO_URL = 'data/israel-areas.geojson';
+const ISRAEL_GEO_URL = 'data/israel-cities-voronoi.geojson';
 
 const ISRAEL_AREAS = [
   { id: 'north',         name: { en: 'North',           he: 'הצפון',         fr: 'Nord',           es: 'Norte',          pt: 'Norte',            zh: '北部' }},
@@ -586,13 +586,13 @@ function renderGeoLayer() {
       if (state.region === 'israel') {
         layer.on('click', (e) => {
           _layerClickHandled = true;
-          const areaObj = ISRAEL_AREAS.find(a => a.id === iso);
-          const displayName = areaObj ? (areaObj.name[state.lang] || areaObj.name.en) : iso;
+          const cityMeta = israelCitiesData.find(c => c.id === iso);
+          const displayName = cityMeta ? (cityMeta.name[state.lang] || cityMeta.name.en) : iso;
           let result = 'inactive';
           if (state.gameActive && !state.awaitingNext && state.targetCountry) {
             const t = state.targetCountry;
             if (state.gameMode === 'cities') {
-              result = iso === t.area ? 'correct' : 'wrong';
+              result = iso === t.id ? 'correct' : 'wrong';
             } else if (state.gameMode === 'landmarks') {
               result = 'correct';
             }
@@ -601,7 +601,7 @@ function renderGeoLayer() {
           if (!state.gameActive) return;
           if (state.awaitingNext) { clickToSkip(); return; }
           if (state.gameMode === 'cities') {
-            if (iso === state.targetCountry.area) {
+            if (iso === state.targetCountry.id) {
               handleCorrect();
             } else {
               handleWrong(iso);
@@ -1150,7 +1150,7 @@ function showTrainingAnswer() {
   if (state.gameMode === 'oceans' || state.gameMode === 'waters') {
     highlightOcean(item, '#4a90d9', true);
   } else if (state.gameMode === 'cities') {
-    if (state.region === 'israel') highlightCountry(item.area, '#4a90d9', true);
+    if (state.region === 'israel') highlightCountry(item.id, '#4a90d9', true);
     showCityMarker(item, '#4a90d9', true);
   } else if (item.iso3) {
     highlightCountry(item.iso3, '#4a90d9', true);
@@ -1178,7 +1178,7 @@ function handleCorrect() {
   if (state.gameMode === 'oceans' || state.gameMode === 'waters') {
     highlightOcean(state.targetCountry, '#22c55e');
   } else if (state.gameMode === 'cities') {
-    if (state.region === 'israel') highlightCountry(state.targetCountry.area, '#22c55e');
+    if (state.region === 'israel') highlightCountry(state.targetCountry.id, '#22c55e');
     showCityMarker(state.targetCountry, '#22c55e');
   } else {
     highlightCountry(state.targetCountry.iso3, '#22c55e');
@@ -1210,7 +1210,7 @@ function handleWrong(clickedIso) {
   } else if (state.gameMode === 'cities') {
     if (state.region === 'israel') {
       if (!isTimeout) highlightCountry(clickedIso, '#ef4444');
-      highlightCountry(state.targetCountry.area, '#f97316');
+      highlightCountry(state.targetCountry.id, '#f97316');
     }
     showCityMarker(state.targetCountry, '#f97316');
   } else {

@@ -70,6 +70,76 @@
     "center": [31.666, 34.571]
   },
   {
+    "id": "nahariya",
+    "area": "north",
+    "difficulty": "medium",
+    "name": { "en": "Nahariya", "he": "נהריה", "fr": "Nahariya", "es": "Nahariya", "pt": "Nahariya", "zh": "纳哈里亚" },
+    "center": [33.003, 35.098]
+  },
+  {
+    "id": "carmiel",
+    "area": "north",
+    "difficulty": "medium",
+    "name": { "en": "Carmiel", "he": "כרמיאל", "fr": "Carmiel", "es": "Carmiel", "pt": "Carmiel", "zh": "卡米尔" },
+    "center": [32.918, 35.297]
+  },
+  {
+    "id": "holon",
+    "area": "center",
+    "difficulty": "medium",
+    "name": { "en": "Holon", "he": "חולון", "fr": "Holon", "es": "Holon", "pt": "Holon", "zh": "霍隆" },
+    "center": [32.015, 34.773]
+  },
+  {
+    "id": "bat_yam",
+    "area": "center",
+    "difficulty": "medium",
+    "name": { "en": "Bat Yam", "he": "בת ים", "fr": "Bat Yam", "es": "Bat Yam", "pt": "Bat Yam", "zh": "巴特亚姆" },
+    "center": [32.023, 34.751]
+  },
+  {
+    "id": "bnei_brak",
+    "area": "center",
+    "difficulty": "medium",
+    "name": { "en": "Bnei Brak", "he": "בני ברק", "fr": "Bnei Brak", "es": "Bnei Brak", "pt": "Bnei Brak", "zh": "布内布拉克" },
+    "center": [32.083, 34.833]
+  },
+  {
+    "id": "ramat_gan",
+    "area": "center",
+    "difficulty": "medium",
+    "name": { "en": "Ramat Gan", "he": "רמת גן", "fr": "Ramat Gan", "es": "Ramat Gan", "pt": "Ramat Gan", "zh": "拉马特甘" },
+    "center": [32.070, 34.824]
+  },
+  {
+    "id": "lod",
+    "area": "center",
+    "difficulty": "medium",
+    "name": { "en": "Lod", "he": "לוד", "fr": "Lod", "es": "Lod", "pt": "Lod", "zh": "洛德" },
+    "center": [31.951, 34.898]
+  },
+  {
+    "id": "kiryat_gat",
+    "area": "south",
+    "difficulty": "medium",
+    "name": { "en": "Kiryat Gat", "he": "קריית גת", "fr": "Kiryat Gat", "es": "Kiryat Gat", "pt": "Kiryat Gat", "zh": "克里亚特加特" },
+    "center": [31.607, 34.763]
+  },
+  {
+    "id": "beit_shemesh",
+    "area": "south",
+    "difficulty": "medium",
+    "name": { "en": "Beit Shemesh", "he": "בית שמש", "fr": "Beit Shemesh", "es": "Beit Shemesh", "pt": "Beit Shemesh", "zh": "贝特谢梅什" },
+    "center": [31.745, 34.991]
+  },
+  {
+    "id": "modiin",
+    "area": "center",
+    "difficulty": "medium",
+    "name": { "en": "Modi'in", "he": "מודיעין", "fr": "Modi'in", "es": "Modi'in", "pt": "Modi'in", "zh": "莫迪因" },
+    "center": [31.892, 34.988]
+  },
+  {
     "id": "tiberias",
     "area": "north",
     "difficulty": "hard",
@@ -91,6 +161,41 @@
     "center": [32.924, 35.071]
   },
   {
+    "id": "kiryat_shmona",
+    "area": "north",
+    "difficulty": "hard",
+    "name": { "en": "Kiryat Shmona", "he": "קריית שמונה", "fr": "Kiryat Shmona", "es": "Kiryat Shmona", "pt": "Kiryat Shmona", "zh": "克里亚特什莫纳" },
+    "center": [33.208, 35.570]
+  },
+  {
+    "id": "safed",
+    "area": "north",
+    "difficulty": "hard",
+    "name": { "en": "Safed", "he": "צפת", "fr": "Safed", "es": "Safed", "pt": "Safed", "zh": "采法特" },
+    "center": [32.964, 35.498]
+  },
+  {
+    "id": "beit_shean",
+    "area": "north",
+    "difficulty": "hard",
+    "name": { "en": "Beit She'an", "he": "בית שאן", "fr": "Beit She'an", "es": "Beit She'an", "pt": "Beit She'an", "zh": "贝特谢安" },
+    "center": [32.502, 35.498]
+  },
+  {
+    "id": "zichron_yaakov",
+    "area": "north",
+    "difficulty": "hard",
+    "name": { "en": "Zichron Yaakov", "he": "זכרון יעקב", "fr": "Zichron Yaakov", "es": "Zijrón Yaacov", "pt": "Zicron Yaacov", "zh": "锡克龙亚科夫" },
+    "center": [32.568, 34.950]
+  },
+  {
+    "id": "rosh_pina",
+    "area": "north",
+    "difficulty": "hard",
+    "name": { "en": "Rosh Pina", "he": "ראש פינה", "fr": "Rosh Pina", "es": "Rosh Pina", "pt": "Rosh Pina", "zh": "罗什皮纳" },
+    "center": [32.972, 35.537]
+  },
+  {
     "id": "rehovot",
     "area": "center",
     "difficulty": "hard",
@@ -103,6 +208,34 @@
     "difficulty": "hard",
     "name": { "en": "Herzliya", "he": "הרצליה", "fr": "Herzliya", "es": "Herzliyya", "pt": "Herzliya", "zh": "赫茨利亚" },
     "center": [32.166, 34.843]
+  },
+  {
+    "id": "dimona",
+    "area": "south",
+    "difficulty": "hard",
+    "name": { "en": "Dimona", "he": "דימונה", "fr": "Dimona", "es": "Dimona", "pt": "Dimona", "zh": "迪莫纳" },
+    "center": [31.066, 35.031]
+  },
+  {
+    "id": "sderot",
+    "area": "south",
+    "difficulty": "hard",
+    "name": { "en": "Sderot", "he": "שדרות", "fr": "Sdérot", "es": "Sderot", "pt": "Sderot", "zh": "斯代罗特" },
+    "center": [31.524, 34.601]
+  },
+  {
+    "id": "mitzpe_ramon",
+    "area": "south",
+    "difficulty": "hard",
+    "name": { "en": "Mitzpe Ramon", "he": "מצפה רמון", "fr": "Mitzpe Ramon", "es": "Mitzpe Ramón", "pt": "Mitzpe Ramon", "zh": "米茨佩拉蒙" },
+    "center": [30.607, 34.802]
+  },
+  {
+    "id": "netivot",
+    "area": "south",
+    "difficulty": "hard",
+    "name": { "en": "Netivot", "he": "נתיבות", "fr": "Netivot", "es": "Netivot", "pt": "Netivot", "zh": "内提沃特" },
+    "center": [31.419, 34.588]
   },
   {
     "id": "ariel",
@@ -124,6 +257,27 @@
     "difficulty": "hard",
     "name": { "en": "Beitar Illit", "he": "ביתר עילית", "fr": "Beitar Illit", "es": "Beitar Illit", "pt": "Beitar Illit", "zh": "贝塔尔伊利特" },
     "center": [31.697, 35.118]
+  },
+  {
+    "id": "efrat",
+    "area": "judea_samaria",
+    "difficulty": "hard",
+    "name": { "en": "Efrat", "he": "אפרת", "fr": "Efrat", "es": "Efrat", "pt": "Efrat", "zh": "埃弗拉特" },
+    "center": [31.660, 35.163]
+  },
+  {
+    "id": "kiryat_arba",
+    "area": "judea_samaria",
+    "difficulty": "hard",
+    "name": { "en": "Kiryat Arba", "he": "קריית ארבע", "fr": "Kiryat Arba", "es": "Kiryat Arba", "pt": "Kiryat Arba", "zh": "克里亚特阿尔巴" },
+    "center": [31.532, 35.117]
+  },
+  {
+    "id": "beit_el",
+    "area": "judea_samaria",
+    "difficulty": "hard",
+    "name": { "en": "Beit El", "he": "בית אל", "fr": "Beit El", "es": "Beit El", "pt": "Beit El", "zh": "贝特艾尔" },
+    "center": [31.940, 35.212]
   },
   {
     "id": "katzrin",

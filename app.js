@@ -928,43 +928,23 @@ function updateSetupModes() {
 function updateAreaFilterRow() {
   const row = document.getElementById('row-area-filter');
   if (!row) return;
-  const usaWaters = state.region === 'usa' && state.gameMode === 'waters';
-  const israelMode = state.region === 'israel' && (state.gameMode === 'cities' || state.gameMode === 'waters');
-  const visible = usaWaters || israelMode;
+  const visible = state.region === 'israel' && state.gameMode === 'cities';
   row.classList.toggle('hidden', !visible);
   if (!visible) {
-    state.waterStateFilter = 'all';
     state.israelAreaFilter = 'all';
     return;
   }
   const label = row.querySelector('label');
   const sel = document.getElementById('sel-area-filter');
-  if (usaWaters) {
-    label.setAttribute('data-i18n', 'filter_state');
-    label.textContent = t('filter_state');
-    const stateSet = new Set();
-    usaWatersData.forEach(w => { if (w.states) w.states.forEach(s => stateSet.add(s)); });
-    const relevant = usaStatesData
-      .filter(s => stateSet.has(s.iso3))
-      .sort((a, b) => (a.name[state.lang] || a.name.en).localeCompare(b.name[state.lang] || b.name.en));
-    sel.innerHTML = `<option value="all">${t('all_states')}</option>` +
-      relevant.map(s => `<option value="${s.iso3}">${s.name[state.lang] || s.name.en}</option>`).join('');
-    sel.value = state.waterStateFilter;
-  } else {
-    label.setAttribute('data-i18n', 'filter_area');
-    label.textContent = t('filter_area');
-    const areaSet = new Set();
-    if (state.gameMode === 'cities') {
-      israelCitiesData.forEach(c => { if (c.area) areaSet.add(c.area); });
-    } else {
-      israelWatersData.forEach(w => { if (w.areas) w.areas.forEach(a => areaSet.add(a)); });
-    }
-    const relevant = ISRAEL_AREAS.filter(a => areaSet.has(a.id));
-    state.israelAreaFilter = 'all';
-    sel.innerHTML = `<option value="all">${t('all_areas')}</option>` +
-      relevant.map(a => `<option value="${a.id}">${a.name[state.lang] || a.name.en}</option>`).join('');
-    sel.value = 'all';
-  }
+  label.setAttribute('data-i18n', 'filter_area');
+  label.textContent = t('filter_area');
+  const areaSet = new Set();
+  israelCitiesData.forEach(c => { if (c.area) areaSet.add(c.area); });
+  const relevant = ISRAEL_AREAS.filter(a => areaSet.has(a.id));
+  state.israelAreaFilter = 'all';
+  sel.innerHTML = `<option value="all">${t('all_areas')}</option>` +
+    relevant.map(a => `<option value="${a.id}">${a.name[state.lang] || a.name.en}</option>`).join('');
+  sel.value = 'all';
 }
 
 function setupToggleGroup(groupId, onChange) {
@@ -1069,9 +1049,6 @@ function buildQuestionPool() {
   }
   if (state.gameMode === 'oceans' || state.gameMode === 'waters') {
     let watersData = getActiveWatersData();
-    if (state.region === 'usa' && state.waterStateFilter !== 'all') {
-      watersData = watersData.filter(item => item.states && item.states.includes(state.waterStateFilter));
-    }
     if (state.region === 'israel' && state.israelAreaFilter !== 'all') {
       watersData = watersData.filter(item => item.areas && item.areas.includes(state.israelAreaFilter));
     }

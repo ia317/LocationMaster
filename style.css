@@ -704,7 +704,8 @@ html, body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
-  margin-top: 24px;
+  margin-top: 16px;
+  margin-bottom: 16px;
   width: 100%;
   max-width: 360px;
 }
@@ -724,6 +725,7 @@ html, body {
 }
 .region-btn:first-child { font-size: 28px; padding-top: 10px; }
 .region-btn:hover, .region-btn:focus { border-color: var(--accent); background: var(--bg3); outline: none; }
+.region-btn.active { border-color: var(--accent); background: var(--bg3); }
 
 .training-complete-msg {
   color: var(--text2);

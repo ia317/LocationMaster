@@ -851,7 +851,7 @@ function clearCityMarker() {
 // PANELS / SCREENS
 // ============================================================
 function showPanel(name) {
-  const panels = ['lang', 'region', 'home', 'setup', 'results', 'perfect', 'leaderboard'];
+  const panels = ['lang', 'home', 'setup', 'results', 'perfect', 'leaderboard'];
   panels.forEach(p => {
     const el = document.getElementById(`panel-${p}`);
     if (el) el.classList.add('hidden');
@@ -1530,21 +1530,20 @@ function initEventListeners() {
       await loadI18n(btn.dataset.lang);
       renderPlayerInputs();
       sounds.startMusic();
-      showPanel('region');
-    });
-  });
-
-  // Region screen
-  document.querySelectorAll('.region-btn').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      state.region = btn.dataset.region;
-      await loadDataForRegion(state.region);
-      updateSetupModes();
       showPanel('home');
     });
   });
 
-  document.getElementById('btn-change-region').addEventListener('click', () => showPanel('region'));
+  // Region selection (inline on home screen)
+  document.querySelectorAll('.region-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      document.querySelectorAll('.region-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.region = btn.dataset.region;
+      await loadDataForRegion(state.region);
+      updateSetupModes();
+    });
+  });
 
   // Home screen
   document.getElementById('btn-play').addEventListener('click', () => showPanel('setup'));

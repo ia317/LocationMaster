@@ -37,27 +37,18 @@
     </div>
   </div>
 
-  <!-- PANEL: Region Selection -->
-  <div id="panel-region" class="panel panel-solid hidden">
-    <div class="panel-inner center">
-      <div class="logo">🌍 locationMaster</div>
-      <p class="logo-sub" data-i18n="region_title">Choose a Region</p>
-      <div class="region-grid">
-        <button class="region-btn" data-region="world">🌍<br><span data-i18n="region_world">World</span></button>
-        <button class="region-btn" data-region="usa">🇺🇸<br><span data-i18n="region_usa">USA</span></button>
-        <button class="region-btn" data-region="israel">🇮🇱<br><span data-i18n="region_israel">Israel</span></button>
-      </div>
-    </div>
-  </div>
-
   <!-- PANEL: Home -->
   <div id="panel-home" class="panel panel-solid hidden">
     <div class="panel-inner center">
       <div class="logo">🌍 locationMaster</div>
+      <div class="region-grid">
+        <button class="region-btn active" data-region="world">🌍<br><span data-i18n="region_world">World</span></button>
+        <button class="region-btn" data-region="usa">🇺🇸<br><span data-i18n="region_usa">USA</span></button>
+        <button class="region-btn" data-region="israel">🇮🇱<br><span data-i18n="region_israel">Israel</span></button>
+      </div>
       <button id="btn-play" class="btn-primary" data-i18n="play">Play</button>
       <button id="btn-open-leaderboard" class="btn-ghost">🏆 Leaderboard</button>
       <button id="btn-lang" class="btn-ghost" data-i18n="change_lang">Language</button>
-      <button id="btn-change-region" class="btn-ghost" data-i18n="change_region">Region</button>
       <div id="home-stats" class="home-stats hidden">
         <div id="home-games-counter" class="stat-line"></div>
         <div id="home-locations-counter" class="stat-line"></div>

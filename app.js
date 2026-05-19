@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.1.7';
+const VERSION = '1.1.8';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).

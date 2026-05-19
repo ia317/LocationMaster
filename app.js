@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.1.8';
+const VERSION = '1.1.9';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -854,21 +854,26 @@ function showPanel(name) {
   const panels = ['lang', 'home', 'setup', 'results', 'perfect', 'leaderboard'];
   panels.forEach(p => {
     const el = document.getElementById(`panel-${p}`);
-    if (el) el.classList.add('hidden');
+    if (el) { el.classList.add('hidden'); el.classList.remove('panel-visible'); }
   });
   const hud = document.getElementById('hud');
   hud.classList.add('hidden');
 
   if (name === 'home') loadAndShowStats();
 
+  function fadeIn(el) {
+    el.classList.remove('hidden');
+    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('panel-visible')));
+  }
+
   if (name === 'game') {
     hud.classList.remove('hidden');
   } else if (name === 'results') {
     hud.classList.remove('hidden'); // keep map visible under results
-    document.getElementById('panel-results').classList.remove('hidden');
+    fadeIn(document.getElementById('panel-results'));
   } else {
     const el = document.getElementById(`panel-${name}`);
-    if (el) el.classList.remove('hidden');
+    if (el) fadeIn(el);
   }
 }
 
@@ -1554,6 +1559,7 @@ function initEventListeners() {
   document.getElementById('btn-setup-home').addEventListener('click', () => showPanel('home'));
 
   // Results screen
+  document.getElementById('btn-replay').addEventListener('click', () => { resetAllCountryStyles(); startGame(); });
   document.getElementById('btn-play-again').addEventListener('click', () => showPanel('setup'));
   document.getElementById('btn-results-leaderboard').addEventListener('click', () => showLeaderboard(state.gameMode));
   document.getElementById('btn-results-home').addEventListener('click', () => {
@@ -1563,6 +1569,7 @@ function initEventListeners() {
   });
 
   // Perfect screen
+  document.getElementById('btn-perfect-replay').addEventListener('click', () => { resetAllCountryStyles(); startGame(); });
   document.getElementById('btn-perfect-again').addEventListener('click', () => showPanel('setup'));
   document.getElementById('btn-perfect-leaderboard').addEventListener('click', () => showLeaderboard(state.gameMode));
   document.getElementById('btn-perfect-home').addEventListener('click', () => {

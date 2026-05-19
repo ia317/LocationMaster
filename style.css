@@ -91,9 +91,12 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transition: opacity 0.18s ease;
 }
 
 .panel.hidden { display: none; }
+.panel.panel-visible { opacity: 1; }
 
 .panel-solid {
   background: var(--bg);

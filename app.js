@@ -908,9 +908,9 @@ function initSetupScreen() {
 function updateSetupModes() {
   const group = document.getElementById('tg-mode');
   const defs = state.region === 'usa'
-    ? [['states','mode_states'],['capitals','mode_capitals'],['landmarks','mode_landmarks'],['waters','mode_waters']]
+    ? [['states','mode_states'],['capitals','mode_capitals'],['landmarks','mode_landmarks']]
     : state.region === 'israel'
-    ? [['cities','mode_cities'],['landmarks','mode_landmarks'],['waters','mode_waters']]
+    ? [['cities','mode_cities'],['landmarks','mode_landmarks']]
     : [['countries','mode_countries'],['flags','mode_flags'],['capitals','mode_capitals'],['landmarks','mode_landmarks'],['oceans','mode_oceans']];
 
   group.innerHTML = defs.map(([val, key], i) =>

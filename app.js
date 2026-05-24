@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.1.11';
+const VERSION = '1.1.12';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -1530,7 +1530,6 @@ function initEventListeners() {
 
   // Results screen
   document.getElementById('btn-replay').addEventListener('click', () => { resetAllCountryStyles(); startGame(); });
-  document.getElementById('btn-play-again').addEventListener('click', () => showPanel('setup'));
   document.getElementById('btn-results-leaderboard').addEventListener('click', () => showLeaderboard(state.gameMode));
   document.getElementById('btn-results-home').addEventListener('click', () => {
     resetAllCountryStyles();
@@ -1540,7 +1539,6 @@ function initEventListeners() {
 
   // Perfect screen
   document.getElementById('btn-perfect-replay').addEventListener('click', () => { resetAllCountryStyles(); startGame(); });
-  document.getElementById('btn-perfect-again').addEventListener('click', () => showPanel('setup'));
   document.getElementById('btn-perfect-leaderboard').addEventListener('click', () => showLeaderboard(state.gameMode));
   document.getElementById('btn-perfect-home').addEventListener('click', () => {
     resetAllCountryStyles();

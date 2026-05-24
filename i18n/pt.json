@@ -69,7 +69,5 @@
   "wrong_states": "Estados que você errou:",
   "wrong_cities": "Cidades que você errou:",
   "filter_state": "Filtrar por Estado",
-  "all_states": "Todos os Estados",
-  "filter_area": "Filtrar por Área",
-  "all_areas": "Todas as Áreas"
+  "all_states": "Todos os Estados"
 }

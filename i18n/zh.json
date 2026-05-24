@@ -69,7 +69,5 @@
   "wrong_states": "你答错的州：",
   "wrong_cities": "你答错的城市：",
   "filter_state": "按州筛选",
-  "all_states": "所有州",
-  "filter_area": "按地区筛选",
-  "all_areas": "所有地区"
+  "all_states": "所有州"
 }

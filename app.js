@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = '1.1.10';
+const VERSION = '1.1.11';
 
 // ── Leaderboard & Stats ──────────────────────────────────────
 // Paste your Firebase Realtime Database URL here (no trailing slash).
@@ -553,6 +553,10 @@ function renderGeoLayer() {
       } else {
         const pick = v => (v && v !== '-99') ? v : null;
         rawIso = pick(p['ISO3166-1-Alpha-3']) || pick(p.ISO_A3) || pick(p.iso_a3) || pick(p.ISO3) || pick(p.iso3) || pick(p.ADM0_A3);
+        if (!rawIso && p.name) {
+          const meta = countriesMeta.find(c => c.name.en === p.name);
+          rawIso = meta ? meta.iso3 : null;
+        }
       }
       if (!rawIso || rawIso === '-99') return;
       const iso = ISO_REMAP[rawIso] || rawIso;
